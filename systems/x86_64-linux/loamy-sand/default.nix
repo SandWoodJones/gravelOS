@@ -25,18 +25,15 @@
     LC_TIME = "pt_BR.UTF-8";
   };
 
-  # services.xserver.enable = true;
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-  };
+  services.xserver.enable = true;
+  services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
-  # services.xserver.xkb = {
-  #   layout = "br";
-  #   variant = "";
-  # };
+  services.xserver.xkb = {
+    layout = "br";
+    variant = "";
+  };
 
   # Configure console keymap
   console.keyMap = "br-abnt2";

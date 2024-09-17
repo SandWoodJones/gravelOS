@@ -8,7 +8,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  services.automatic-timezoned.enable = true;
+  time.timeZone = "America/Sao_Paulo";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -71,6 +71,7 @@
   environment.systemPackages = with pkgs; [
     git
     helix
+    wl-clipboard
   ];
 
   # DO NOT CHANGE

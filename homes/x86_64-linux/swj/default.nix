@@ -5,6 +5,8 @@
     cowsay
   ];
 
+  gravelOS.helix.enable = true;
+
   xdg.userDirs = {
     enable = true;
     createDirectories = true;

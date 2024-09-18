@@ -1,5 +1,5 @@
 {
-  description = "SandWood's NixOS system.";
+  description = "SandWood's NixOS system";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";

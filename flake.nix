@@ -30,7 +30,7 @@
       channels-config.allowUnfree = true;
 
       systems.modules.nixos = with inputs; [
-        home-manager.nixosModules.home-manager
+        home-manager.nixosModules.home-manager { home-manager.backupFileExtension = "hm-backup"; }
       ];
     };
 }

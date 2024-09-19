@@ -1,11 +1,10 @@
-{ config, lib, pkgs, ... }: {
+{ config, pkgs, ... }: {
   # home.homeDirectory = "/home/${config.home.username}";
 
-  home.packages = with pkgs; [
-    cowsay
-  ];
-
-  gravelOS.helix.enable = true;
+  gravelOS = {
+    bluetooth.mediaControls.enable = true;
+    helix.enable = true;
+  };
 
   xdg.userDirs = {
     enable = true;
@@ -19,6 +18,11 @@
     templates = null;
     videos = null;
   };
+ 
+  home.packages = with pkgs; [
+    stremio
+  ];
+
 
   home.stateVersion = "24.05";
 }

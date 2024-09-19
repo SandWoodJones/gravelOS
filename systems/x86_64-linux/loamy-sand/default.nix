@@ -10,6 +10,9 @@
   networking.networkmanager.enable = true;
   time.timeZone = "America/Sao_Paulo";
 
+  # Enable bluetooth
+  gravelOS.bluetooth.enable = true;
+
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 

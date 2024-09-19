@@ -41,9 +41,6 @@
   # Configure console keymap
   console.keyMap = "br-abnt2";
 
-  # Install firefox.
-  programs.firefox.enable = true;
-
   programs.nh = {
     enable = true;
     clean = {

@@ -21,6 +21,7 @@
  
   home.packages = with pkgs; [
     stremio
+    telegram-desktop
   ];
 
 

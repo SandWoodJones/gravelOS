@@ -2,6 +2,10 @@
 #context-copylink,
 #context-translate-selection,
 #context-openlinkinusercontext-menu,
-#context-sendimage {
+#context-sendimage,
+#context-print-selection,
+#context-viewpartialsource-selection,
+#context-navigation,
+#context-sep-navigation {
   display: none;
 }

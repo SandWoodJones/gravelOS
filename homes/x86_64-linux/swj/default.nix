@@ -13,10 +13,10 @@
     documents = "${config.home.homeDirectory}/documents";
     download = "${config.home.homeDirectory}/downloads";
     music = null;
-    pictures = null;
+    pictures = "${config.home.homeDirectory}/media/pictures";
     publicShare = null;
     templates = null;
-    videos = null;
+    videos = "${config.home.homeDirectory}/media/videos";
   };
  
   home.packages = with pkgs; [

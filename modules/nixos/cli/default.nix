@@ -1,4 +1,10 @@
-{ config, pkgs, ... }: {
+{ lib, config, pkgs, ... }: {
+  options.gravelOS.nh-clean.enable = lib.mkOption {
+    description = "Whether to enable nh's periodic garbage collection";
+    type = lib.types.bool;
+    default = true;
+  };
+
   config = {
     documentation = {
       dev.enable = true;
@@ -8,7 +14,7 @@
     programs.nh = {
       enable = true;
       clean = {
-        enable = true;
+        enable = config.gravelOS.nh-clean.enable;
         extraArgs = "--keep 10 --keep-since 10d";
       };
     };

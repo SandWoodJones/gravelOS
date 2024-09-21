@@ -10,6 +10,12 @@
       dev.enable = true;
       man.generateCaches = true;
     };
+
+    environment.shellAliases = {
+      # Disable rm in favor of using trashy
+      rm = "printf \"\\e[31mCommand not executed\\e[0m\\n\"";
+      tp = "trash put";
+    };
   
     programs.nh = {
       enable = true;

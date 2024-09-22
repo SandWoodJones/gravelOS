@@ -6,17 +6,15 @@
   };
 
   config = {
+    security.sudo.extraConfig = ''
+      Defaults env_reset,pwfeedback
+    '';
+  
     documentation = {
       dev.enable = true;
       man.generateCaches = true;
     };
 
-    environment.shellAliases = {
-      # Disable rm in favor of using trashy
-      rm = "printf \"\\e[31mCommand not executed\\e[0m\\n\"";
-      tp = "trash put";
-    };
-  
     programs.nh = {
       enable = true;
       clean = {
@@ -26,13 +24,25 @@
     };
 
     programs.direnv = { enable = true; silent = true; };
+
+    environment = {
+      systemPackages = with pkgs; [
+        git
+        helix
+        wl-clipboard
+        file
+        trashy
+      ];
     
-    environment.systemPackages = with pkgs; [
-      git
-      helix
-      wl-clipboard
-      file
-      trashy
-    ];
+      shellAliases = {
+        # Disable rm in favor of using trashy
+        rm = "printf \"\\e[31mCommand not executed\\e[0m\\n\"";
+        tp = "trash put";
+      };
+
+      variables = {
+        EDITOR = "hx";
+      };
+    };
   };
 }

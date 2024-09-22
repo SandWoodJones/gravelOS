@@ -32,6 +32,7 @@
         wl-clipboard
         file trashy
         fzf
+        ov
       ];
     
       shellAliases = {
@@ -41,7 +42,8 @@
       };
 
       variables = {
-        EDITOR = "hx";
+        EDITOR = "${pkgs.helix}";
+        PAGER = "${pkgs.ov}";
       };
     };
   };

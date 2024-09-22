@@ -3,7 +3,6 @@
 
   gravelOS = {
     bluetooth.mediaControls.enable = true;
-    helix.enable = true;
   };
 
   xdg.userDirs = {

@@ -7,6 +7,7 @@
       users.users.swj = {
         isNormalUser = true;
         description = "SandWood Jones";
+        useDefaultShell = true;
         extraGroups = [
           "wheel"
           "video"

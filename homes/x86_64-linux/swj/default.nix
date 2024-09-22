@@ -18,6 +18,11 @@
     templates = null;
     videos = "${config.home.homeDirectory}/media/videos";
   };
+
+  programs.zoxide = {
+    enable = true;
+    options = [ "--cmd cd" ];
+  };
  
   home.packages = with pkgs; [
     stremio

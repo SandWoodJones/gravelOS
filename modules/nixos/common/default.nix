@@ -30,8 +30,8 @@
         git
         helix
         wl-clipboard
-        file
-        trashy
+        file trashy
+        fzf
       ];
     
       shellAliases = {

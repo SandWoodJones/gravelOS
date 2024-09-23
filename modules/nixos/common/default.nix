@@ -43,8 +43,8 @@
       };
 
       variables = {
-        EDITOR = "${pkgs.helix}";
-        PAGER = "${pkgs.ov}";
+        EDITOR = "${pkgs.helix}/bin/hx";
+        PAGER = "${pkgs.ov}/bin/ov-less";
       };
     };
   };

@@ -1,6 +1,12 @@
-{ inputs, config, pkgs, ... }:
+{ inputs, lib, config, pkgs, ... }:
   let secretsPath = builtins.toString inputs.mysecrets;
   in {
+    options.gravelOS.openSpotifyPorts = lib.mkOption {
+      description = "Whether to open the necessary ports for spotify";
+      type = lib.types.bool;
+      default = false;
+    };
+  
     config = {
       security.sudo.extraConfig = ''
         Defaults env_reset,pwfeedback,timestamp_timeout=120
@@ -11,6 +17,11 @@
       programs.gnupg.agent = {
         enable = true;
         enableBrowserSocket = true;
+      };
+
+      networking.firewall = lib.mkIf config.gravelOS.openSpotifyPorts {
+        allowedTCPPorts = [ 57621 ];
+        allowedUDPPorts = [ 5353 ];
       };
 
       sops = {

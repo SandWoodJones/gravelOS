@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, osConfig, pkgs, ... }: {
   # home.homeDirectory = "/home/${config.home.username}";
 
   gravelOS = {
@@ -22,6 +22,7 @@
     stremio
     telegram-desktop
     vesktop
+    spotify
   ];
 
 

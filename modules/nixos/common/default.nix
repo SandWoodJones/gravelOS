@@ -6,10 +6,6 @@
   };
 
   config = {
-    security.sudo.extraConfig = ''
-      Defaults env_reset,pwfeedback
-    '';
-  
     documentation = {
       dev.enable = true;
       man.generateCaches = true;

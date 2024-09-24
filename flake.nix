@@ -13,6 +13,16 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    mysecrets = {
+      url = "git+ssh://git@secrets.github.com/swj-nixos-secrets/nixOS-secrets.git?ref=main&shallow=1";
+      flake = false;
+    };
   };
 
   outputs = inputs:
@@ -31,6 +41,11 @@
 
       systems.modules.nixos = with inputs; [
         home-manager.nixosModules.home-manager { home-manager.backupFileExtension = "hm-backup"; }
+        sops-nix.nixosModules.sops
+      ];
+
+      homes.modules = with inputs; [
+        sops-nix.homeManagerModules.sops
       ];
     };
 }

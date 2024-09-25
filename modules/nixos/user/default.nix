@@ -1,6 +1,8 @@
 { config, inputs, ... } :
   # taken from github.com/mxxntype/Aeon-snowfall
-  let ifPresent = groups: builtins.filter (G: builtins.hasAttr G config.users.groups) groups;
+  let
+    ifPresent = groups: builtins.filter (G: builtins.hasAttr G config.users.groups) groups;
+    sshKeysPath = "${inputs.self}/lib/keys";
   in {
     config = {
       sops.secrets.swj-password.neededForUsers = true;
@@ -13,7 +15,10 @@
           isNormalUser = true;
           description = "SandWood Jones";
           hashedPasswordFile = config.sops.secrets.swj-password.path;
-          openssh.authorizedKeys.keys = [ (builtins.readFile "${inputs.self}/lib/id_swj.pub") ];
+          openssh.authorizedKeys.keyFiles = [
+            "${sshKeysPath}/id_swj.pub"
+            "${sshKeysPath}/id_nixOS_secrets.pub"
+          ];
           useDefaultShell = true;
           extraGroups = [
             "wheel"

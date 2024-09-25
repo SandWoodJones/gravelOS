@@ -1,6 +1,4 @@
 { config, osConfig, pkgs, ... }: {
-  # home.homeDirectory = "/home/${config.home.username}";
-
   gravelOS = {
     bluetooth.mediaControls.enable = true;
   };
@@ -20,8 +18,12 @@
 
   programs.git = {
     enable = true;
-    userEmail = "sandwoodjones@outlook.com";
-    userName = "SandWood Jones";
+    extraConfig = {
+      user.name = "SandWood Jones";
+      user.email = "sandwoodjones@outlook.com";
+      user.signingKey = "${config.home.homeDirectory}/.ssh/id_swj";
+      gpg.format = "ssh";
+    };
   };
  
   home.packages = with pkgs; [

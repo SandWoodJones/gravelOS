@@ -23,6 +23,7 @@
       user.email = "sandwoodjones@outlook.com";
       user.signingKey = "${config.home.homeDirectory}/.ssh/id_swj";
       gpg.format = "ssh";
+      commit.gpgSign = true;
     };
   };
  

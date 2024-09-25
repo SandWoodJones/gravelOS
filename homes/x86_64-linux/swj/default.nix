@@ -17,6 +17,12 @@
     templates = null;
     videos = "${config.home.homeDirectory}/media/videos";
   };
+
+  programs.git = {
+    enable = true;
+    userEmail = "sandwoodjones@outlook.com";
+    userName = "SandWood Jones";
+  };
  
   home.packages = with pkgs; [
     stremio

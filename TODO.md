@@ -7,3 +7,4 @@
 * Create script that runs on the first open terminal shell every login that randomly prints something like:
   * Cowsay fortune
   * https://dbrgn.github.io/tealdeer/tips_and_tricks.html#showing-a-random-page-on-shell-start
+* Configure delta and add meld

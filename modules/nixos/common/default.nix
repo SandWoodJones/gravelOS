@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }: {
+{ lib, config, pkgs, inputs, ... }: {
   options.gravelOS.nh-clean.enable = lib.mkOption {
     description = "Whether to enable nh's periodic garbage collection";
     type = lib.types.bool;
@@ -58,9 +58,13 @@
         # Disable rm in favor of using trashy
         rm = "printf \"\\e[31mCommand not executed\\e[0m\\n\"";
         tp = "trash put";
+
+        # Disable globbing when running nix commands so that .#~ doesn't fail
+        nix = "noglob nix";
       };
 
       variables = {
+        GRAVELOS_PATH = "${inputs.self}";
         EDITOR = "${pkgs.helix}/bin/hx";
         PAGER = "${pkgs.ov}/bin/ov-less";
       };

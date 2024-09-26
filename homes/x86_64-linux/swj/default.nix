@@ -1,4 +1,6 @@
-{ config, osConfig, pkgs, ... }: {
+{ lib, config, osConfig, pkgs, ... }: {
+  nix = { inherit (lib.gravelOS.nix) settings; };
+
   gravelOS = {
     bluetooth.mediaControls.enable = true;
   };

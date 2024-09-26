@@ -1,6 +1,6 @@
-{ pkgs, ... }: {
+{ lib, pkgs, ... }: {
   imports = [ ./hardware-configuration.nix /* Include the results of the hardware scan. */ ];
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix = { inherit (lib.gravelOS.nix) settings; };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;

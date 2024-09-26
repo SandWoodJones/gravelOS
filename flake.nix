@@ -23,6 +23,11 @@
       url = "git+ssh://git@secrets.github.com/swj-nixos-secrets/nixOS-secrets.git?ref=main&shallow=1";
       flake = false;
     };
+
+    fenix = {
+      url = "github:nix-community/fenix/monthly";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs:
@@ -46,6 +51,10 @@
 
       homes.modules = with inputs; [
         sops-nix.homeManagerModules.sops
+      ];
+
+      overlays = with inputs; [
+        fenix.overlays.default
       ];
     };
 }

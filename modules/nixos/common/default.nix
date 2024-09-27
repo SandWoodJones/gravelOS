@@ -52,6 +52,7 @@
         file trashy
         fzf
         ov
+        posy-cursors
       ];
     
       shellAliases = {

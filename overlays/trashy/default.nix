@@ -1,5 +1,5 @@
 { ... }: final: prev: {
-  trashy = prev.trashy.overrideAttrs (oldAttrs: rec {
+  trashy = prev.trashy.overrideAttrs (oldAttrs: {
     postInstall = ''
       ${oldAttrs.postInstall}
       $out/bin/trash manpage > trashy.1

@@ -1,4 +1,4 @@
-{ lib, config, osConfig, pkgs, ... }: {
+{ lib, config, pkgs, ... }: {
   nix = { inherit (lib.gravelOS.nix) settings; };
 
   gravelOS = {
@@ -35,7 +35,6 @@
     vesktop
     spotify
   ];
-
 
   home.stateVersion = "24.05";
 }

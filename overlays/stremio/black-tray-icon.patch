@@ -1,0 +1,40 @@
+diff -crB original/release.makefile updated/release.makefile
+*** original/release.makefile	2024-09-27 03:04:06.760867135 -0300
+--- updated/release.makefile	2024-09-27 03:03:00.833133215 -0300
+***************
+*** 26,32 ****
+  
+  icons:
+  	mkdir -p "$@"
+! 	cd "$@" && printf 16,22,24,32,64,128 | xargs -I^ -d, sh -c 'rsvg-convert ../images/stremio.svg -w ^ -o smartcode-stremio_^.png && rsvg-convert ../images/stremio_tray_white.svg -w ^ -o smartcode-stremio-tray_^.png'
+  
+  ${SERVER_JS}: 
+  	wget "${shell cat server-url.txt}" -qO ${SERVER_JS} || rm ${SERVER_JS}
+--- 26,32 ----
+  
+  icons:
+  	mkdir -p "$@"
+! 	cd "$@" && printf 16,22,24,32,64,128 | xargs -I^ -d, sh -c 'rsvg-convert ../images/stremio.svg -w ^ -o smartcode-stremio_^.png && rsvg-convert ../images/stremio_tray_black.svg -w ^ -o smartcode-stremio-tray_^.png'
+  
+  ${SERVER_JS}: 
+  	wget "${shell cat server-url.txt}" -qO ${SERVER_JS} || rm ${SERVER_JS}
+diff -crB original/systemtray.cpp updated/systemtray.cpp
+*** original/systemtray.cpp	2024-09-27 03:04:14.793837128 -0300
+--- updated/systemtray.cpp	2024-09-27 03:03:34.031994696 -0300
+***************
+*** 39,45 ****
+          if(QOperatingSystemVersion::current() <= QOperatingSystemVersion::Windows7) {
+              icon = QIcon(":/images/stremio_window.png");
+          } else {
+!             icon = QIcon::fromTheme("smartcode-stremio-tray", QIcon(":/images/stremio_tray_white.png"));
+              icon.setIsMask(true);
+          }
+  
+--- 39,45 ----
+          if(QOperatingSystemVersion::current() <= QOperatingSystemVersion::Windows7) {
+              icon = QIcon(":/images/stremio_window.png");
+          } else {
+!             icon = QIcon::fromTheme("smartcode-stremio-tray", QIcon(":/images/stremio_tray_black.png"));
+              icon.setIsMask(true);
+          }
+  

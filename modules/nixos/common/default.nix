@@ -39,6 +39,12 @@
         transfer.fsckObjects = true;
         fetch.fsckObjects = true;
         receive.fsckObjects = true;
+
+        alias = {
+          s = "status";
+          d = "diff";
+          ds = "diff --staged";
+        };
       };
     };
 
@@ -56,12 +62,14 @@
       ];
     
       shellAliases = {
+        sus = "systemctl --user";
+        clearx = "clear -x";
+      
         # Disable rm in favor of using trashy
         rm = "printf \"\\e[31mCommand not executed\\e[0m\\n\"";
         tp = "trash put";
 
-        # Disable globbing when running nix commands so that .#~ doesn't fail
-        nix = "noglob nix";
+        nix = "noglob nix"; # Disable globbing when running nix commands so that .#~ doesn't fail
       };
 
       variables = {

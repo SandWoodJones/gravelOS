@@ -30,11 +30,5 @@
     };
 
     environment.pathsToLink = [ "/share/zsh" ]; # As suggested here: https://github.com/nix-community/home-manager/blob/14929f7089268481d86b83ed31ffd88713dcd415/modules/programs/zsh.nix#L366-L370
-
-    # # Disable global comp init so we can write our own comp init call changing zcompdump location
-    # programs.zsh.enableGlobalCompInit = false;
-    # environment.etc.zshrc.text = lib.mkAfter ''
-    #   autoload -U compinit && compinit -d $HOME/.local/state/zcompdump
-    # '';
   };
 }

@@ -11,8 +11,9 @@
 - [ ] Move to hyprland, add rofi, flameshot?
   - [ ] Find a way to configure, through nix, GTK themes? or plasma themes? window border styles and mouse cursors and whatnot. that kinda stuff
 - [ ] Add rewritten commands from https://zaiste.net/posts/shell-commands-rust/
-- [ ] Move most of the stuff in the loamy-sand system into modules
-  - [ ] Separate the common module further
+- [x] Move most of the stuff in the loamy-sand system into modules
+  - [x] Separate the common module further
+  - [ ] Do the same for home modules
 - [ ] Create gaming modules for new system
 - [ ] Add wezterm and starship prompt
   - [ ] Look into https://github.com/goolord/simple-zsh-nix-shell/blob/main/simple-zsh-nix-shell.zsh to add indicators when using nix shell
@@ -21,3 +22,4 @@
 - [x] Fix stremio icon, look at how telegram package works (may not be needed in hyprland).
 - [ ] Lix, Tvix
 - [ ] nix-index
+- [ ] look further into boot module https://github.com/mxxntype/Aeon-snowfall/blob/main/modules/nixos/boot/default.nix

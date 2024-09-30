@@ -14,6 +14,7 @@
       shellAliases = {
         sus = "systemctl --user";
         clearx = "clear -x";
+        gs = "git status";
   
         # Disable rm in favor of using trashy
         rm = "printf \"\\e[31mCommand not executed\\e[0m\\n\"";

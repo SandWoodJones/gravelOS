@@ -23,3 +23,5 @@
 - [ ] Lix, Tvix
 - [ ] nix-index
 - [ ] look further into boot module https://github.com/mxxntype/Aeon-snowfall/blob/main/modules/nixos/boot/default.nix
+- [ ] look into terminal file managers (xplr, nnn, ranger). zoxide has some plugins for those
+- [ ] further configure helix and theme it

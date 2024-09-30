@@ -1,11 +1,9 @@
-{ lib, osConfig, config, ... }: {
-  options.gravelOS.bluetooth.mediaControls.enable = lib.mkOption {
-    description = "Whether to enable bluetooth headset buttons to control media players";
-    type = lib.types.bool;
-    default = false;
-  };
-  
-  config = lib.mkIf (osConfig.gravelOS.networking.bluetooth.enable && config.gravelOS.bluetooth.mediaControls.enable) {
+{ osConfig, config, lib, ... }:
+let
+  osCfg = osConfig.gravelOS.networking.bluetooth;
+  cfg = config.gravelOS.networking.bluetooth;
+in {
+  config = lib.mkIf (osCfg.enable && cfg.mediaControls) {
     services.mpris-proxy.enable = true;
   };
 }

@@ -1,5 +1,6 @@
 { config, ... }:
-let mkLockedValue = v: { Value = v; Status = "locked"; };
+let
+  mkLockedValue = v: { Value = v; Status = "locked"; };
 in {
   config = {
     programs.firefox = {

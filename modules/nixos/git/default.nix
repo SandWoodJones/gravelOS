@@ -21,8 +21,8 @@
       receive.fsckObjects = true;
 
       alias = {
-        d = "diff";
-        ds = "diff --staged";
+        df = "diff";
+        dfs = "diff --staged";
       };
     };
   };

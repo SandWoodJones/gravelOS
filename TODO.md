@@ -1,7 +1,7 @@
 # TODO
 
 - [ ] Add a home-manager configuaration for `ov`, with `less` keybindings. Look further into `ov` use cases: https://noborus.github.io/ov/index.html
-- [ ] Make a color palette lib
+- [ ] Make a color palette lib, look into https://github.com/mxxntype/Aeon-snowfall's theming
   - [ ] Configure `ov` color
   - [ ] Configure `tealdeer` color
 - [ ] Create script that runs on the first open terminal shell every login that randomly prints something like:
@@ -13,7 +13,7 @@
 - [ ] Add rewritten commands from https://zaiste.net/posts/shell-commands-rust/
 - [x] Move most of the stuff in the loamy-sand system into modules
   - [x] Separate the common module further
-  - [ ] Do the same for home modules
+  - [x] Do the same for home modules
 - [ ] Create gaming modules for new system
 - [ ] Add wezterm and starship prompt
   - [ ] Look into https://github.com/goolord/simple-zsh-nix-shell/blob/main/simple-zsh-nix-shell.zsh to add indicators when using nix shell

@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 let
   nh-cfg = config.gravelOS.services.nh-clean;
 in {
@@ -8,9 +8,13 @@ in {
     programs.nh = {
       enable = true;
       clean = {
-        enable = config.gravelOS.services.nh-clean.enable;
+        enable = nh-cfg.enable;
         extraArgs = "--keep ${builtins.toString nh-cfg.keepGenerations} --keep-since ${nh-cfg.keepSince}";
       };
     };
+
+    environment.systemPackages = with pkgs; lib.mkIf config.gravelOS.nix.nil.enable [
+      nil
+    ];
   };
 }

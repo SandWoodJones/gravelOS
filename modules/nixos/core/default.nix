@@ -53,6 +53,12 @@
         type = lib.types.nonEmptyStr;
       };
     };
+
+    nix.nil.enable = lib.mkOption {
+      default = true;
+      description = "Whether to enable nil, the NIx Language server.";
+      type = lib.types.bool;
+    };
   };
 
   config = {

@@ -6,6 +6,13 @@
 #context-print-selection,
 #context-viewpartialsource-selection,
 #context-navigation,
-#context-sep-navigation {
+#context-sep-navigation,
+#context-media-pause,
+#context-media-unmute,
+#context-media-playbackrate,
+#context-media-loop,
+#context-video-fullscreen,
+#context-media-showcontrols,
+#context-sendvideo {
   display: none;
 }

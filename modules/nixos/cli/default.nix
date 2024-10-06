@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }: {
+{ pkgs, inputs, ... }: {
   config = {
     programs.direnv = { enable = true; silent = true; };
     programs.thefuck.enable = true;
@@ -7,7 +7,7 @@
       systemPackages = with pkgs; [
         helix
         file trashy
-        fzf
+        fzf eza
         ov
       ];
 
@@ -15,6 +15,9 @@
         sus = "systemctl --user";
         clearx = "clear -x";
         gs = "git status";
+
+        ls = "eza";
+        tree = "eza -T --git-ignore";
   
         # Disable rm in favor of using trashy
         rm = "printf \"\\e[31mCommand not executed\\e[0m\\n\"";

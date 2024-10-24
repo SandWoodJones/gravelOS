@@ -4,6 +4,7 @@
 - [ ] Make a color palette lib, look into https://github.com/mxxntype/Aeon-snowfall's theming
   - [ ] Configure `ov` color
   - [ ] Configure `tealdeer` color
+  - [ ] Configure `eza` color https://github.com/eza-community/eza/blob/main/docs/theme.yml
 - [ ] Create script that runs on the first open terminal shell every login that randomly prints something like:
   - [ ] Cowsay fortune
   - [ ] https://dbrgn.github.io/tealdeer/tips_and_tricks.html#showing-a-random-page-on-shell-start
@@ -25,3 +26,4 @@
 - [ ] look further into boot module https://github.com/mxxntype/Aeon-snowfall/blob/main/modules/nixos/boot/default.nix
 - [ ] look into terminal file managers (xplr, nnn, ranger). zoxide has some plugins for those
 - [ ] further configure helix and theme it
+- [ ] install and alias https://github.com/tarka/xcp

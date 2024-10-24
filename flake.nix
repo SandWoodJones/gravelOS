@@ -56,5 +56,9 @@
       overlays = with inputs; [
         fenix.overlays.default
       ];
+
+      alias = {
+        shells.default = "bootstrap";
+      };
     };
 }

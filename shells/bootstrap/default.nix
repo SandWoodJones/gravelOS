@@ -3,7 +3,5 @@
   packages = with pkgs; [
     git
     helix
-    sops
-    ssh-to-age
   ];
 }

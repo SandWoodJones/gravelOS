@@ -1,7 +1,4 @@
-{ inputs, config, lib, pkgs, ... }:
-let
-  secretsPath = builtins.toString inputs.mysecrets;
-in {
+{ config, lib, ... }: {
   config = {
     security.sudo.extraConfig = ''
       Defaults env_reset,pwfeedback,timestamp_timeout=120,passwd_timeout=0
@@ -18,20 +15,5 @@ in {
       allowedTCPPorts = [ 57621 ];
       allowedUDPPorts = [ 5353 ];
     };
-
-    sops = {
-      defaultSopsFile = "${secretsPath}/secrets.yaml";
-      validateSopsFiles = false;
-      age = {
-        keyFile = "/var/lib/sops-nix/key.txt";
-        generateKey = true;
-      };
-    };
-
-    environment.systemPackages = with pkgs; [
-      age
-      sops
-      ssh-to-age
-    ];
   };
 }

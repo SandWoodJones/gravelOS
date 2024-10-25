@@ -6,10 +6,10 @@
         efi.canTouchEfiVariables = true; 
       };
 
-      plymouth = {
-        enable = true;
-        theme = "breeze";   
-      };
+      # plymouth = {
+      #   enable = true;
+      #   theme = "breeze";   
+      # };
     };
   };
 }

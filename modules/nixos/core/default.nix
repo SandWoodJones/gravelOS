@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }: {
+{ lib, ... }: {
   options.gravelOS = {
     desktop = {
       enable = lib.mkOption {
@@ -22,7 +22,7 @@
       };
 
       wifi.enable = lib.mkOption {
-        default = true;
+        default = false;
         description = "Whether to enable network manager.";
         type = lib.types.bool;
       };

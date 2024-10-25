@@ -3,6 +3,7 @@
 
   gravelOS = {
     networking = {
+      wifi.enable = true;
       bluetooth.enable = true;
       ports.spotifyOpen = true;
     };

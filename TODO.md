@@ -24,7 +24,7 @@
 - [ ] See about using zen kernel
 - [x] Fix stremio icon, look at how telegram package works (may not be needed in hyprland).
   - [ ] Figure out overlay arguments in snowfall to disable the tray icon dark version if needed https://github.com/snowfallorg/lib/issues/129
-- [ ] Lix, Tvix
+- [ ] Lix, Tvix, Ekala
 - [ ] nix-index
 - [ ] look further into boot module https://github.com/mxxntype/Aeon-snowfall/blob/main/modules/nixos/boot/default.nix
   - [ ] fix plymouth

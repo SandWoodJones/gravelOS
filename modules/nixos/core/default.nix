@@ -1,69 +1,69 @@
 { lib, ... }: {
-  options.gravelOS = {
+  options.gravelOS = with lib; {
     desktop = {
-      enable = lib.mkOption {
+      enable = mkOption {
         default = true;
         description = "Whether to enable a display server and desktop environment.";
-        type = lib.types.bool;
+        type = types.bool;
       };
     
-      audio.enable = lib.mkOption {
+      audio.enable = mkOption {
         default = true;
         description = "Whether to enable audio with pipewire.";
-        type = lib.types.bool;
+        type = types.bool;
       };
 
-      gaming.enable = lib.mkOption {
+      gaming.enable = mkOption {
         default = false;
         description = "Whether to enable gaming support.";
-        type = lib.types.bool;
+        type = types.bool;
       };
     };
 
     networking = {
-      bluetooth.enable = lib.mkOption {
+      bluetooth.enable = mkOption {
         default = false;
         description = "Whether to enable bluetooth services.";
-        type = lib.types.bool;
+        type = types.bool;
       };
 
-      wifi.enable = lib.mkOption {
+      wifi.enable = mkOption {
         default = false;
         description = "Whether to enable network manager.";
-        type = lib.types.bool;
+        type = types.bool;
       };
 
-      ports.spotifyOpen = lib.mkOption {
+      ports.spotifyOpen = mkOption {
         default = false;
         description = "Whether to open the necessary ports for spotify";
-        type = lib.types.bool;
+        type = types.bool;
       };
     };
   
     services.nh-clean = {
-      enable = lib.mkOption {
+      enable = mkOption {
         default = true;
         description = "Whether to enable nh's periodic garbage collection.";
-        type = lib.types.bool;
+        type = types.bool;
       };
 
-      keepGenerations = lib.mkOption {
+      keepGenerations = mkOption {
         default = 10;
         description = "The minimum number of generations that nh-clean should keep.";
-        type = lib.types.ints.unsigned;
+        type = types.ints.unsigned;
       };
 
-      keepSince = lib.mkOption {
+      keepSince = mkOption {
         default = "10d";
         description = "The time range since now of generations that should be kept by nh-clean.";
-        type = lib.types.nonEmptyStr;
+        type = types.nonEmptyStr;
       };
     };
 
-    nix.nil.enable = lib.mkOption {
+    nix.nil.enable = mkOption {
       default = true;
       description = "Whether to enable nil, the NIx Language server.";
-      type = lib.types.bool;
+      type = types.bool;
     };
   };
 

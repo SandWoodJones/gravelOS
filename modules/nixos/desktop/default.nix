@@ -10,6 +10,8 @@ in {
         desktopManager.plasma6.enable = true;       
       };
 
+      programs.partition-manager.enable = true;
+
       environment.systemPackages = with pkgs; [
         wl-clipboard
         posy-cursors

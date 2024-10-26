@@ -12,6 +12,12 @@
         description = "Whether to enable audio with pipewire.";
         type = lib.types.bool;
       };
+
+      gaming.enable = lib.mkOption {
+        default = false;
+        description = "Whether to enable gaming support.";
+        type = lib.types.bool;
+      };
     };
 
     networking = {

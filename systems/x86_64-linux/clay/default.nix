@@ -2,9 +2,8 @@
   imports = [ ./hardware-configuration.nix ];
 
   gravelOS = {
-    networking = {
-      ports.spotifyOpen = true;
-    };
+    desktop.gaming.enable = true;
+    networking.ports.spotifyOpen = true;
   };
 
 

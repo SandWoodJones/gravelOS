@@ -10,6 +10,8 @@
   - [ ] https://dbrgn.github.io/tealdeer/tips_and_tricks.html#showing-a-random-page-on-shell-start
 - [ ] Configure delta and add meld
 - [ ] Move to hyprland, add rofi, flameshot?
+  - [ ] Configure multi monitor in hyprland
+    - [ ] Fix SDDM multi monitor stuff
   - [ ] Find a way to configure, through nix, GTK themes? or plasma themes? window border styles and mouse cursors and whatnot. that kinda stuff
 - [ ] Add rewritten commands from https://zaiste.net/posts/shell-commands-rust/
 - [x] Move most of the stuff in the loamy-sand system into modules
@@ -21,6 +23,7 @@
 - [ ] Add development core (C, Rust, Python)
 - [ ] See about using zen kernel
 - [x] Fix stremio icon, look at how telegram package works (may not be needed in hyprland).
+  - [ ] Figure out overlay arguments in snowfall to disable the tray icon dark version if needed https://github.com/snowfallorg/lib/issues/129
 - [ ] Lix, Tvix
 - [ ] nix-index
 - [ ] look further into boot module https://github.com/mxxntype/Aeon-snowfall/blob/main/modules/nixos/boot/default.nix
@@ -28,3 +31,8 @@
 - [ ] look into terminal file managers (xplr, nnn, ranger). zoxide has some plugins for those
 - [ ] further configure helix and theme it
 - [ ] install and alias https://github.com/tarka/xcp
+- [ ] Get avahi working and only allow login with public key https://nixos.wiki/wiki/SSH_public_key_authentication
+- [ ] Reintroduce sops one day, but make it simpler, get a yuubikey
+- [ ] Setup disko
+- [ ] Maybe look into configuring game mode
+- [ ] Add thunderbird

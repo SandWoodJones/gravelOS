@@ -15,7 +15,8 @@ in {
           "wheel"
           "video"
         ] ++ ifPresent [
-          "networkmanager"   
+          "networkmanager"
+          "gamemode"
         ];
       };
     };

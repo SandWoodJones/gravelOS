@@ -11,7 +11,7 @@
 - [ ] Configure delta and add meld
 - [ ] Move to hyprland, add rofi, flameshot?
   - [ ] Configure multi monitor in hyprland
-    - [ ] Fix SDDM multi monitor stuff
+    - [ ] Fix SDDM multi monitor stuff or just move away from SDDM
   - [ ] Find a way to configure, through nix, GTK themes? or plasma themes? window border styles and mouse cursors and whatnot. that kinda stuff
 - [ ] Add rewritten commands from https://zaiste.net/posts/shell-commands-rust/
 - [x] Move most of the stuff in the loamy-sand system into modules
@@ -31,7 +31,7 @@
 - [ ] look into terminal file managers (xplr, nnn, ranger). zoxide has some plugins for those
 - [ ] further configure helix and theme it
 - [ ] install and alias https://github.com/tarka/xcp
-- [ ] Get avahi working and only allow login with public key https://nixos.wiki/wiki/SSH_public_key_authentication
+- [x] Get avahi working and only allow login with public key https://nixos.wiki/wiki/SSH_public_key_authentication
 - [ ] Reintroduce sops one day, but make it simpler, get a yuubikey
 - [ ] Setup disko
 - [ ] Maybe look into configuring game mode

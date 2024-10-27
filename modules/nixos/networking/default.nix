@@ -4,7 +4,22 @@ let
 in {
   config = lib.mkMerge [
     {
-      networking.useDHCP = true;
+      networking.useDHCP = lib.mkDefault true;
+
+      services.avahi = {
+        enable = true;
+        nssmdns4 = true;
+        publish = {
+          enable = true;
+          addresses = true;
+        };
+      };
+      services.openssh = {
+        enable = true;
+        settings.PasswordAuthentication = false;
+        settings.KbdInteractiveAuthentication = false;
+      };
+      programs.ssh.startAgent = true;
     }
   
     (lib.mkIf cfg.bluetooth.enable {

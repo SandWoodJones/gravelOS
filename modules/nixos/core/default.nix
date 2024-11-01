@@ -60,6 +60,14 @@
       };
     };
 
+    boot = {
+      dualBoot = mkOption {
+        default = false;
+        description = "Whether this system has a dual boot windows installation.";
+        type = types.bool;
+      };
+    };
+
     nix.nil.enable = mkOption {
       default = true;
       description = "Whether to enable nil, the NIx Language server.";

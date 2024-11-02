@@ -1,7 +1,6 @@
 { pkgs, inputs, ... }: {
   config = {
     programs.direnv = { enable = true; silent = true; };
-    programs.thefuck.enable = true;
   
     environment = {
       systemPackages = with pkgs; [

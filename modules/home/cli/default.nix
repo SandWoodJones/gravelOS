@@ -1,5 +1,6 @@
-{ config, ... }: {
+{ ... }: {
   config = {
+    programs.thefuck.enable = true;
     programs.zoxide = {
       enable = true;
       options = [ "--cmd cd" ];

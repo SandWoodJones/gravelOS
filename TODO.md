@@ -14,6 +14,7 @@
     - [ ] Fix SDDM multi monitor stuff or just move away from SDDM
   - [ ] Find a way to configure, through nix, GTK themes? or plasma themes? window border styles and mouse cursors and whatnot. that kinda stuff
 - [ ] Add rewritten commands from https://zaiste.net/posts/shell-commands-rust/
+  - [ ] install and configure gitui
 - [x] Move most of the stuff in the loamy-sand system into modules
   - [x] Separate the common module further
   - [x] Do the same for home modules
@@ -39,3 +40,6 @@
 - [ ] configure DS4
 - [ ] btrfs snapshots that are saved on the main ssd
 - [ ] use VNC or RDP to share screen to laptop
+- [ ] Remove as many hidden files from the root home directory as possible
+  - [x] Removed .gnupg
+- [ ] Add trusted keys to gpg configuration

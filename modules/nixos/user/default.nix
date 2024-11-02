@@ -1,7 +1,8 @@
 { config, inputs, ... } :
-# taken from github.com/mxxntype/Aeon-snowfall
 let
+  # taken from github.com/mxxntype/Aeon-snowfall
   ifPresent = groups: builtins.filter (G: builtins.hasAttr G config.users.groups) groups;
+
   sshKeysPath = "${inputs.self}/lib/keys";
 in {
   config = {

@@ -1,0 +1,11 @@
+shell() {
+	if [ -z "$1" ]; then
+		printf "\\e[31mNo devshell specified\\e[0m\\nRun with -r to delete direnv files from current directory\n"
+	elif [ "$1" = "-r" ]; then
+		rm .envrc
+		rm -r .direnv
+	else
+		echo "use flake $GRAVELOS_PATH#$1" > .envrc
+		direnv allow
+	fi
+}

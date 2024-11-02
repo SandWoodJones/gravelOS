@@ -1,6 +1,5 @@
-{ config, pkgs, lib, ... }: {
+{ ... }: {
   config = {
-    users.defaultUserShell = pkgs.zsh;   
     programs.zsh = {
       enable = true;
       histSize = 10000;
@@ -27,6 +26,23 @@
         enable = true;
         highlighters = [ "main" "brackets" ];
       };
+
+      shellAliases = {
+        sus = "systemctl --user";
+        clearx = "clear -x";
+        gs = "git status";
+
+        ls = "eza";
+        tree = "eza -T --git-ignore";
+  
+        # Disable rm in favor of using trashy
+        rm = "printf \"\\e[31mCommand not executed\\e[0m\\n\"";
+        tp = "trash put";
+
+        nix = "noglob nix"; # Disable globbing when running nix commands so that .#~ doesn't fail
+      };
+
+      interactiveShellInit = "source ${./zshrc}";
     };
 
     environment.pathsToLink = [ "/share/zsh" ]; # As suggested here: https://github.com/nix-community/home-manager/blob/14929f7089268481d86b83ed31ffd88713dcd415/modules/programs/zsh.nix#L366-L370

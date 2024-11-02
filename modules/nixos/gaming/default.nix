@@ -15,10 +15,12 @@ in {
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
       localNetworkGameTransfers.openFirewall = true;
+      protontricks.enable = true;
     };
 
     environment.systemPackages = with pkgs; [
       heroic
+      lutris
     ];
   };
 }

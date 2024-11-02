@@ -17,7 +17,7 @@
 - [x] Move most of the stuff in the loamy-sand system into modules
   - [x] Separate the common module further
   - [x] Do the same for home modules
-- [ ] Create gaming modules for new system
+- [x] Create gaming modules for new system
 - [ ] Add wezterm and starship prompt
   - [ ] Look into https://github.com/goolord/simple-zsh-nix-shell/blob/main/simple-zsh-nix-shell.zsh to add indicators when using nix shell
 - [ ] Add development core (C, Rust, Python)
@@ -36,3 +36,6 @@
 - [ ] Setup disko
 - [ ] Maybe look into configuring game mode
 - [ ] Add thunderbird
+- [ ] configure DS4
+- [ ] btrfs snapshots that are saved on the main ssd
+- [ ] use VNC or RDP to share screen to laptop

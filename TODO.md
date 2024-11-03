@@ -1,45 +1,46 @@
 # TODO
-
-- [ ] Add a home-manager configuaration for `ov`, with `less` keybindings. Look further into `ov` use cases: https://noborus.github.io/ov/index.html
-- [ ] Make a color palette lib, look into https://github.com/mxxntype/Aeon-snowfall's theming
-  - [ ] Configure `ov` color
-  - [ ] Configure `tealdeer` color
-  - [ ] Configure `eza` color https://github.com/eza-community/eza/blob/main/docs/theme.yml
-- [ ] Create script that runs on the first open terminal shell every login that randomly prints something like:
-  - [ ] Cowsay fortune
-  - [ ] https://dbrgn.github.io/tealdeer/tips_and_tricks.html#showing-a-random-page-on-shell-start
-- [ ] Configure delta and add meld
-- [ ] Move to hyprland, add rofi, flameshot?
-  - [ ] Configure multi monitor in hyprland
-    - [ ] Fix SDDM multi monitor stuff or just move away from SDDM
-  - [ ] Find a way to configure, through nix, GTK themes? or plasma themes? window border styles and mouse cursors and whatnot. that kinda stuff
-- [ ] Add rewritten commands from https://zaiste.net/posts/shell-commands-rust/
-  - [ ] install and configure gitui
-- [x] Move most of the stuff in the loamy-sand system into modules
-  - [x] Separate the common module further
-  - [x] Do the same for home modules
-- [x] Create gaming modules for new system
-- [ ] Add wezterm and starship prompt
-  - [ ] Look into https://github.com/goolord/simple-zsh-nix-shell/blob/main/simple-zsh-nix-shell.zsh to add indicators when using nix shell
-- [ ] Add development core (C, Rust, Python)
-- [ ] See about using zen kernel
-- [x] Fix stremio icon, look at how telegram package works (may not be needed in hyprland).
-  - [x] Figure out overlay arguments in snowfall to disable the tray icon dark version if needed https://github.com/snowfallorg/lib/issues/129 (used a new package instead)
-- [ ] Lix, Tvix, Ekala
-- [ ] nix-index
-- [ ] look further into boot module https://github.com/mxxntype/Aeon-snowfall/blob/main/modules/nixos/boot/default.nix
-  - [ ] fix plymouth
-- [ ] look into terminal file managers (xplr, nnn, ranger). zoxide has some plugins for those
-- [ ] further configure helix and theme it
-- [ ] install and alias https://github.com/tarka/xcp
-- [x] Get avahi working and only allow login with public key https://nixos.wiki/wiki/SSH_public_key_authentication
-- [ ] Reintroduce sops one day, but make it simpler, get a yuubikey
-- [ ] Setup disko
-- [ ] Maybe look into configuring game mode
-- [ ] Add thunderbird
-- [ ] configure DS4
-- [ ] btrfs snapshots that are saved on the main ssd
-- [ ] use VNC or RDP to share screen to laptop
-- [ ] Remove as many hidden files from the root home directory as possible
-  - [x] Removed .gnupg
-- [ ] Add trusted keys to gpg configuration
+- Install
+	- [ ] `meld`
+	- [ ] `hyprland`
+	- [ ] Some application launcher (like `rofi`)
+	- [ ] Some screenshot utility
+	- [ ] `gitui`
+	- [ ] Rewritten gnu programs https://zaiste.net/posts/shell-commands-rust/
+	- [ ] `starship` prompt (https://github.com/goolord/simple-zsh-nix-shell)
+	- [ ] `nix-index`
+	- [ ] A terminal file manager (`xplr`, `nnn` `ranger`). `zoxide` has some plugins for those
+	- [ ] `xcp`
+	- [x] Install `avahi` and only allow public key login (https://nixos.wiki/wiki/SSH_public_key_authentication)
+	- [ ] `disko`
+	- [ ] `thunderbird`
+	- [ ] `wezterm`
+	- [ ] `zen` browser
+- Configure
+	- [ ] `ov` with `less` keybindings. https://noborus.github.io/ov/index.html
+	- [ ] `delta`
+	- [ ] Multiple monitors in hyprland
+	- [ ] GTK themes, window border styles, mouse cursors, etc
+	- [ ] Boot module (https://github.com/mxxntype/Aeon-snowfall/blob/main/modules/nixos/boot/default.nix) and plymouth
+	- [ ] Further configure helix
+	- [ ] `gamemode`
+	- [ ] Dualshock 4 controller
+	- [ ] Configure `gpg` and make it non-mutable
+- Fix
+	- [ ] SDDM multi monitor problem, or just move away from SDDM
+	- [x] Stremio icon missing on wayland. Make a new package for stremio with the dark tray-icon.
+- Make a color palette lib for the whole system. https://github.com/mxxntype/Aeon-snowfall
+	- [ ] `ov`
+	- [ ] `tealdeer`
+	- [ ] `eza` https://github.com/eza-community/eza/blob/main/docs/theme.yml
+- Remove hidden files from home directory
+	- [x] Removed `.gnupg`
+- [ ] Make a script running on the first open interactive shell every login with MOTD stuff such as `cowsay`, `fortune` or https://tealdeer-rs.github.io/tealdeer/tips_and_tricks.html#showing-a-random-page-on-shell-start
+- [x] Move most of the `loamy-sand` config into common modules and do the same for home modules
+- [x] Create a gaming module.
+- [ ] Look into other linux kernels such as `zen` 
+- [ ] Look further into Lix, Tvix and Ekala
+- [ ] Reintroduce `sops` and get a yuubikey
+- [ ] Look into `btrfs` snapshots saved on primary ssd
+- [ ] Look into `VNC` or `RDP` screen sharing
+- [ ] Do something with `systemctl reboot --boot-loader-entry=auto-windows`
+- [ ] Learn terminal multiplexing

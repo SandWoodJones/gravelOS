@@ -7,7 +7,7 @@
 	- [ ] `gitui`
 	- [ ] Rewritten gnu programs https://zaiste.net/posts/shell-commands-rust/
 	- [ ] `starship` prompt (https://github.com/goolord/simple-zsh-nix-shell)
-	- [ ] `nix-index`
+	- [x] `nix-index`
 	- [ ] A terminal file manager (`xplr`, `nnn` `ranger`). `zoxide` has some plugins for those
 	- [ ] `xcp`
 	- [x] Install `avahi` and only allow public key login (https://nixos.wiki/wiki/SSH_public_key_authentication)

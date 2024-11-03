@@ -2,7 +2,11 @@
   config = {
     users.defaultUserShell = pkgs.zsh;
 
-    programs.direnv = { enable = true; silent = true; };
+    programs = {
+      direnv = { enable = true; silent = true; };
+      command-not-found.enable = false;
+      nix-index.enable = true;
+    };
  
     environment = {
       systemPackages = with pkgs; [

@@ -11,7 +11,6 @@
 	- [ ] A terminal file manager (`xplr`, `nnn` `ranger`). `zoxide` has some plugins for those
 	- [ ] `xcp`
 	- [x] Install `avahi` and only allow public key login (https://nixos.wiki/wiki/SSH_public_key_authentication)
-	- [ ] `disko`
 	- [ ] `thunderbird`
 	- [ ] `wezterm`
 	- [ ] `zen` browser
@@ -28,6 +27,12 @@
 - Fix
 	- [ ] SDDM multi monitor problem, or just move away from SDDM
 	- [x] Stremio icon missing on wayland. Make a new package for stremio with the dark tray-icon.
+- Disk management
+	- [ ] Use `disko`
+	- [x] Enable ztsd compression and defragment BTRFS disk
+	- [ ] Put wine prefixes into a subvolume and create a duperemove service. https://www.reddit.com/r/linux_gaming/comments/1fig0xy/comment/lnh1x6u/
+	- [ ] Look into `btrfs` snapshots saved on primary ssd
+	- [ ] BTRFS scrubbing https://nixos.wiki/wiki/Btrfs#Scrubbing
 - Make a color palette lib for the whole system. https://github.com/mxxntype/Aeon-snowfall
 	- [ ] `ov`
 	- [ ] `tealdeer`
@@ -37,10 +42,10 @@
 - [ ] Make a script running on the first open interactive shell every login with MOTD stuff such as `cowsay`, `fortune` or https://tealdeer-rs.github.io/tealdeer/tips_and_tricks.html#showing-a-random-page-on-shell-start
 - [x] Move most of the `loamy-sand` config into common modules and do the same for home modules
 - [x] Create a gaming module.
-- [ ] Look into other linux kernels such as `zen` 
+- [x] Make a `zen` kernel option
 - [ ] Look further into Lix, Tvix and Ekala
 - [ ] Reintroduce `sops` and get a yuubikey
-- [ ] Look into `btrfs` snapshots saved on primary ssd
 - [ ] Look into `VNC` or `RDP` screen sharing
 - [ ] Do something with `systemctl reboot --boot-loader-entry=auto-windows`
 - [ ] Learn terminal multiplexing
+- [ ] An RSS feed?

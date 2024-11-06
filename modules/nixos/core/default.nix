@@ -18,6 +18,12 @@
         description = "Whether to enable gaming support.";
         type = types.bool;
       };
+
+      zenKernel = mkOption {
+        default = false;
+        description = "Whether to enable the Zen kernel.";
+        type = types.bool;
+      };
     };
 
     networking = {

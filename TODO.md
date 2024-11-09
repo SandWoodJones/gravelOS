@@ -14,6 +14,7 @@
 	- [ ] `thunderbird`
 	- [ ] `wezterm`
 	- [ ] `zen` browser
+	- [ ] `delta` as a diff substitute
 - Configure
 	- [ ] `ov` with `less` keybindings. https://noborus.github.io/ov/index.html
 	- [ ] `delta`
@@ -30,6 +31,7 @@
 - Disk management
 	- [ ] Use `disko`
 	- [x] Enable ztsd compression and defragment BTRFS disk
+		- [ ] Look further into ztsd levels
 	- [ ] Put wine prefixes into a subvolume and create a duperemove service. https://www.reddit.com/r/linux_gaming/comments/1fig0xy/comment/lnh1x6u/
 	- [ ] Look into `btrfs` snapshots saved on primary ssd
 	- [ ] BTRFS scrubbing https://nixos.wiki/wiki/Btrfs#Scrubbing
@@ -49,3 +51,4 @@
 - [ ] Do something with `systemctl reboot --boot-loader-entry=auto-windows`
 - [ ] Learn terminal multiplexing
 - [ ] An RSS feed?
+- [ ] Add a zsh `cp` function that runs `wl-copy` if given only 1 argument and `cp` if given more

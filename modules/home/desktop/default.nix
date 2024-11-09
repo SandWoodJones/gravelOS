@@ -8,6 +8,8 @@
       vesktop
       obsidian
       libreoffice-qt6-fresh hunspell hunspellDicts.pt_BR hunspellDicts.en_US
+      krita
+      gimp
     ];
   };
 }

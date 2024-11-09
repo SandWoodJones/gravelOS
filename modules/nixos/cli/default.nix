@@ -17,6 +17,7 @@
         eza
         ov
         jre_minimal
+        p7zip
       ];
 
       variables = {

@@ -15,6 +15,7 @@
 	- [ ] `wezterm`
 	- [ ] `zen` browser
 	- [ ] `delta` as a diff substitute
+	- [ ] `blender` when its not broken.
 - Configure
 	- [ ] `ov` with `less` keybindings. https://noborus.github.io/ov/index.html
 	- [ ] `delta`
@@ -52,3 +53,5 @@
 - [ ] Learn terminal multiplexing
 - [ ] An RSS feed?
 - [ ] Add a zsh `cp` function that runs `wl-copy` if given only 1 argument and `cp` if given more
+- [ ] Continue work on t3t
+- [ ] See about generating thumbnails for `.nif` using `blender-thumbnailer`

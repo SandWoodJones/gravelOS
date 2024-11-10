@@ -1,5 +1,9 @@
-{ ... }: {
+{ config, ... }: {
   config = {
+    home.sessionVariables = {
+      GRAVELOS_PATH = "${config.home.homeDirectory}/projects/gravelOS";
+    };
+  
     programs = {
       zoxide = {
         enable = true;

@@ -41,8 +41,6 @@
 
         nix = "noglob nix"; # Disable globbing when running nix commands so that .#~ doesn't fail
       };
-
-      interactiveShellInit = "source ${./zshrc}";
     };
 
     environment.pathsToLink = [ "/share/zsh" ]; # As suggested here: https://github.com/nix-community/home-manager/blob/14929f7089268481d86b83ed31ffd88713dcd415/modules/programs/zsh.nix#L366-L370

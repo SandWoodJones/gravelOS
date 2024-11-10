@@ -16,7 +16,7 @@
         autoload -U compinit && compinit
       '';
 
-      initExtra = "bindkey \"''$\{key[Up]\}\" up-line-or-search"; # https://wiki.nixos.org/wiki/Zsh#Zsh-autocomplete_not_working
+      initExtra = "source ${./.zshrc}";
     };
   };
 }

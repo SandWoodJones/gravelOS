@@ -21,7 +21,6 @@
       ];
 
       variables = {
-        GRAVELOS_PATH = "/home/swj/projects/gravelOS";
         EDITOR = "${pkgs.helix}/bin/hx";
         PAGER = "${pkgs.ov}/bin/ov-less";
       };

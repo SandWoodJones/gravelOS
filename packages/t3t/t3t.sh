@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 DIRDIFF_DESC="Runs tes3cmd diff against every .esp file pair from the given directories"
+DDSVIEW_DESC="Opens a .dds file as a .png with your default image viewer"
 
 extract_final_path() {
   local filename=$(basename "$1")
@@ -17,13 +18,18 @@ help() {
       printf "  %-15s%s\n" "-k, --keep" "Don't delete generated diff.txt files after usage"
     ;;
 
+    "ddsview")
+      printf "$DDSVIEW_DESC\n"
+    ;;
+
     *)
-      printf "This script should be run from within the Morrowind game directory structure\n\n"
-      printf "Usage: t3t <COMMAND>\n\n"
-      printf "Commands:\n"
+      printf "Usage: t3t <COMMAND>\n"
+      printf "To get more help for individual commands:\n"
+      printf "  t3t <command> -h\n\n"
+      printf "Commands:\n\n"
+      printf "  %-15s%s\n" "ddsview" "$DDSVIEW_DESC"
+      printf "\nThese commands should be run from within the Morrowind game directory structure:\n\n"
       printf "  %-15s%s\n" "dirdiff" "$DIRDIFF_DESC"
-      printf "\n\nTo get more help for individual commands:\n"
-      printf "  t3t <command> -h\n"
   esac
 }
 
@@ -88,7 +94,19 @@ dirdiff() {
   return 0
 }
 
+ddsview() {
+  if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+    help "ddsview"
+    return 0
+  fi
+
+  local temp_png="/tmp/$(basename "$1" .dds).png"
+  magick "$1" "$temp_png"
+  xdg-open "$temp_png"
+}
+
 case $1 in
   "dirdiff") dirdiff $2 $3 $4;;
+  "ddsview") ddsview $2;;
   *) help ;;
 esac

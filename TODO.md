@@ -1,5 +1,6 @@
 # TODO
 - Install
+	- [ ] `ripgrep`
 	- [ ] `meld`
 	- [ ] `hyprland`
 	- [ ] Some application launcher (like `rofi`)
@@ -13,6 +14,7 @@
 	- [x] Install `avahi` and only allow public key login (https://nixos.wiki/wiki/SSH_public_key_authentication)
 	- [ ] `thunderbird`
 	- [ ] `wezterm`
+		- [ ] Remove `konsole`
 	- [ ] `zen` browser
 	- [ ] `delta` as a diff substitute
 	- [ ] `blender` when its not broken.
@@ -54,4 +56,6 @@
 - [ ] An RSS feed?
 - [ ] Add a zsh `cp` function that runs `wl-copy` if given only 1 argument and `cp` if given more
 - [ ] Continue work on t3t
+	- [x] Added a script to temporarily convert .dds to .png and made it the default app for .dds files
 - [ ] See about generating thumbnails for `.nif` using `blender-thumbnailer`
+- [ ] Disable okular and set default pdf viewer to firefox

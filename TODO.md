@@ -15,6 +15,7 @@
 	- [ ] `thunderbird`
 	- [ ] `wezterm`
 		- [ ] Remove `konsole`
+		- Learn terminal multiplexing
 	- [ ] `zen` browser
 	- [ ] `delta` as a diff substitute
 	- [ ] `blender` when its not broken.
@@ -52,10 +53,10 @@
 - [ ] Reintroduce `sops` and get a yuubikey
 - [ ] Look into `VNC` or `RDP` screen sharing
 - [ ] Do something with `systemctl reboot --boot-loader-entry=auto-windows`
-- [ ] Learn terminal multiplexing
-- [ ] An RSS feed?
+- [ ] An RSS or atom feed?
 - [ ] Add a zsh `cp` function that runs `wl-copy` if given only 1 argument and `cp` if given more
-- [ ] Continue work on t3t
+- Continue work on t3t
 	- [x] Added a script to temporarily convert .dds to .png and made it the default app for .dds files
-- [ ] See about generating thumbnails for `.nif` using `blender-thumbnailer`
+- [ ] See about generating thumbnails for `.nif` using `blender-thumbnailer`. also look into https://github.com/ousnius/nifly
+	- [ ] If it doesn't work look into how https://github.com/Exit-9B/modorganizer-preview_nif/tree/main generates images from nif and maybe rewrite that in rust
 - [ ] Disable okular and set default pdf viewer to firefox

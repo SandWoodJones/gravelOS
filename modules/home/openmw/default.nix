@@ -3,6 +3,7 @@
     openmw
     #gravelOS.TES3Merge
     gravelOS.t3t
+    nifskope
   ] ++ [
     inputs.openmw-nix.packages.x86_64-linux.delta-plugin
   ];

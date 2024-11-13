@@ -1,12 +1,13 @@
-{ osConfig, config, lib, pkgs, inputs, ... }: lib.mkIf (osConfig.gravelOS.desktop.gaming.enable && config.gravelOS.gaming.openMW.enable) {
+{ osConfig, config, lib, pkgs, inputs, system, ... }: lib.mkIf (osConfig.gravelOS.desktop.gaming.enable && config.gravelOS.gaming.openMW.enable) {
   home.packages = with pkgs; [
     openmw
     #gravelOS.TES3Merge
     gravelOS.t3t
     nifskope
-  ] ++ [
-    inputs.openmw-nix.packages.x86_64-linux.delta-plugin
-  ];
+    openmw-validator
+  ] ++ (with inputs.openmw-nix.packages.${system}; [
+    delta-plugin
+  ]);
 
   xdg = {
     # https://nowcodingtime.blogspot.com/2013/09/thumbnail-dds-texture-files-in-ubuntu.html

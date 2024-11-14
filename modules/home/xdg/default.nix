@@ -17,6 +17,7 @@
 
       mimeApps = {
         enable = true;
+        defaultApplications."image/png" = [ "org.kde.gwenview.desktop" ];
       };
     };
   };

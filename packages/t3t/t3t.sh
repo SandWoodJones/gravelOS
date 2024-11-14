@@ -95,18 +95,19 @@ dirdiff() {
 }
 
 ddsview() {
+  rm /tmp/t3t-*.png 2> /dev/null
   if [[ "$1" == "-h" || "$1" == "--help" ]]; then
     help "ddsview"
     return 0
   fi
 
-  local temp_png="/tmp/$(basename "$1" .dds).png"
+  local temp_png="/tmp/t3t-$(basename "$1" .dds).png"
   magick "$1" "$temp_png"
   xdg-open "$temp_png"
 }
 
 case $1 in
-  "dirdiff") dirdiff $2 $3 $4;;
-  "ddsview") ddsview $2;;
+  "dirdiff") dirdiff "$2" "$3" "$4";;
+  "ddsview") ddsview "$2";;
   *) help ;;
 esac

@@ -1,4 +1,8 @@
-{ osConfig, config, lib, pkgs, inputs, system, ... }: lib.mkIf (osConfig.gravelOS.desktop.gaming.enable && config.gravelOS.gaming.openMW.enable) {
+{ lib, config, pkgs, inputs, system, ... }:
+let
+  gameCfg = config.gravelOS.desktop.gaming;
+in
+  lib.mkIf (gameCfg.enable && gameCfg.openMW.enable) {
   home.packages = with pkgs; [
     openmw
     #gravelOS.TES3Merge

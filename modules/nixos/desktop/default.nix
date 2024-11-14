@@ -2,8 +2,8 @@
 let
   cfg = config.gravelOS.desktop;
 in {
-  config = lib.mkMerge [
-    (lib.mkIf cfg.enable {
+  config = lib.mkIf cfg.enable (lib.mkMerge [
+    {
       services = {
         xserver.enable = true;
         displayManager.sddm.enable = true;
@@ -18,12 +18,13 @@ in {
       ];
 
       environment.systemPackages = with pkgs; [
+        xclip
         wl-clipboard
         posy-cursors
       ];
-    })
+    }
   
-    (lib.mkIf (cfg.enable && cfg.audio.enable) {
+    (lib.mkIf cfg.audio.enable {
       security.rtkit.enable = true;
       services.pipewire = {
         enable = true;
@@ -31,6 +32,5 @@ in {
         pulse.enable = true;
       };
     })
-  ];
+  ]);
 }
-

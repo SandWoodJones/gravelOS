@@ -6,6 +6,7 @@
       wifi.enable = true;
       bluetooth.enable = true;
       ports.spotifyOpen = true;
+      avahi.enable = true;
     };
   };
 

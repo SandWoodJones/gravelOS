@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 let
-  nh-cfg = config.gravelOS.services.nh-clean;
+  cfgNH = config.gravelOS.services.nh-clean;
 in {
   config = {
     nix = { inherit (lib.gravelOS.nix) settings; };
@@ -8,13 +8,11 @@ in {
     programs.nh = {
       enable = true;
       clean = {
-        enable = nh-cfg.enable;
-        extraArgs = "--keep ${builtins.toString nh-cfg.keepGenerations} --keep-since ${nh-cfg.keepSince}";
+        enable = cfgNH.enable;
+        extraArgs = "--keep ${builtins.toString cfgNH.keepGenerations} --keep-since ${cfgNH.keepSince}";
       };
     };
 
-    environment.systemPackages = with pkgs; lib.mkIf config.gravelOS.nix.nil.enable [
-      nil
-    ];
+    environment.systemPackages = [ pkgs.nil ];
   };
 }

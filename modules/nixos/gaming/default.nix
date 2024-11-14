@@ -1,8 +1,8 @@
 { config, lib, pkgs, ... }:
 let
-  cfg = config.gravelOS.desktop;
+  cfgDsk = config.gravelOS.desktop;
 in {
-  config = lib.mkIf (cfg.enable && cfg.gaming.enable) {
+  config = lib.mkIf (cfgDsk.enable && cfgDsk.gaming.enable) {
     hardware.graphics = {
       enable = true;
       enable32Bit = true;

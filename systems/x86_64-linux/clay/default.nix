@@ -2,11 +2,20 @@
   imports = [ ./hardware-configuration.nix ];
 
   gravelOS = {
-    desktop.zenKernel = true;
-    networking.bluetooth.enable = true;
-    desktop.gaming.enable = true;
-    networking.ports.spotifyOpen = true;
-    boot.dualBoot = true;
+    boot = { zenKernel = true; dualBoot = true; };
+
+    networking = {
+      bluetooth.enable = true;
+      avahi.enable = true;
+      ports.spotifyOpen = true;
+    };
+
+    desktop = {
+      enable = true;
+      gaming.enable = true;
+    };
+
+    services.nh-clean.enable = true;
   };
 
 

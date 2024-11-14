@@ -1,43 +1,20 @@
 { lib, ... }: {
   options.gravelOS = with lib; {
     desktop = {
-      enable = mkOption {
-        default = true;
-        description = "Whether to enable a display server and desktop environment.";
-        type = types.bool;
-      };
+      enable = lib.mkEnableOption "a display server and desktop environment";
+      gaming.enable = lib.mkEnableOption "gaming support";
     
       audio.enable = mkOption {
         default = true;
-        description = "Whether to enable audio with pipewire.";
-        type = types.bool;
-      };
-
-      gaming.enable = mkOption {
-        default = false;
-        description = "Whether to enable gaming support.";
-        type = types.bool;
-      };
-
-      zenKernel = mkOption {
-        default = false;
-        description = "Whether to enable the Zen kernel.";
+        description = "Whether to enable audio with pipewire";
         type = types.bool;
       };
     };
 
     networking = {
-      bluetooth.enable = mkOption {
-        default = false;
-        description = "Whether to enable bluetooth services.";
-        type = types.bool;
-      };
-
-      wifi.enable = mkOption {
-        default = false;
-        description = "Whether to enable network manager.";
-        type = types.bool;
-      };
+      bluetooth.enable = mkEnableOption "bluetooth services";
+      avahi.enable = mkEnableOption "the Avahi daemon";
+      wifi.enable = mkEnableOption "network manager";
 
       ports.spotifyOpen = mkOption {
         default = false;
@@ -47,11 +24,7 @@
     };
   
     services.nh-clean = {
-      enable = mkOption {
-        default = true;
-        description = "Whether to enable nh's periodic garbage collection.";
-        type = types.bool;
-      };
+      enable = mkEnableOption "periodic garbage collection with nh";
 
       keepGenerations = mkOption {
         default = 10;
@@ -67,17 +40,13 @@
     };
 
     boot = {
+      zenKernel = mkEnableOption "the Zen kernel";
+      
       dualBoot = mkOption {
         default = false;
         description = "Whether this system has a dual boot windows installation.";
         type = types.bool;
       };
-    };
-
-    nix.nil.enable = mkOption {
-      default = true;
-      description = "Whether to enable nil, the NIx Language server.";
-      type = types.bool;
     };
   };
 

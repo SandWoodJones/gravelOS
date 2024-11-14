@@ -60,3 +60,4 @@
 - [ ] See about generating thumbnails for `.nif` using `blender-thumbnailer`. also look into https://github.com/ousnius/nifly
 	- [ ] If it doesn't work look into how https://github.com/Exit-9B/modorganizer-preview_nif/tree/main generates images from nif and maybe rewrite that in rust
 - [ ] Disable okular and set default pdf viewer to firefox
+- [ ] A part of the zsh system module should probably be in a home module

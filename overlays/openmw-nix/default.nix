@@ -1,4 +1,6 @@
-{ openmw-nix, lib, ... }: final: prev: {
+{ openmw-nix, ... }: final: prev: {
+  inherit (openmw-nix.packages.${final.system}) delta-plugin;
+
   openmw-validator = openmw-nix.packages.${final.system}.openmw-validator.overrideAttrs (old: rec {
     version = "1.13";
     src = prev.fetchFromGitLab {

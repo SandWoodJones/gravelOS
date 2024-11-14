@@ -1,4 +1,4 @@
-{ lib, config, pkgs, inputs, system, ... }:
+{ lib, config, pkgs, ... }:
 let
   gameCfg = config.gravelOS.desktop.gaming;
 in
@@ -9,9 +9,8 @@ in
     gravelOS.t3t
     nifskope
     openmw-validator
-  ] ++ (with inputs.openmw-nix.packages.${system}; [
     delta-plugin
-  ]);
+  ];
 
   xdg = {
     # https://nowcodingtime.blogspot.com/2013/09/thumbnail-dds-texture-files-in-ubuntu.html

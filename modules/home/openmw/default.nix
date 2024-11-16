@@ -6,10 +6,10 @@ in
   home.packages = with pkgs; [
     openmw
     #gravelOS.TES3Merge
-    # gravelOS.t3t
     nifskope
     openmw-validator
     delta-plugin
+    gravelOS.blender-io_scene_mw
   ];
 
   xdg = {

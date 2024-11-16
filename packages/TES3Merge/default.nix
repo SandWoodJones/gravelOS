@@ -15,4 +15,8 @@
   };
   
   nugetDeps = ./deps.nix;
+
+  meta = {
+    description = "Object merge utility for The Elder Scrolls 3: Morrowind.";
+  };
 }

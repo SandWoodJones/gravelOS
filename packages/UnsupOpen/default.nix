@@ -13,9 +13,13 @@
       exec = "unsup-open %f";
       mimeTypes = ["image/x-dds"];
       startupNotify = false;
-      # noDisplay = true;
+      noDisplay = true;
     })
   ];
+
+  meta = {
+    description = "Tool for opening unsupported image files on your default image viewing application";
+  };
 }
 
 

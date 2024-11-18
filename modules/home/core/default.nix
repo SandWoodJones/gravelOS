@@ -1,4 +1,4 @@
-{ lib, osConfig, ... }: {
+{ lib, osConfig, config, ... }: {
   options.gravelOS = {
     networking.bluetooth = {
       enable = lib.mkEnableOption "bluetooth services";      
@@ -15,12 +15,12 @@
       default = true;
     };
 
-    desktop.gaming = {
-      enable = lib.mkEnableOption "gaming support";
-      openMW.enable = lib.mkOption {
-        description = "Whether to enable OpenMW";
-        type = lib.types.bool;
-        default = false;
+    desktop = {
+      enable = lib.mkEnableOption "a desktop environment";
+      blender.enable = lib.mkEnableOption "blender";
+      gaming = {
+        enable = lib.mkEnableOption "gaming support";
+        openMW.enable = lib.mkEnableOption "OpenMW";
       };
     };
   };
@@ -30,7 +30,10 @@
 
     gravelOS = {
       networking.bluetooth.enable = lib.mkDefault osConfig.gravelOS.networking.bluetooth.enable;
-      desktop.gaming.enable = lib.mkDefault osConfig.gravelOS.desktop.gaming.enable;  
+      desktop = {
+        enable = lib.mkDefault osConfig.gravelOS.desktop.enable;
+        gaming.enable = lib.mkDefault (osConfig.gravelOS.desktop.gaming.enable && config.gravelOS.desktop.enable);
+      };
     };
   };
 }

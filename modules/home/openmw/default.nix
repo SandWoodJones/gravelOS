@@ -9,7 +9,6 @@ in
     nifskope
     openmw-validator
     delta-plugin
-    gravelOS.blender-io_scene_mw
   ];
 
   xdg = {

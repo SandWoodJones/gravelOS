@@ -16,6 +16,13 @@
         autoload -U compinit && compinit
       '';
 
+      shellAliases = {
+        sus = "systemctl --user";
+
+        # Disable rm in favor of using trashy
+        rm = "printf \"\\e[31mCommand not executed\\e[0m\\n\"";
+      };
+
       initExtra = "source ${./.zshrc}";
     };
   };

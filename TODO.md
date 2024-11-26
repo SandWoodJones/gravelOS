@@ -46,6 +46,6 @@
 - Look into `VNC` or `RDP` screen sharing
 - Do something with `systemctl reboot --boot-loader-entry=auto-windows`
 - An RSS or atom feed?
-- Add a zsh `cp` function that runs `wl-copy` if given only 1 argument and `cp` if given more
+- edit zsh `cp` function to use `xcp`
 - A part of the zsh system module should probably be in a home module
 - Learn terminal multiplexing

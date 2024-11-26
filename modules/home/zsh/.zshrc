@@ -30,3 +30,35 @@ shell() {
 
 	return 0		
 }
+
+cp() {
+	if [[ $# -eq 1 ]]; then
+		if [[ ! -f "$1" ]]; then
+			printf "\\e[31m%s is not a file\n" $1
+			return 1
+		fi
+
+		case "$XDG_SESSION_TYPE" in
+			x11)
+				type=$(file --mime-type -b "$1")
+
+				if [[ "$type" == image/* ]]; then
+					xclip -sel clip -t "$type" "$1"
+				else
+					xclip -sel clip "$1"
+				fi
+			;;
+
+			wayland) wl-copy < $1 ;;
+
+			*)
+				printf "\\e[31munknown session type %s\n" "$XDG_SESSION_TYPE"
+				return 1
+			;;
+		esac
+	else
+		command cp $@
+	fi
+
+	return 0
+}

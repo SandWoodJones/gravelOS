@@ -47,5 +47,4 @@
 - Do something with `systemctl reboot --boot-loader-entry=auto-windows`
 - An RSS or atom feed?
 - edit zsh `cp` function to use `xcp`
-- A part of the zsh system module should probably be in a home module
 - Learn terminal multiplexing

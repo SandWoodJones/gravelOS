@@ -10,6 +10,10 @@ in {
         desktopManager.plasma6.enable = true;       
       };
 
+      environment.plasma6.excludePackages = with pkgs.kdePackages; [
+        okular
+      ];
+
       programs.partition-manager.enable = true;
 
       fonts.packages = with pkgs; [
@@ -34,3 +38,4 @@ in {
     })
   ]);
 }
+

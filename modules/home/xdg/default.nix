@@ -17,7 +17,10 @@
 
       mimeApps = {
         enable = true;
-        defaultApplications."image/png" = [ "org.kde.gwenview.desktop" ];
+        defaultApplications = {
+          "image/png" = [ "org.kde.gwenview.desktop" ];
+          "application/pdf" = [ "firefox.desktop" ];
+        };
       };
     };
   };

@@ -22,7 +22,6 @@
 	- GTK themes, window border styles, mouse cursors, etc
 	- Boot module (https://github.com/mxxntype/Aeon-snowfall/blob/main/modules/nixos/boot/default.nix) and plymouth
 	- Further configure helix
-	- `gamemode`
 	- Dualshock 4 controller
 	- Configure `gpg` and make it non-mutable
 - Fix
@@ -48,3 +47,4 @@
 - An RSS or atom feed?
 - edit zsh `cp` function to use `xcp`
 - Learn terminal multiplexing
+- figure out `gamemode` gpu configuration

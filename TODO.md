@@ -48,3 +48,5 @@
 - edit zsh `cp` function to use `xcp`
 - Learn terminal multiplexing
 - figure out `gamemode` gpu configuration
+- use and configure a torrent daemon like transmission or rtorrent
+- further configure `mpv`

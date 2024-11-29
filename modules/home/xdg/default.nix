@@ -21,6 +21,7 @@
           "image/png" = [ "org.kde.gwenview.desktop" ];
           "application/pdf" = [ "firefox.desktop" ];
           "application/x-bittorrent" = [ "org.qbittorrent.qBittorrent.desktop" ];
+          "video/*" = [ "mpv.desktop" ];
         };
       };
     };

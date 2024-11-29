@@ -1,5 +1,5 @@
-{ lib, osConfig, pkgs, ... }: {
-  config = lib.mkIf osConfig.gravelOS.desktop.enable {
+{ lib, config, pkgs, ... }: {
+  config = lib.mkIf config.gravelOS.desktop.enable {
     home.packages = with pkgs; [
       stremio
       # gravelOS.stremio-black-icon
@@ -11,6 +11,7 @@
       krita
       gimp
       gravelOS.UnsupOpen
+      qbittorrent-enhanced
     ];
   };
 }

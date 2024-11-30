@@ -10,5 +10,10 @@
         commit.gpgSign = true;
       };
     };
+
+    programs.gitui = {
+      enable = true;
+      keyConfig = builtins.readFile(./gitui_vim.ron);
+    };
   };
 }

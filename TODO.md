@@ -5,7 +5,6 @@
 	- `hyprland`
 	- Some application launcher (like `rofi`)
 	- Some screenshot utility
-	- `gitui`
 	- Rewritten gnu programs https://zaiste.net/posts/shell-commands-rust/
 	- `starship` prompt (https://github.com/goolord/simple-zsh-nix-shell)
 	- A terminal file manager (`xplr`, `nnn` `ranger`). `zoxide` has some plugins for those
@@ -37,6 +36,7 @@
 	- `ov`
 	- `tealdeer`
 	- `eza` https://github.com/eza-community/eza/blob/main/docs/theme.yml
+	- `gitui`
 - Remove hidden files from home directory
 	- [x] Removed `.gnupg`
 - Make a script running on the first open interactive shell every login with MOTD stuff such as `cowsay`, `fortune` or https://tealdeer-rs.github.io/tealdeer/tips_and_tricks.html#showing-a-random-page-on-shell-start

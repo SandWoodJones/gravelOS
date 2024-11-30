@@ -13,7 +13,7 @@
 	- `thunderbird`
 	- `wezterm`
 		- [ ] Remove `konsole`
-	- `zen` browser
+	- `zen` browser or `floorp`
 	- `delta` as a diff substitute
 - Configure
 	- `ov` with `less` keybindings. https://noborus.github.io/ov/index.html
@@ -50,3 +50,6 @@
 - figure out `gamemode` gpu configuration
 - use and configure a torrent daemon like transmission or rtorrent
 - further configure `mpv`
+- syncthing
+- flashpoint
+- add alias for nix-store --query --requisites /run/current-system | grep ...

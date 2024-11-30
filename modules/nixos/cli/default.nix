@@ -20,6 +20,14 @@
         p7zip
       ];
 
+      shellAliases = {
+        clearx = "clear -x";
+        gs = "git status";
+
+        ls = "eza";
+        tree = "eza -T --git-ignore";
+      };
+
       variables = {
         EDITOR = "${pkgs.helix}/bin/hx";
         PAGER = "${pkgs.ov}/bin/ov-less";

@@ -28,14 +28,6 @@
       };
 
       shellAliases = {
-        clearx = "clear -x";
-        gs = "git status";
-
-        ls = "eza";
-        tree = "eza -T --git-ignore";
-  
-        tp = "trash put";
-
         nix = "noglob nix"; # Disable globbing when running nix commands so that .#~ doesn't fail
       };
     };

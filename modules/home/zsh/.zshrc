@@ -62,3 +62,31 @@ cp() {
 
 	return 0
 }
+
+tp() {
+	if [[ ! -f ".trashyignore" ]]; then
+		command trash put $@
+		return 0
+	fi
+
+	local ignore_patterns=()
+	while IFS= read -r line; do
+		[[ -n $line && $line != \#* ]] && ignore_patterns+=("$line")
+	done < ".trashyignore"
+	ignore_patterns+=(".trashyignore")
+
+	local args=()
+	for arg in "$@"; do
+		local exclude=false
+		for pattern in "${ignore_patterns[@]}"; do
+			if [[ $pattern == */ ]]; then
+				[[ -d $arg && $arg/ == $pattern ]] && exclude=true && break
+			else
+				[[ $arg == $pattern ]] && exclude=true && break
+			fi
+		done
+		$exclude || args+=("$arg")
+	done
+
+	command trash put "${args[@]}"
+}

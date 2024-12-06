@@ -1,4 +1,26 @@
-{ lib, config, pkgs, ... }: {
+{ lib, config, pkgs, ... }:
+let
+  crossPlatformCopy = pkgs.writeShellScript "crossPlatformCopy" ''
+    case "$1" in
+      -c)
+        shift
+        if [[ -n "$WAYLAND_DISPLAY" ]]; then
+          ${pkgs.wl-clipboard}/bin/wl-copy "$@"
+        else
+          echo -n "$@" | ${pkgs.xclip}/bin/xclip -silent -selection clipboard -in
+        fi
+      ;;
+
+      -p)
+        if [[ -n "$WAYLAND_DISPLAY" ]]; then
+          ${pkgs.wl-clipboard}/bin/wl-paste
+        else
+          ${pkgs.xclip}/bin/xclip -selection clipboard -o
+        fi
+      ;;
+    esac
+  '';
+in {
   config = lib.mkIf config.gravelOS.desktop.enable {
     programs.mpv = {
       enable = true;
@@ -12,11 +34,19 @@
         autofit = "70%x60%";
       };
 
+      scripts = with pkgs.mpvScripts; [
+        uosc
+        thumbfast
+        smart-copy-paste-2
+        evafast
+      ];
+
       bindings = {
         "right"       = "seek   5; script-binding uosc/flash-progress";
         "left"        = "seek  -5; script-binding uosc/flash-progress";
         "shift+right" = "seek  30; script-binding uosc/flash-timeline";
         "shift+left"  = "seek -30; script-binding uosc/flash-timeline";
+        "ctrl+right"  = "script-binding evafast/evafast";
         "m"           = "no-osd cycle mute; script-binding uosc/flash-volume";
         "up"          = "no-osd add volume  10; script-binding uosc/flash-volume";
         "down"        = "no-osd add volume -10; script-binding uosc/flash-volume";
@@ -35,16 +65,16 @@
         "9" = "seek 90 absolute-percent; script-binding uosc/flash-timeline";
       };
       
-      scripts = with pkgs.mpvScripts; [
-        uosc
-        thumbfast
-      ];
-
       scriptOpts = {
         uosc = {
           timeline_style = "bar";
           timeline_size = 30;
           autohide = true;
+        };
+
+        SmartCopyPaste_II = {
+          linux_copy = "${crossPlatformCopy} -c";
+          linux_paste = "${crossPlatformCopy} -p";
         };
       };
     };

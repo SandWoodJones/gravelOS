@@ -24,7 +24,7 @@
 	- Dualshock 4 controller
 	- Configure `gpg` and make it non-mutable
 - Fix
-	- SDDM multi monitor problem, or just move away from SDDM
+	- SDDM multi monitor problem, or just move away from SDDM, UWSM
 - Disk management
 	- [ ] Use `disko`
 	- [x] Enable ztsd compression and defragment BTRFS disk
@@ -53,3 +53,7 @@
 - syncthing
 - flashpoint
 - add alias for nix-store --query --requisites /run/current-system | grep ...
+- re-enable nifskope overlay after next upstream release
+- steam millenium
+- look into schedulers, BORE and services.scx
+- maybe replace thefuck with pay respects

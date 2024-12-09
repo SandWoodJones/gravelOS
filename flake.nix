@@ -5,10 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     snowfall-lib = { url = "github:snowfallorg/lib"; inputs.nixpkgs.follows = "nixpkgs"; };
     home-manager = { url = "github:nix-community/home-manager"; inputs.nixpkgs.follows = "nixpkgs"; };
-
     nix-index-database = { url = "github:nix-community/nix-index-database"; inputs.nixpkgs.follows = "nixpkgs"; };
-
-    fenix = { url = "github:nix-community/fenix/monthly"; inputs.nixpkgs.follows = "nixpkgs"; };
 
     openmw-nix = { url = "git+https://codeberg.org/PopeRigby/openmw-nix.git"; inputs.nixpkgs.follows = "nixpkgs"; };
   };

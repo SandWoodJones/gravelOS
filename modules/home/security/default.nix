@@ -11,7 +11,7 @@
       enable = true;
       matchBlocks = {
         "git" = {
-          host = "github.com";
+          host = "github.com gitlab.com";
           identitiesOnly = true;
           identityFile = [ "${config.home.homeDirectory}/.ssh/id_swj" ];
         };

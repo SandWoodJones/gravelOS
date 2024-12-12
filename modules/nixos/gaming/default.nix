@@ -3,10 +3,7 @@ let
   cfgDsk = config.gravelOS.desktop;
 in {
   config = lib.mkIf (cfgDsk.enable && cfgDsk.gaming.enable) {
-    hardware.graphics = {
-      enable = true;
-      enable32Bit = true;
-    };
+    hardware.graphics.enable32Bit = true;
 
     programs.gamemode = {
       enable = true;

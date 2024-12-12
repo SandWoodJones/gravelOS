@@ -7,7 +7,6 @@
     networking = {
       bluetooth.enable = true;
       avahi.enable = true;
-      ports.spotifyOpen = true;
     };
 
     desktop = {

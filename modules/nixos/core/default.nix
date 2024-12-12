@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{ lib, config, ... }: {
   options.gravelOS = with lib; {
     desktop = {
       enable = lib.mkEnableOption "a display server and desktop environment";
@@ -16,7 +16,7 @@
       avahi.enable = mkEnableOption "the Avahi daemon";
       wifi.enable = mkEnableOption "network manager";
 
-      ports.spotifyOpen = mkOption {
+      spotifyOpenPorts = mkOption {
         default = false;
         description = "Whether to open the necessary ports for spotify";
         type = types.bool;
@@ -57,5 +57,7 @@
     };
 
     time.timeZone = "America/Sao_Paulo";
+
+    gravelOS.networking.spotifyOpenPorts = config.gravelOS.desktop.enable;
   };
 }

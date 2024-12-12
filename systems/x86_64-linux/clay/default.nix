@@ -18,6 +18,7 @@
     services.nh-clean.enable = true;
   };
 
+  hardware.amdgpu.initrd.enable = true;
 
   system.stateVersion = "24.05";
 }

@@ -18,6 +18,7 @@
         ov
         jre_minimal
         p7zip
+        unrar
       ];
 
       shellAliases = {

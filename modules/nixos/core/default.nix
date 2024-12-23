@@ -2,7 +2,10 @@
   options.gravelOS = with lib; {
     desktop = {
       enable = lib.mkEnableOption "a display server and desktop environment";
-      gaming.enable = lib.mkEnableOption "gaming support";
+      gaming = {
+        steam.enable = lib.mkEnableOption "steam";
+        enable = lib.mkEnableOption "gaming support";
+      };
     
       audio.enable = mkOption {
         default = true;

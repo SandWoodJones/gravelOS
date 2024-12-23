@@ -8,7 +8,11 @@
       avahi.enable = true;
     };
 
-    desktop.enable = true;
+    desktop = {
+      enable = true;
+      gaming.steam.enable = true;
+    };
+
     services.nh-clean.enable = true;
   };
 

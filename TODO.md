@@ -53,7 +53,6 @@
 - syncthing
 - flashpoint
 - add alias for nix-store --query --requisites /run/current-system | grep ...
-- re-enable nifskope overlay after next upstream release
 - steam millenium
 - look into schedulers, BORE and services.scx
 - maybe replace thefuck with pay respects

@@ -3,11 +3,11 @@ let
   qt6 = channels.nixpkgs.qt6;
 in {
   nifskope = prev.nifskope.overrideAttrs (oldAttrs: rec {
-    version = "v2.0.dev9-20241028";
+    version = "v2.0.dev9-20241228";
     src = prev.fetchgit {
       url = "https://github.com/fo76utils/nifskope";
       rev = version;
-      hash = "sha256-++Jf3dTdNeQmPIhxyAiwGd4bLqFyKty217/uFSWczng=";
+      hash = "sha256-VhOnRmutR6QBRR3XnV5flEyOdXhYqiD8ARUQc6GHsMA=";
       fetchSubmodules = true;
     };
 

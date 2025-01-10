@@ -9,6 +9,7 @@ in
     nifskope
     openmw-validator
     delta-plugin
+    gravelOS.UnsupOpen
   ];
 
   xdg = {

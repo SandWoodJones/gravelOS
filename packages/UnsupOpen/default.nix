@@ -21,5 +21,3 @@
     description = "Tool for opening unsupported image files on your default image viewing application";
   };
 }
-
-

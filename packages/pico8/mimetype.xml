@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-pico8-cart">
+    <comment>PICO-8 Cartridge</comment>
+    <glob pattern="*.p8"/>
+    <glob pattern="*.p8.png"/>
+    <magic priority="50">
+      <match type="string" value="pico-8 cartridge" offset="0"/>
+    </magic>
+  </mime-type>
+</mime-info>

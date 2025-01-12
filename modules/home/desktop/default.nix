@@ -11,6 +11,7 @@
       krita
       gimp
       qbittorrent-enhanced
+      gravelOS.pico8
     ];
   };
 }

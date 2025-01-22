@@ -2,6 +2,8 @@
   nix.settings = {
     allowed-users = [ "swj" ];
     trusted-users = [ "swj" ];
+
+    auto-optimise-store = true;
   
     substituters = [
       "https://cache.nixos.org/"

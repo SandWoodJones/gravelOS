@@ -1,6 +1,13 @@
-{ lib, config, pkgs, ... }: {
-  config = lib.mkIf config.gravelOS.desktop.enable {
-    home.packages = with pkgs; [
+{ pkgs, ... }: {
+  gravelOS = {
+    networking.bluetooth.mediaControls = true;
+    desktop = {
+      blender.enable = true;
+      gaming.openMW.enable = true;
+    };
+  };
+
+  home.packages = with pkgs; [
       stremio
       # gravelOS.stremio-black-icon
       spotify
@@ -13,5 +20,6 @@
       qbittorrent-enhanced
       gravelOS.pico8
     ];
-  };
+ 
+  home.stateVersion = "24.05";
 }

@@ -25,22 +25,6 @@
       };
     };
   
-    services.nh-clean = {
-      enable = mkEnableOption "periodic garbage collection with nh";
-
-      keepGenerations = mkOption {
-        default = 10;
-        description = "The minimum number of generations that nh-clean should keep.";
-        type = types.ints.unsigned;
-      };
-
-      keepSince = mkOption {
-        default = "10d";
-        description = "The time range since now of generations that should be kept by nh-clean.";
-        type = types.nonEmptyStr;
-      };
-    };
-
     boot = {
       zenKernel = mkEnableOption "the Zen kernel";
       

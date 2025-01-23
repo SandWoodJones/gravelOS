@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ pkgs, lib, config, ... }:
 let
   cfg = config.gravelOS.helix;
 in {
@@ -19,6 +19,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    home.packages = [ pkgs.nil ]; # nix lsp
     programs.helix = {
       enable = true;
       defaultEditor = cfg.defaultEditor;

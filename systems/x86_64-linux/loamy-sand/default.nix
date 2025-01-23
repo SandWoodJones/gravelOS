@@ -5,6 +5,7 @@
     ssh = { enable = true; secure = true; };
     git = { enable = true; enableConfig = true; };
     cli = { configEnable = true; nix-index.enable = true; };
+    nh = { enable = true; clean.enable = true; };
 
     bluetooth.enable = true;
     
@@ -17,8 +18,6 @@
       enable = true;
       gaming.steam.enable = true;
     };
-
-    services.nh-clean.enable = true;
   };
 
   # DO NOT CHANGE

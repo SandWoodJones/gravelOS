@@ -1,11 +1,5 @@
 { lib, osConfig, config, ... }: {
   options.gravelOS = {
-    xdg.lowercaseDirs = lib.mkOption {
-      description = "Whether to rename the default xdg-user dirs to lowercase";
-      type = lib.types.bool;
-      default = true;
-    };
-
     desktop = {
       enable = lib.mkEnableOption "a desktop environment";
       blender.enable = lib.mkEnableOption "blender";

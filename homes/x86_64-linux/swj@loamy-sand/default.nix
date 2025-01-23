@@ -8,6 +8,8 @@
     };
     mpv = { enable = true; enableConfig = true; };
 
+    xdg = { enable = true; remakeDirs = true; };
+
     bluetooth.mediaControls = true;
   };
   

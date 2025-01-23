@@ -7,7 +7,7 @@ in {
     enableConfig = lib.mkOption {
       default = false;
       example = true;
-      description = "Whether to enable gravelOS' helix configuration.";
+      description = "Whether to enable gravelOS's helix configuration.";
       type = lib.types.bool;
     };
     defaultEditor = lib.mkOption {

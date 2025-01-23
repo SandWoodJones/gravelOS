@@ -4,6 +4,8 @@
   gravelOS = {
     ssh = { enable = true; secure = true; };
     git = { enable = true; enableConfig = true; };
+    cli = { configEnable = true; nix-index.enable = true; };
+
     bluetooth.enable = true;
     
     networking = {

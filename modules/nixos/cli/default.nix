@@ -1,11 +1,25 @@
-{ pkgs, ... }: {
-  config = {
-    users.defaultUserShell = pkgs.zsh;
+{ pkgs, lib, config, ... }:
+let
+  cfg = config.gravelOS.cli;
+in {
+  options.gravelOS.cli = {
+    configEnable = lib.mkOption {
+      default = false;
+      example = true;
+      description = "Whether to enable gravelOS's environment variables, shell aliases and essential CLI tools";
+      type = lib.types.bool;
+    };
 
+    nix-index.enable = lib.mkEnableOption "the nix-index database";
+  };
+
+  config = lib.mkIf cfg.configEnable {
     programs = {
       direnv = { enable = true; silent = true; };
       command-not-found.enable = false;
-      nix-index.enable = true;
+
+      nix-index.enable = cfg.nix-index.enable;
+      nix-index-database.comma.enable = cfg.nix-index.enable;
     };
  
     environment = {
@@ -16,7 +30,6 @@
         fzf
         eza
         ov
-        jre_minimal
         p7zip
         unrar
       ];

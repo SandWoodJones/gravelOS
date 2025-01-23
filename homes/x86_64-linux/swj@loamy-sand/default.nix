@@ -5,7 +5,9 @@
 
     bluetooth.mediaControls = true;
 
+    cli.configEnable = true;
     git = { enable = true; enableConfig = true; };
+
     firefox = { enable = true; enableConfig = true; };
     helix = {
       enable = true;

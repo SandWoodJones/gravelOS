@@ -3,6 +3,7 @@
   
   gravelOS = {
     ssh = { enable = true; secure = true; };
+    git = { enable = true; enableConfig = true; };
     bluetooth.enable = true;
     
     networking = {

@@ -14,7 +14,7 @@ in {
     programs.ssh = {
       enable = true;
       matchBlocks = {
-        "git" = {
+        "git" = lib.mkIf osConfig.gravelOS.git.enable {
           host = "github.com gitlab.com";
           identitiesOnly = true;
           identityFile = [ "${config.home.homeDirectory}/.ssh/id_swj" ];

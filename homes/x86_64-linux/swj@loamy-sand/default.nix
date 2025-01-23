@@ -3,6 +3,9 @@
     xdg = { enable = true; remakeDirs = true; };
     ssh.enable = true;
 
+    bluetooth.mediaControls = true;
+
+    git = { enable = true; enableConfig = true; };
     firefox = { enable = true; enableConfig = true; };
     helix = {
       enable = true;

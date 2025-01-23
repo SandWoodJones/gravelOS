@@ -1,8 +1,10 @@
 { pkgs, ... }: {
   gravelOS = {
-    firefox = {
+    firefox = { enable = true; enableConfig = true; };
+    helix = {
       enable = true;
       enableConfig = true;
+      defaultEditor = true;
     };
 
     bluetooth.mediaControls = true;

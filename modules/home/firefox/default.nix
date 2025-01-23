@@ -7,13 +7,13 @@ in {
     enableConfig = lib.mkOption {
       default = false;
       example = true;
-      description = "Enable gravelOS' firefox configuration.";
+      description = "Whether to enable gravelOS' firefox configuration.";
       type = lib.types.bool;
     };
   };
 
-  config = {
-    programs.firefox = lib.mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
+    programs.firefox = {
       enable = true;
 
       policies = lib.mkIf cfg.enableConfig (import ./policies.nix);

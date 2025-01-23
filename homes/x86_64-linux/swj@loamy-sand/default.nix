@@ -6,6 +6,7 @@
       enableConfig = true;
       defaultEditor = true;
     };
+    mpv = { enable = true; enableConfig = true; };
 
     bluetooth.mediaControls = true;
   };

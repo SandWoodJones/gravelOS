@@ -1,12 +1,16 @@
-{ lib, config, osConfig, ... }: {
-  config = {
+{ lib, config, osConfig, ... }:
+let
+  cfg = config.gravelOS.ssh;
+in {
+  options.gravelOS.ssh = {
+    enable = lib.mkEnableOption "SSH configuration";
+  };
+
+  config = lib.mkIf cfg.enable {
+    assertions = [{ assertion = osConfig.gravelOS.ssh.enable; message = "you must have SSH enabled on your system configuration"; }];
+  
     services.ssh-agent.enable = true;
 
-    programs.gpg = {
-      enable = true;
-      homedir = "${config.xdg.dataHome}/gnupg";
-    };
-    
     programs.ssh = {
       enable = true;
       matchBlocks = {

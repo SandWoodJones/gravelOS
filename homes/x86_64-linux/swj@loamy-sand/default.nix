@@ -1,5 +1,8 @@
 { pkgs, ... }: {
   gravelOS = {
+    xdg = { enable = true; remakeDirs = true; };
+    ssh.enable = true;
+
     firefox = { enable = true; enableConfig = true; };
     helix = {
       enable = true;
@@ -7,10 +10,6 @@
       defaultEditor = true;
     };
     mpv = { enable = true; enableConfig = true; };
-
-    xdg = { enable = true; remakeDirs = true; };
-
-    bluetooth.mediaControls = true;
   };
   
   home.packages = with pkgs; [

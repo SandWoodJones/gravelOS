@@ -2,6 +2,7 @@
   imports = [ ./hardware-configuration.nix ];
   
   gravelOS = {
+    ssh = { enable = true; secure = true; };
     bluetooth.enable = true;
     
     networking = {

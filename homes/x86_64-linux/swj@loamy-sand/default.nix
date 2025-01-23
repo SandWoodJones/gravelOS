@@ -1,5 +1,10 @@
 { pkgs, ... }: {
   gravelOS = {
+    firefox = {
+      enable = true;
+      enableConfig = true;
+    };
+  
     networking.bluetooth.mediaControls = true;
   };
   

@@ -4,8 +4,8 @@
       enable = true;
       enableConfig = true;
     };
-  
-    networking.bluetooth.mediaControls = true;
+
+    bluetooth.mediaControls = true;
   };
   
   home.packages = with pkgs; [

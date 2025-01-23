@@ -2,9 +2,10 @@
   imports = [ ./hardware-configuration.nix ];
   
   gravelOS = {
+    bluetooth.enable = true;
+    
     networking = {
       wifi.enable = true;
-      bluetooth.enable = true;
       avahi.enable = true;
     };
 

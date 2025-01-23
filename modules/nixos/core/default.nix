@@ -15,7 +15,6 @@
     };
 
     networking = {
-      bluetooth.enable = mkEnableOption "bluetooth services";
       avahi.enable = mkEnableOption "the Avahi daemon";
       wifi.enable = mkEnableOption "network manager";
 

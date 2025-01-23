@@ -28,7 +28,7 @@ in {
           force = true;
           default = "Google";
 
-          order = [ "YouTube" "Nix Packages" "NixOS Options" "Home Manager Options" ];
+          order = [ "YouTube" "Nix Packages" "NixOS Options" "Home Manager Options" "Noogle" ];
           engines = import ./engines.nix { inherit pkgs; };
         };
       };

@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ lib, config, ... }:
 let
   cfg = config.gravelOS.networking;
 in {
@@ -6,21 +6,10 @@ in {
     networking.useDHCP = lib.mkDefault true;
     networking.networkmanager.enable = cfg.wifi.enable;
 
-    services.avahi = lib.mkIf cfg.avahi.enable {
-      enable = true;
-      nssmdns4 = true;
-      publish = {
-        enable = true;
-        addresses = true;
-      };
-    };
-
     services.openssh = {
       enable = true;
       settings.PasswordAuthentication = false;
       settings.KbdInteractiveAuthentication = false;
     };
-
-    programs.ssh.startAgent = true;
   };
 }

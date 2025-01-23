@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ lib, config, osConfig, ... }: {
   config = {
     services.ssh-agent.enable = true;
 
@@ -16,7 +16,7 @@
           identityFile = [ "${config.home.homeDirectory}/.ssh/id_swj" ];
         };
 
-        "avahi" = {
+        "avahi" = lib.mkIf osConfig.gravelOS.avahi.enable {
           host = "*.local";
           identitiesOnly = true;
           identityFile = [ "${config.home.homeDirectory}/.ssh/id_swj" ];

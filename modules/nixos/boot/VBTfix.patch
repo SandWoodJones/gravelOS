@@ -1,0 +1,22 @@
+diff --git a/drivers/gpu/drm/i915/display/intel_bios.c b/drivers/gpu/drm/i915/display/intel_bios.c
+index 5fb48b6..a147de6 100644
+--- a/drivers/gpu/drm/i915/display/intel_bios.c
++++ b/drivers/gpu/drm/i915/display/intel_bios.c
+@@ -3752,9 +3752,15 @@ void intel_bios_for_each_encoder(struct drm_i915_private *i915,
+ 					      const struct intel_bios_encoder_data *devdata))
+ {
+ 	struct intel_bios_encoder_data *devdata;
++	const int IGNORE_INDEX = 1;
++       int curr_index = 0;
+ 
+-	list_for_each_entry(devdata, &i915->display.vbt.display_devices, node)
+-		func(i915, devdata);
++	list_for_each_entry(devdata, &i915->display.vbt.display_devices, node) {
++		if (curr_index != IGNORE_INDEX) {
++			func(i915, devdata);
++		}
++		curr_index += 1;
++	}
+ }
+ 
+ static int intel_bios_vbt_show(struct seq_file *m, void *unused)

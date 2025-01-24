@@ -7,6 +7,12 @@
     cli = { configEnable = true; nix-index.enable = true; };
     nh = { enable = true; clean.enable = true; };
 
+    zsh = {
+      enable = true;
+      enableConfig = true;
+      default = true;
+    };
+
     bluetooth.enable = true;
     
     networking = {

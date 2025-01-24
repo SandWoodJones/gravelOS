@@ -5,6 +5,7 @@
 
     bluetooth.mediaControls = true;
 
+    zsh = { enable = true; enableConfig = true; };
     cli.configEnable = true;
     git = { enable = true; enableConfig = true; };
 

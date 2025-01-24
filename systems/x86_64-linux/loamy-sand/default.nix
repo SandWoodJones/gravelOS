@@ -2,10 +2,10 @@
   imports = [ ./hardware-configuration.nix ];
   
   gravelOS = {
-    boot = {
-      # kernel = pkgs.linuxPackages_latest;
-      fixIntelVBT = true;
-    };
+    # boot = {
+    #   # kernel = pkgs.linuxPackages_latest;
+    #   fixIntelVBT = true;
+    # };
   
     ssh = { enable = true; secure = true; };
     git = { enable = true; enableConfig = true; };

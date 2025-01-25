@@ -2,11 +2,6 @@
   imports = [ ./hardware-configuration.nix ];
   
   gravelOS = {
-    # boot = {
-    #   # kernel = pkgs.linuxPackages_latest;
-    #   fixIntelVBT = true;
-    # };
-  
     ssh = { enable = true; secure = true; };
     git = { enable = true; enableConfig = true; };
     cli = { configEnable = true; nix-index.enable = true; };
@@ -30,6 +25,8 @@
       gaming.steam.enable = true;
     };
   };
+
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # DO NOT CHANGE
   system.stateVersion = "24.11";

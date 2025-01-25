@@ -2,6 +2,9 @@
   imports = [ ./hardware-configuration.nix ];
   
   gravelOS = {
+    display.enable = true;
+    audio.enable = true;
+    kde.plasma.enable = true;
     ssh = { enable = true; secure = true; };
     git = { enable = true; enableConfig = true; };
     cli = { configEnable = true; nix-index.enable = true; };
@@ -21,7 +24,6 @@
     };
 
     desktop = {
-      enable = true;
       gaming.steam.enable = true;
     };
   };

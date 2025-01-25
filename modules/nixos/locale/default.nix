@@ -15,7 +15,7 @@
       LC_TIME = "pt_BR.UTF-8";
     };
 
-    services.xserver.xkb = lib.mkIf config.gravelOS.desktop.enable {
+    services.xserver.xkb = lib.mkIf config.gravelOS.display.enable {
       layout = "br";
       variant = "";
     };

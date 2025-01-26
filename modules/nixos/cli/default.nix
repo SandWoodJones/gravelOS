@@ -6,7 +6,14 @@ in {
     configEnable = lib.mkOption {
       default = false;
       example = true;
-      description = "Whether to enable gravelOS's environment variables, shell aliases and essential CLI tools";
+      description = "Whether to enable gravelOS's environment variables, shell aliases and essential CLI tools.";
+      type = lib.types.bool;
+    };
+
+    sudoDefaults = lib.mkOption {
+      default = false;
+      example = true;
+      description = "Whether to change sudo's password timeout and add password feedback.";
       type = lib.types.bool;
     };
 
@@ -21,6 +28,8 @@ in {
       nix-index.enable = cfg.nix-index.enable;
       nix-index-database.comma.enable = cfg.nix-index.enable;
     };
+
+    security.sudo.extraConfig = lib.mkIf cfg.sudoDefaults "Defaults env_reset,pwfeedback,timestamp_timeout=120,passwd_timeout=0";
  
     environment = {
       systemPackages = with pkgs; [

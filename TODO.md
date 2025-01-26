@@ -59,3 +59,4 @@
 - maybe replace thefuck with pay respects
 - look into https://github.com/etu/nixconfig and needsreboot
 - remake module options
+- somehow find out what causes the acer laptop to crash

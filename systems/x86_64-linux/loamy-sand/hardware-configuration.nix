@@ -1,11 +1,12 @@
 { config, lib, modulesPath, ... }: {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "vmd" "ahci" "nvme" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
-  boot.blacklistedKernelModules = [ "xe" ];
+  boot = {
+    initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "vmd" "ahci" "nvme" "usb_storage" "sd_mod" ];
+    kernelModules = [ "kvm-intel" ];
+    blacklistedKernelModules = [ "xe" ];
+    kernelParams = [ "i915.force_probe=46a3" "ahci.mobile_lpm_policy=1" ];
+  };
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/25a2db9b-8560-4204-aa35-afe518fd50a4";

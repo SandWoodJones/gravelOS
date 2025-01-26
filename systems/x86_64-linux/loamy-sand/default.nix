@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+{ pkgs, ... }: {
   imports = [ ./hardware-configuration.nix ];
   
   gravelOS = {
@@ -33,16 +33,6 @@
   };
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
-  boot.kernelParams = [ "i915.force_probe=46a3" "initcall_debug" "pm_debug" "no_console_suspend" ];
-  boot.crashDump.enable = true;
-  services.xserver.config = lib.mkAfter ''
-    Section "Device"
-      Identifier "Intel Graphics"
-      Driver "modesetting"
-      Option "NoAccel" "True"
-    EndSection
-  '';
-  services.xserver.exportConfiguration = true;
 
   # DO NOT CHANGE
   system.stateVersion = "24.11";

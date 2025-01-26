@@ -1,5 +1,7 @@
-{ config, lib, ... }: {
+{ lib, config, ... }: {
   config = {
+    time.timeZone = "America/Sao_Paulo";
+
     console.keyMap = "br-abnt2";
 
     i18n.defaultLocale = "en_US.UTF-8";

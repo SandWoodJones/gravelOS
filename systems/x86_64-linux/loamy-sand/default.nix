@@ -26,9 +26,7 @@
       default = true;
     };
 
-    desktop = {
-      gaming.steam.enable = true;
-    };
+    gaming = { enable = true; steam.enable = true; };
   };
 
   boot.kernelPackages = pkgs.linuxPackages_zen;

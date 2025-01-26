@@ -1,38 +1,33 @@
-{ config, lib, pkgs, ... }:
+{ lib, config, ... }:
 let
-  cfgDsk = config.gravelOS.desktop;
+  cfg = config.gravelOS.gaming;
 in {
-  config = lib.mkIf cfgDsk.enable (lib.mkMerge [
-    (lib.mkIf cfgDsk.gaming.enable {
-      hardware.graphics.enable32Bit = true;
+  options.gravelOS.gaming = {
+    enable = lib.mkEnableOption "light gaming support";
+    dedicated = lib.mkEnableOption "heavy gaming support";
+    steam.enable = lib.mkEnableOption "Steam";
+  };
 
-      programs.gamemode = {
-        enable = true;
-        settings = {
-          general = { softrealtime = "auto"; renice = 10; };
-          cpu.pin_cores="yes";
-        };
+  config = lib.mkIf cfg.enable {
+    hardware.graphics.enable32Bit = true;
+
+    programs.steam = lib.mkIf cfg.steam.enable {      
+      enable = true;
+      localNetworkGameTransfers.openFirewall = true;
+      protontricks.enable = cfg.dedicated;
+      remotePlay.openFirewall = cfg.dedicated;
+    };
+
+    programs.gamemode = lib.mkIf cfg.dedicated {
+      enable = true;
+      settings = {
+        general = { softrealtime = "auto"; renice = 10; };
+        cpu.pin_cores="yes";
       };
+    };
 
-      security.pam.loginLimits = [
-        { domain = "@gamemode"; item = "nice"; type = "soft"; value = "-20"; }
-      ];
-
-      environment.systemPackages = with pkgs; [
-        wine
-        heroic
-        lutris
-      ];
-    })
-
-    {
-      programs.steam = lib.mkIf cfgDsk.gaming.steam.enable {
-        enable = true;
-        remotePlay.openFirewall = true;
-        dedicatedServer.openFirewall = true;
-        localNetworkGameTransfers.openFirewall = true;
-        protontricks.enable = true;
-      };
-    }
-  ]);
+    security.pam.loginLimits = lib.mkIf cfg.dedicated [
+      { domain = "@gamemode"; item = "nice"; type = "soft"; value = "-20"; }
+    ];
+  };
 }

@@ -2,6 +2,7 @@
   imports = [ ./hardware-configuration.nix ];
   
   gravelOS = {
+    user.createSWJ = true;
     display.enable = true;
     audio.enable = true;
     kde.plasma.enable = true;

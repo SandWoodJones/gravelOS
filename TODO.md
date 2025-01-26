@@ -19,6 +19,7 @@
 	- `delta`
 	- Multiple monitors in hyprland
 	- GTK themes, window border styles, mouse cursors, etc
+		- make a fotonight web theme
 	- Boot module (https://github.com/mxxntype/Aeon-snowfall/blob/main/modules/nixos/boot/default.nix) and plymouth
 	- Further configure helix
 	- Dualshock 4 controller

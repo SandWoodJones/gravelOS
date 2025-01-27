@@ -20,7 +20,7 @@
   
   home.packages = with pkgs; [
     stremio
-    spotify
+    spotifywm
     telegram-desktop
     vesktop
     obsidian

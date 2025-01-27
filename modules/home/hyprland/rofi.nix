@@ -18,6 +18,7 @@ in {
       package = pkgs.rofi-wayland;
     };
 
-    wayland.windowManager.hyprland.settings."$launcher" = "rofi -show drun -show-icons";
+    # https://github.com/Vladimir-csp/uwsm?tab=readme-ov-file#5-launchers
+    wayland.windowManager.hyprland.settings."$launcher" = "rofi -show drun -show-icons -run-command \"uwsm app -- {cmd}\"";
   };
 }

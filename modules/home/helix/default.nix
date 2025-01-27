@@ -20,6 +20,8 @@ in {
 
   config = lib.mkIf cfg.enable {
     home.packages = [ pkgs.nil ]; # nix lsp
+
+    # TODO: further configure helix
     programs.helix = {
       enable = true;
       defaultEditor = cfg.defaultEditor;
@@ -31,6 +33,9 @@ in {
 
         editor.statusline.center = [ "version-control" ];
         editor.statusline.right = [ "diagnostics" "file-type" "selections" "register" "position" "file-encoding" ];
+
+        # TODO: edit the monokai theme to fit more to my liking
+        theme = "monokai";
 
         keys = {
           normal = {

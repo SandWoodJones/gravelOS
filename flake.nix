@@ -8,6 +8,8 @@
     home-manager = { url = "github:nix-community/home-manager"; inputs.nixpkgs.follows = "nixpkgs"; };
     nix-index-database = { url = "github:nix-community/nix-index-database"; inputs.nixpkgs.follows = "nixpkgs"; };
 
+    hyprland.url = "github:hyprwm/Hyprland";
+
     openmw-nix = { url = "git+https://codeberg.org/PopeRigby/openmw-nix.git"; inputs.nixpkgs.follows = "nixpkgs"; };
   };
 

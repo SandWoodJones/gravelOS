@@ -7,6 +7,7 @@
     audio.enable = true;
 
     kde.plasma.enable = true;
+    hyprland.enable = true;
 
     user.createSWJ = true;
 

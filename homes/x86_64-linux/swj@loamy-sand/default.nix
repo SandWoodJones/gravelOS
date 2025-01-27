@@ -1,5 +1,10 @@
 { pkgs, ... }: {
   gravelOS = {
+    hyprland = {
+      enable = true;
+      rofi.enable = true;
+    };
+  
     xdg = { enable = true; remakeDirs = true; };
     ssh.enable = true;
 

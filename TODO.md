@@ -2,9 +2,6 @@
 - Install
 	- `ripgrep`
 	- `meld`
-	- `hyprland`
-	- Some application launcher (like `rofi`)
-	- Some screenshot utility
 	- Rewritten gnu programs https://zaiste.net/posts/shell-commands-rust/
 	- `starship` prompt (https://github.com/goolord/simple-zsh-nix-shell)
 	- A terminal file manager (`xplr`, `nnn` `ranger`). `zoxide` has some plugins for those
@@ -17,7 +14,6 @@
 - Configure
 	- `ov` with `less` keybindings. https://noborus.github.io/ov/index.html
 	- `delta`
-	- Multiple monitors in hyprland
 	- GTK themes, window border styles, mouse cursors, etc
 		- make a fotonight web theme
 	- Boot module (https://github.com/mxxntype/Aeon-snowfall/blob/main/modules/nixos/boot/default.nix) and plymouth
@@ -60,3 +56,4 @@
 - look into https://github.com/etu/nixconfig and needsreboot
 - remake module options
 - somehow find out what causes the acer laptop to crash
+- spread TODO around repo and delete TODO file

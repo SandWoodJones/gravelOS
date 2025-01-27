@@ -14,10 +14,7 @@ in {
   config = lib.mkIf cfg.plasma.enable {
     assertions = [{ assertion = config.gravelOS.display.enable; message = "you must have graphical display support enabled to use Plasma"; }];
 
-    services = {
-      displayManager.sddm.enable = true;
-      desktopManager.plasma6.enable = true;
-    };
+    services.desktopManager.plasma6.enable = true;
 
     environment.systemPackages = [ pkgs.kdePackages.ksystemlog ];
   };

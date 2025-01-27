@@ -2,10 +2,13 @@
   imports = [ ./hardware-configuration.nix ];
   
   gravelOS = {
-    user.createSWJ = true;
     display.enable = true;
+    login.enable = true;
     audio.enable = true;
+
     kde.plasma.enable = true;
+
+    user.createSWJ = true;
 
     ssh = { enable = true; secure = true; };
     git = { enable = true; enableConfig = true; };

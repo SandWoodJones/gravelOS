@@ -23,6 +23,7 @@ in {
         options = [ "--cmd cd" ];
       };
 
+      # TODO: maybe replace with pay respects
       thefuck.enable = true;
       tealdeer.enable = true;
     };

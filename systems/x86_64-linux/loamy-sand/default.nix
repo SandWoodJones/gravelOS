@@ -1,3 +1,5 @@
+# TODO: find out how to fix the system from crashing after suspend
+
 { pkgs, ... }: {
   imports = [ ./hardware-configuration.nix ];
   

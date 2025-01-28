@@ -1,3 +1,5 @@
+# TODO: add and configure plymouth https://github.com/mxxntype/Aeon-snowfall/blob/main/modules/nixos/boot/default.nix
+
 { lib, config, ... }:
 let
   cfg = config.gravelOS.boot;

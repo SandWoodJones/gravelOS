@@ -1,3 +1,5 @@
+# TODO: further configure `mpv`
+
 { pkgs, lib, config, ... }:
 let
   cfg = config.gravelOS.mpv;

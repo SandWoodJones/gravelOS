@@ -1,3 +1,4 @@
+# TODO: move away from SDDM and into greetd
 { lib, config, ... }:
 let
   cfg = config.gravelOS.login;

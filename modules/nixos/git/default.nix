@@ -27,6 +27,7 @@ in {
         diff.algorithm = "histogram";
         branch.sort = "-committerdate";
 
+        # TODO: configure delta
         core.pager = "${pkgs.delta}/bin/delta";
         interactive.diffFilter = "${pkgs.delta}/bin/delta --color-only";
         delta.navigate = true;

@@ -1,4 +1,4 @@
-# TODO: look into fuzzel, wofi, bemenu, tofi
+# TODO: look into fuzzel, wofi, bemenu, tofi. Maybe just use fuzzel with kando
 # TODO: install a screenshot utility
 
 { pkgs, lib, config, inputs, osConfig, ... }:

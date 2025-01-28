@@ -11,6 +11,7 @@ in {
   config = lib.mkIf cfg.enable {
     hardware.graphics.enable32Bit = true;
 
+    # TODO: look into millenium
     programs.steam = lib.mkIf cfg.steam.enable {      
       enable = true;
       localNetworkGameTransfers.openFirewall = true;
@@ -18,6 +19,7 @@ in {
       remotePlay.openFirewall = cfg.dedicated;
     };
 
+    # TODO: figure out gpu configuration
     programs.gamemode = lib.mkIf cfg.dedicated {
       enable = true;
       settings = {

@@ -1,5 +1,6 @@
 bindkey "''${key[Up]}" up-line-or-search # https://wiki.nixos.org/wiki/Zsh#Zsh-autocomplete_not_working
 
+# TODO: edit function to use xcp
 cp() {
 	if [[ $# -eq 1 ]]; then
 		if [[ ! -f "$1" ]]; then

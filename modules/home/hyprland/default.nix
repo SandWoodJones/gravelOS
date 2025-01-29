@@ -1,10 +1,11 @@
-# TODO: look into fuzzel, wofi, bemenu, tofi. Maybe just use fuzzel with kando
 # TODO: install a screenshot utility
+# TODO: configure hyprland, customize it, rice it, add plugins, etc
 
 { pkgs, lib, config, inputs, osConfig, ... }:
 let
   cfg = config.gravelOS.hyprland;
   pkg = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system};
+
 in {
   options.gravelOS.hyprland.enable = lib.mkEnableOption "Hyprland";
 
@@ -12,6 +13,16 @@ in {
 
   config = lib.mkIf cfg.enable {
     assertions = [{ assertion = osConfig.gravelOS.hyprland.enable; message = "you must also enable the system Hyprland module"; }];
+
+    # TODO: make a wezterm submodule instead of kitty
+    home.packages = [ pkgs.kitty ];
+
+    # TODO: start using eww instead
+    # TODO: move configuration into nix
+    programs.waybar = {
+      enable = true;
+      systemd = { enable = true; target = "wayland-session@Hyprland.target"; };
+    };
 
     # TODO: check out hypr-nix https://github.com/hyprland-community/hyprnix
     wayland.windowManager.hyprland = {
@@ -23,23 +34,13 @@ in {
       extraConfig = builtins.readFile ./hyprland.conf;
     };
 
-    # TODO: make a wezterm submodule
-    home.packages = [ pkgs.kitty ];
-
-    # TODO: configure hyprland, customize it, rice it, add plugins, etc
+    # TODO: move to a binds.nix module
     wayland.windowManager.hyprland.settings = {
       "$mod" = "SUPER";
 
       input.kb_layout = osConfig.services.xserver.xkb.layout;
-      
-      bind = [
-        "CTRL+ALT, q, exec, uwsm stop"
-        "$mod+SHIFT, r, execr, hyprctl reload"
-        "ALT, F4, killactive,"
 
-        "$mod, Return, exec, uwsm app -- kitty.desktop"
-        "$mod, apostrophe, exec, uwsm app -- $launcher"
-      ];
+      bind = import ./binds.nix;
     };
   };
 }

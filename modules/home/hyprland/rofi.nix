@@ -1,3 +1,5 @@
+# TODO: look into fuzzel, wofi, bemenu, tofi. Maybe just use fuzzel with kando
+# 
 { pkgs, lib, config, ... }:
 let
   cfg = config.gravelOS.hyprland.rofi;

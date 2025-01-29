@@ -31,6 +31,12 @@ in {
           order = [ "YouTube" "Nix Packages" "NixOS Options" "Home Manager Options" "Noogle" ];
           engines = import ./engines.nix { inherit pkgs; };
         };
+
+        settings = {          
+          "apz.overscroll.enabled" = false;
+          "font.name.sans-serif.x-western" = "NotoSans Nerd Font";
+          "font.name.serif.x-western" = "NotoSerif Nerd Font";
+        };
       };
     }; 
   };

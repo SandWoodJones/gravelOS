@@ -21,3 +21,7 @@
   border-color: #ff2800 !important;
   background-color: #1a1100 !important;
 }
+
+#nav-bar, .tab-label {
+  font-family: NotoSans Nerd Font !important;
+}

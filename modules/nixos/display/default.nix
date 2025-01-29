@@ -14,11 +14,15 @@ in {
   config = lib.mkIf cfg.enable {
     services.xserver.enable = true;
 
-    fonts.packages = with pkgs; [
-      noto-fonts noto-fonts-cjk-sans noto-fonts-emoji
-      liberation_ttf
-    ];
-
+    # TODO: move to stylix
+    fonts = {
+      fontconfig.useEmbeddedBitmaps = true;
+      enableDefaultPackages = true;
+      packages = with pkgs; [
+        font-awesome nerd-fonts.symbols-only nerd-fonts.noto
+      ];
+    };
+    
     environment.systemPackages = with pkgs; [
       xclip
       wl-clipboard

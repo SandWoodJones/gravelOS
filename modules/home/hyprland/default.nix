@@ -14,8 +14,30 @@ in {
   config = lib.mkIf cfg.enable {
     assertions = [{ assertion = osConfig.gravelOS.hyprland.enable; message = "you must also enable the system Hyprland module"; }];
 
-    # TODO: make a wezterm submodule instead of kitty
-    home.packages = [ pkgs.kitty ];
+    home.packages = with pkgs; [
+      hyprpolkitagent
+    
+      kitty # TODO: make a wezterm submodule instead of kitty
+    ];
+
+    # TODO: make a hyprpolkitagent module
+    systemd.user.services.hyprpolkitagent = {
+      Unit = {
+        Description = "Hyprland Polkit Authentication Agent";
+        PartOf = [ "wayland-session@Hyprland.target" ];
+        After = [ "wayland-session@Hyprland.target" ];
+        ConditionEnvironment = "WAYLAND_DISPLAY";
+      };
+
+      Service = {
+        ExecStart = "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent";
+        Slice = "session.slice";
+        TimeoutStopSec = "5sec";
+        Restart = "on-failure";
+      };
+
+      Install = { WantedBy = [ "wayland-session@Hyprland.target" ]; };
+    };
 
     # TODO: start using eww instead
     # TODO: move configuration into nix

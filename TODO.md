@@ -44,3 +44,4 @@
 - look into schedulers, BORE and services.scx
 - look into https://github.com/etu/nixconfig and needsreboot
 - spread TODO around repo and delete TODO file
+- https://darkone-linux.github.io/

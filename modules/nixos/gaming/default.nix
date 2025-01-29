@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ pkgs, lib, config, ... }:
 let
   cfg = config.gravelOS.gaming;
 in {
@@ -14,6 +14,7 @@ in {
     # TODO: look into millenium
     programs.steam = lib.mkIf cfg.steam.enable {      
       enable = true;
+      package = pkgs.gravelOS.steam-silent;
       localNetworkGameTransfers.openFirewall = true;
       protontricks.enable = cfg.dedicated;
       remotePlay.openFirewall = cfg.dedicated;

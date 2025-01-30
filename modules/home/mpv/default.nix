@@ -36,7 +36,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    xdg.mimeApps.defaultApplications = lib.mkIf config.gravelOS.xdg.enable { "video/*" = [ "mpv.desktop" ]; };
+    xdg.mimeApps.defaultApplications = lib.mkIf config.gravelOS.xdg.enable { "video/mp4" = [ "mpv.desktop" ]; };
   
     programs.mpv = lib.mkMerge [
       { enable = true; }

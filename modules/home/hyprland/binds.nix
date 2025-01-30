@@ -10,7 +10,7 @@ in [
   "$mod+SHIFT, r, execr, hyprctl reload"
   "ALT, F4, killactive,"
 
-  "$mod, Return, exec, uwsm app -- kitty.desktop"
+  "$mod, Return, exec, uwsm app -- $terminal"
   "$mod, apostrophe, exec, uwsm app -- $launcher"
 
   "$mod, 0, workspace, 10"

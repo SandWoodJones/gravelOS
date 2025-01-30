@@ -14,13 +14,9 @@ in {
   config = lib.mkIf cfg.enable {
     assertions = [{ assertion = osConfig.gravelOS.hyprland.enable; message = "you must also enable the system Hyprland module"; }];
 
-    home.packages = with pkgs; [
-      hyprpolkitagent
-    
-      kitty # TODO: make a wezterm submodule instead of kitty
-    ];
+    home.packages = [ pkgs.hyprpolkitagent ];
 
-    # TODO: make a hyprpolkitagent module
+    # TODO: make a hyprpolkitagent module, maybe make a PR to home manager
     systemd.user.services.hyprpolkitagent = {
       Unit = {
         Description = "Hyprland Polkit Authentication Agent";

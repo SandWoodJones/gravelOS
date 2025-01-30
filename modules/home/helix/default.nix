@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ lib, config, ... }:
 let
   cfg = config.gravelOS.helix;
 in {
@@ -19,8 +19,6 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = [ pkgs.nil ]; # nix lsp
-
     # TODO: further configure helix
     programs.helix = {
       enable = true;

@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ pkgs, lib, config, ... }:
 let
   cfg = config.gravelOS.cli;
 in {
@@ -16,6 +16,8 @@ in {
       sus = "systemctl --user";
       rm = "printf \"\\e[31mCommand not executed\\e[0m\\n\""; # Disable rm in favor of using trashy
     };
+
+    home.packages = [ pkgs.nil ]; # nix lsp
   
     programs = {
       zoxide = {

@@ -1,10 +1,21 @@
 { pkgs, ... }: {
   gravelOS = {
-    networking.bluetooth.mediaControls = true;
-    desktop = {
-      blender.enable = true;
-      gaming.openMW.enable = true;
+    xdg = { enable = true; remakeDirs = true; };
+    ssh.enable = true;
+
+    zsh = { enable = true; enableConfig = true; };
+    cli.configEnable = true;
+    git = { enable = true; enableConfig = true; };
+
+    wezterm = { enable = true; enableConfig = true; };
+    helix = {
+      enable = true;
+      enableConfig = true;
+      defaultEditor = true;
     };
+
+    firefox = { enable = true; enableConfig = true; };
+    mpv = { enable = true; enableConfig = true; };
   };
 
   home.packages = with pkgs; [
@@ -20,6 +31,6 @@
       qbittorrent-enhanced
       gravelOS.pico8
     ];
- 
+
   home.stateVersion = "24.05";
 }

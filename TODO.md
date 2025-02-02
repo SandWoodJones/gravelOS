@@ -42,6 +42,6 @@
 - flashpoint
 - add alias for nix-store --query --requisites /run/current-system | grep ...
 - look into schedulers, BORE and services.scx
-- look into https://github.com/etu/nixconfig and needsreboot
+- look into https://github.com/etu/nixconfig
 - spread TODO around repo and delete TODO file
 - https://darkone-linux.github.io/

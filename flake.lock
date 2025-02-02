@@ -543,6 +543,26 @@
         "type": "github"
       }
     },
+    "nixos-needsreboot": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1715010630,
+        "narHash": "sha256-zOMZDSAd3w1Dd5Jcs3nYae7aNomb3qfMJmCQl2ucZok=",
+        "owner": "thefossguy",
+        "repo": "nixos-needsreboot",
+        "rev": "8a3f64cc3c246cc6311485ad96ee9db0989c1377",
+        "type": "github"
+      },
+      "original": {
+        "owner": "thefossguy",
+        "repo": "nixos-needsreboot",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1737632463,
@@ -625,6 +645,7 @@
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "nix-index-database": "nix-index-database",
+        "nixos-needsreboot": "nixos-needsreboot",
         "nixpkgs": "nixpkgs_2",
         "openmw-nix": "openmw-nix",
         "snowfall-lib": "snowfall-lib_2"

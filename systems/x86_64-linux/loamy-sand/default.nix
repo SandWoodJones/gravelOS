@@ -15,6 +15,7 @@
 
     ssh = { enable = true; secure = true; };
     git = { enable = true; enableConfig = true; };
+    avahi.enable = true;
   
     bluetooth.enable = true;
     networking = {

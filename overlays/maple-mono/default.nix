@@ -1,4 +1,6 @@
+# TODO: finish this overlay
 # TODO: submit pull request to nixpkgs
+
 { ... }: _: prev: {
   maple-mono = prev.maple-mono.overrideAttrs (oldAttrs: {
     version = "7.0b36";

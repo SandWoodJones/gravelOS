@@ -1,3 +1,5 @@
+# TODO: change to standard nixpkgs format
+
 { stdenv, pkgs, lib, SDL2, ... }: stdenv.mkDerivation rec {
   pname = "pico8";
   version = "0.2.6b";

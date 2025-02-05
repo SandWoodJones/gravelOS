@@ -1,3 +1,6 @@
+# TODO: make a way to install dolphin on kde-less systems.
+# TODO: https://wiki.archlinux.org/title/Dolphin#File_previews
+
 { pkgs, lib, config, ... }:
 let
   cfg = config.gravelOS.kde;

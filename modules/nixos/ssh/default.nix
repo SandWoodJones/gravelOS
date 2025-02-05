@@ -1,3 +1,5 @@
+# TODO: use secrets to have fixed ssh keys for hosts
+
 { lib, config, ... }:
 let
   cfg = config.gravelOS.ssh;

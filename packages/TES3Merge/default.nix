@@ -1,3 +1,5 @@
+# TODO: change to standard nixpkgs format
+
 { buildDotnetModule, fetchFromGitHub, ... }: buildDotnetModule rec {
   pname = "TES3Merge";
   version = "0.11";

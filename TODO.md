@@ -45,3 +45,5 @@
 - look into https://github.com/etu/nixconfig
 - spread TODO around repo and delete TODO file
 - https://darkone-linux.github.io/
+- https://git.atagen.co/atagen/ides
+- https://github.com/poly2it/kein

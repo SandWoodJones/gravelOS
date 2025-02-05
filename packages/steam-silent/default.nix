@@ -1,3 +1,5 @@
+# TODO: change to standard nixpkgs format
+
 { runCommand, makeBinaryWrapper, buildEnv, steam, ... }:
 let
   wrapper = runCommand "steam-silent-wrapper" { nativeBuildInputs = [ makeBinaryWrapper ]; }

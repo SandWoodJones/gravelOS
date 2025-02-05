@@ -39,8 +39,7 @@ in {
         fzf
         eza
         ov
-        p7zip
-        unrar
+        p7zip unrar unzip
       ];
 
       shellAliases = {

@@ -10,7 +10,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    services.avahi = lib.mkIf cfg.enable {
+    services.avahi = {
       enable = true;
       nssmdns4 = true;
       publish = {

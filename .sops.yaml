@@ -1,0 +1,10 @@
+keys:
+  - &swj age1d4622daqjqrnuqexwfmemf28ux7hqmd0k7epehq55y83cswmjduq737ujz
+  - &hosts:
+    - &clay age1v9g8gt0d796al9ncqzluw7en090h32gtt8xtske6340fkaeg4vxssar5zp
+creation_rules:
+  - path_regex: secrets.yaml$
+    key_groups:
+      - age:
+          - *swj
+          - *clay

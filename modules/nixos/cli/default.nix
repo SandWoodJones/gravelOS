@@ -40,6 +40,7 @@ in {
         eza
         ov
         p7zip unrar unzip
+        sops age ssh-to-age
       ];
 
       shellAliases = {

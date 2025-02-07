@@ -8,17 +8,17 @@
 
     kde.plasma.enable = true;
 
-    user.createSWJ = true;
-
-    ssh = { enable = true; secure = true; };
-    git = { enable = true; enableConfig = true; };
-    avahi.enable = true;
+    user = { createSWJ = true; managePasswords = true; };
   
     bluetooth.enable = true;
     networking = {
       wifi.enable = true;
       ports.spotify = true;
     };
+
+    ssh = { enable = true; secure = true; };
+    git = { enable = true; enableConfig = true; };
+    avahi.enable = true;
 
     nh = { enable = true; clean.enable = true; };
     cli = {

@@ -1,11 +1,9 @@
 # TODO: install a screenshot utility
 # TODO: configure hyprland, customize it, rice it, add plugins, etc
 
-{ pkgs, lib, config, inputs, osConfig, ... }:
+{ pkgs, lib, config, osConfig, ... }:
 let
   cfg = config.gravelOS.hyprland;
-  pkg = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system};
-
 in {
   options.gravelOS.hyprland.enable = lib.mkEnableOption "Hyprland";
 
@@ -14,9 +12,15 @@ in {
   config = lib.mkIf cfg.enable {
     assertions = [{ assertion = osConfig.gravelOS.hyprland.enable; message = "you must also enable the system Hyprland module"; }];
 
-    home.packages = [ pkgs.hyprpolkitagent ];
+    # TODO: start using eww instead
+    # TODO: move configuration into nix
+    programs.waybar = {
+      enable = true;
+      systemd = { enable = true; target = "wayland-session@Hyprland.target"; };
+    };
 
     # TODO: make a hyprpolkitagent module, maybe make a PR to home manager
+    home.packages = [ pkgs.hyprpolkitagent ];
     systemd.user.services.hyprpolkitagent = {
       Unit = {
         Description = "Hyprland Polkit Authentication Agent";
@@ -35,17 +39,9 @@ in {
       Install = { WantedBy = [ "wayland-session@Hyprland.target" ]; };
     };
 
-    # TODO: start using eww instead
-    # TODO: move configuration into nix
-    programs.waybar = {
-      enable = true;
-      systemd = { enable = true; target = "wayland-session@Hyprland.target"; };
-    };
-
     # TODO: check out hypr-nix https://github.com/hyprland-community/hyprnix
     wayland.windowManager.hyprland = {
       enable = true;
-      package = pkg.hyprland;
       systemd.enable = false;
 
       # TODO: move extra config to hyprland.settings and delete hyprland.conf

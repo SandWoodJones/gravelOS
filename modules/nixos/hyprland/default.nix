@@ -1,7 +1,6 @@
-{ pkgs, lib, config, inputs, ... }:
+{ lib, config, ... }:
 let
   cfg = config.gravelOS.hyprland;
-  pkg = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system};
 in {
   options.gravelOS.hyprland.enable = lib.mkEnableOption "Hyprland";
 
@@ -10,8 +9,6 @@ in {
 
     programs.hyprland = {
       enable = true;
-      package = pkg.hyprland;
-      portalPackage = pkg.xdg-desktop-portal-hyprland;
       withUWSM = true;
     };
 

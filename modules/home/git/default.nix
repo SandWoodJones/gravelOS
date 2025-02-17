@@ -13,21 +13,26 @@ in {
   };
   
   config = lib.mkIf cfg.enable {
-    programs.git = {
-      enable = true;
-      extraConfig = lib.mkIf cfg.enableConfig (lib.mkMerge [
-        { user.name = "SandWood Jones"; user.email = "sandwoodjones@outlook.com"; }
-        (lib.mkIf osConfig.gravelOS.ssh.enable {
-          user.signingKey = "${config.home.homeDirectory}/.ssh/id_swj";
-          gpg.format = "ssh";
-          commit.gpgSign = true;
-        })
-      ]);
-    };
+    programs = {
+      git = {
+        enable = true;
+        extraConfig = lib.mkIf cfg.enableConfig (lib.mkMerge [
+          { user.name = "SandWood Jones"; user.email = "sandwoodjones@outlook.com"; }
+          (lib.mkIf osConfig.gravelOS.ssh.enable {
+            user.signingKey = "${config.home.homeDirectory}/.ssh/id_swj";
+            gpg.format = "ssh";
+            commit.gpgSign = true;
+          })
+        ]);
+      };
 
-    programs.gitui = {
-      enable = true;
-      keyConfig = builtins.readFile(./gitui_vim.ron);
+      # TODO: look into gh settings and extensions
+      gh.enable = true;
+
+      gitui = {
+        enable = true;
+        keyConfig = builtins.readFile(./gitui_vim.ron);
+      };
     };
   };
 }

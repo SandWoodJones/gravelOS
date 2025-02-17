@@ -41,7 +41,6 @@ in {
           dfs = "diff --staged";
         };
 
-        url."git@github.com:".insteadOf = lib.mkIf (!config.gravelOS.networking.wifi.enable) [ "https://github.com/" ];
         credential."https://github.com".helper = "!${pkgs.gh}/bin/gh auth git-credential";
         credential."https://gist.github.com".helper = "!${pkgs.gh}/bin/gh auth git-credential";
       };

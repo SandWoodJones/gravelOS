@@ -7,7 +7,7 @@ let
 in {
   options.gravelOS.hyprland.enable = lib.mkEnableOption "Hyprland";
 
-  imports = [ ./rofi.nix ];
+  imports = [ ./binds.nix ./rofi.nix ];
 
   config = lib.mkIf cfg.enable {
     assertions = [{ assertion = osConfig.gravelOS.hyprland.enable; message = "you must also enable the system Hyprland module"; }];
@@ -48,13 +48,12 @@ in {
       extraConfig = builtins.readFile ./hyprland.conf;
     };
 
-    # TODO: move to a binds.nix module
     wayland.windowManager.hyprland.settings = {
       "$mod" = "SUPER";
 
       input.kb_layout = osConfig.services.xserver.xkb.layout;
 
-      bind = import ./binds.nix;
+      dwindle.preserve_split = true;
     };
   };
 }

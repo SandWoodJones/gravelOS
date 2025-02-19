@@ -13,12 +13,14 @@ in {
   };
 
   config = {
-    networking.useDHCP = lib.mkDefault true;
-    networking.networkmanager.enable = cfg.wifi.enable;
+    networking = {
+      useDHCP = lib.mkDefault true;
+      networkmanager.enable = cfg.wifi.enable;
     
-    networking.firewall = lib.mkIf cfg.ports.spotify {
-      allowedTCPPorts = [ 57621 ];
-      allowedUDPPorts = [ 5353 ];
+      firewall = lib.mkIf cfg.ports.spotify {
+        allowedTCPPorts = [ 57621 ];
+        allowedUDPPorts = [ 5353 ];
+      };
     };
   };
 }

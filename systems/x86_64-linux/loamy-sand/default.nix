@@ -1,5 +1,3 @@
-# TODO: find out how to fix the system from crashing after suspend
-
 { pkgs, ... }: {
   imports = [ ./hardware-configuration.nix ];
   
@@ -40,6 +38,13 @@
   };
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
+
+  # TODO: find out how to fix the system from crashing after suspend
+  systemd.sleep.extraConfig = ''
+    AllowSuspend=no
+    AllowHibernate=yes
+    AllowHybridSleep=no
+  '';
 
   # DO NOT CHANGE
   system.stateVersion = "24.11";

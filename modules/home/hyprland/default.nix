@@ -10,7 +10,11 @@ in {
     nm-applet.enable = lib.mkEnableOption "nm-applet";
   };
 
-  imports = [ ./binds.nix ./rofi.nix ];
+  imports = [
+    ./binds.nix
+    ./services.nix
+    ./rofi.nix
+  ];
 
   config = lib.mkIf cfg.enable {
     assertions = [{ assertion = osConfig.gravelOS.hyprland.enable; message = "you must also enable the system Hyprland module"; }];
@@ -22,26 +26,6 @@ in {
     programs.waybar = {
       enable = true;
       systemd = { enable = true; target = "wayland-session@Hyprland.target"; };
-    };
-
-    # TODO: make a hyprpolkitagent module, maybe make a PR to home manager
-    home.packages = [ pkgs.hyprpolkitagent ];
-    systemd.user.services.hyprpolkitagent = {
-      Unit = {
-        Description = "Hyprland Polkit Authentication Agent";
-        PartOf = [ "wayland-session@Hyprland.target" ];
-        After = [ "wayland-session@Hyprland.target" ];
-        ConditionEnvironment = "WAYLAND_DISPLAY";
-      };
-
-      Service = {
-        ExecStart = "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent";
-        Slice = "session.slice";
-        TimeoutStopSec = "5sec";
-        Restart = "on-failure";
-      };
-
-      Install = { WantedBy = [ "wayland-session@Hyprland.target" ]; };
     };
 
     # TODO: check out hypr-nix https://github.com/hyprland-community/hyprnix

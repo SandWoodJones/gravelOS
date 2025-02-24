@@ -9,7 +9,7 @@
     kde.plasma.enable = true;
     hyprland.enable = true;
 
-    user.createSWJ = true;
+    user = { createSWJ = true; managePasswords = true; };
 
     ssh = { enable = true; secure = true; };
     git = { enable = true; enableConfig = true; };

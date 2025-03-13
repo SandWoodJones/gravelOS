@@ -14,6 +14,7 @@
 - Configure
 	- `ov` with `less` keybindings. https://noborus.github.io/ov/index.html
 	- `stylix`
+		- https://github.com/Misterio77/nix-colors
 		- GTK themes, window border styles, mouse cursors, etc
 			- make a fotonight web theme
 	- Dualshock 4 controller
@@ -47,3 +48,4 @@
 - https://darkone-linux.github.io/
 - https://git.atagen.co/atagen/ides
 - https://github.com/poly2it/kein
+- https://github.com/fufexan/nix-gaming/tree/master

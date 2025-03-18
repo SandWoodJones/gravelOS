@@ -25,12 +25,16 @@ in {
       defaultEditor = cfg.defaultEditor;
     
       settings = lib.mkIf cfg.enableConfig {
-        editor.cursor-shape.insert = "bar";
-        editor.auto-format = false;
-        editor.bufferline = "multiple";
+        editor = {
+          cursor-shape.insert = "bar";
+          auto-format = false;
+          bufferline = "multiple";
 
-        editor.statusline.center = [ "version-control" ];
-        editor.statusline.right = [ "diagnostics" "file-type" "selections" "register" "position" "file-encoding" ];
+          lsp.auto-signature-help = false;
+
+          statusline.center = [ "version-control" ];
+          statusline.right = [ "diagnostics" "file-type" "selections" "register" "position" "file-encoding" ];
+        };
 
         # TODO: edit the monokai theme to fit more to my liking
         theme = "monokai";
@@ -39,6 +43,8 @@ in {
           normal = {
             tab = "move_parent_node_end";
             S-tab = "move_parent_node_start";
+
+            C-x = ":toggle lsp.auto-signature-help";
           };
 
           insert = {

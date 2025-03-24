@@ -1,4 +1,20 @@
 { pkgs }: {
+  "YouTube" = {
+    definedAliases = [ "@yt" ];
+    urls = [{
+      template = "https://www.youtube.com/results";
+      params = [
+        { name = "search_query"; value = "{searchTerms}"; }
+      ];
+    }];
+
+    icon = pkgs.fetchurl {
+      url = "https://upload.wikimedia.org/wikipedia/commons/f/fd/YouTube_full-color_icon_%282024%29.svg";
+      name = "youtube-icon.svg";
+      hash = "sha256-8igmt9medFu9pU3EIcLC8IY3OyAMXn97QExNecPfaOI=";
+    };
+  };
+
   "Nix Packages" = {
     definedAliases = [ "@np" ];
     urls = [{
@@ -54,20 +70,24 @@
     icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
   };
 
-  "YouTube" = {
-    definedAliases = [ "@yt" ];
+  "Crates.io" = {
+    definedAliases = [ "@cio" ];
     urls = [{
-      template = "https://www.youtube.com/results";
+      template = "https://crates.io/search";
       params = [
-        { name = "search_query"; value = "{searchTerms}"; }
+        { name = "q"; value = "{searchTerms}"; }
       ];
     }];
+  };
 
-    icon = pkgs.fetchurl {
-      url = "https://upload.wikimedia.org/wikipedia/commons/f/fd/YouTube_full-color_icon_%282024%29.svg";
-      name = "youtube-icon.svg";
-      hash = "sha256-8igmt9medFu9pU3EIcLC8IY3OyAMXn97QExNecPfaOI=";
-    };
+  "OSRS Wiki" = {
+    definedAliases = [ "@rsw" ];
+    urls = [{
+      template = "https://oldschool.runescape.wiki";
+      params = [
+        { name = "search"; value = "{searchTerms}"; }
+      ];
+    }];
   };
 
   "Bing".metaData.hidden = true;

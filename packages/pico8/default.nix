@@ -19,6 +19,7 @@
       exec = "pico8 %f";
       icon = "pico8";
       mimeTypes = ["application/x-pico8-cart"];
+      categories = [ "Game" ];
     })
   ];
 

@@ -1,5 +1,5 @@
 { pkgs }: {
-  "YouTube" = {
+  youtube = {
     definedAliases = [ "@yt" ];
     urls = [{
       template = "https://www.youtube.com/results";
@@ -90,7 +90,7 @@
     }];
   };
 
-  "Bing".metaData.hidden = true;
-  "DuckDuckGo".metaData.hidden = true;
-  "Wikipedia (en)".metaData.hidden = true;
+  bing.metaData.hidden = true;
+  ddg.metaData.hidden = true;
+  wikipedia.metaData.hidden = true;
 }

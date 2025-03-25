@@ -36,6 +36,6 @@ in {
     "media.videocontrols.picture-in-picture.video-toggle.has-used" = mkLockedValue true;
     "media.videocontrols.picture-in-picture.urlbar-button.enabled" = mkLockedValue false;
     "toolkit.legacyUserProfileCustomizations.stylesheets" = mkLockedValue true;
-    "reader.parse-on-load" = mkLockedValue false;
+    "browser.startup.page" = mkLockedValue 3;
   };
 }

@@ -26,9 +26,9 @@ in {
 
         search = {
           force = true;
-          default = "Google";
+          default = "google";
 
-          order = [ "YouTube" "Nix Packages" "NixOS Options" "Home Manager Options" "Noogle" "Crates.io" "OSRS Wiki" ];
+          order = [ "youtube" "Nix Packages" "NixOS Options" "Home Manager Options" "Noogle" "Crates.io" "OSRS Wiki" ];
           engines = import ./engines.nix { inherit pkgs; };
         };
 
@@ -36,6 +36,7 @@ in {
           "apz.overscroll.enabled" = false;
           "font.name.sans-serif.x-western" = "NotoSans Nerd Font";
           "font.name.serif.x-western" = "NotoSerif Nerd Font";
+          "reader.parse-on-load.enabled" = false;
         };
       };
     }; 

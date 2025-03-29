@@ -24,13 +24,7 @@ in {
         containersForce = true;
         userChrome = builtins.readFile ./userChrome.css;
 
-        search = {
-          force = true;
-          default = "google";
-
-          order = [ "youtube" "Nix Packages" "NixOS Options" "Home Manager Options" "Noogle" "Crates.io" "OSRS Wiki" ];
-          engines = import ./engines.nix { inherit pkgs; };
-        };
+        search = import ./search.nix { inherit pkgs; };
 
         settings = {          
           "apz.overscroll.enabled" = false;

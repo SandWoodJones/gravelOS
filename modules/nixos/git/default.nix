@@ -13,7 +13,11 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = [ pkgs.gh ];
+    environment.systemPackages = with pkgs; [
+      gh
+      meld # TODO: maybe just use helix when https://github.com/helix-editor/helix/issues/5132 is fixed
+    ];
+
     programs.git = {
       enable = true;
 

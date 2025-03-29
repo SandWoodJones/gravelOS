@@ -20,7 +20,6 @@
 
   home.packages = with pkgs; [
       stremio
-      # gravelOS.stremio-black-icon
       spotify
       telegram-desktop
       vesktop
@@ -30,6 +29,11 @@
       gimp
       qbittorrent-enhanced
       gravelOS.pico8
+      godot_4
+      aseprite
+      heroic
+      bolt-launcher
+      gravelOS.quadrilateralcowboy
     ];
 
   home.stateVersion = "24.05";

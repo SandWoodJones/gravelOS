@@ -15,7 +15,6 @@ in {
     home.shellAliases = {
       sus = "systemctl --user";
       rm = "printf \"\\e[31mCommand not executed\\e[0m\\n\""; # Disable rm in favor of using trashy
-      nrb = "nh os switch -a";
     };
 
     home.packages = [ pkgs.nil ]; # nix lsp

@@ -7,8 +7,6 @@
 	- A terminal file manager (`xplr`, `nnn` `ranger`). `zoxide` has some plugins for those
 	- `xcp`
 	- `thunderbird`
-	- `wezterm`
-		- [ ] Remove `konsole`
 	- `zen` browser or `floorp` or `ladybird` when it comes out
 	- `delta` as a diff substitute
 - Configure
@@ -33,7 +31,6 @@
 	- `gitui`
 - Make a script running on the first open interactive shell every login with MOTD stuff such as `cowsay`, `fortune` or https://tealdeer-rs.github.io/tealdeer/tips_and_tricks.html#showing-a-random-page-on-shell-start
 - Look further into Lix, Tvix and Ekala
-- Reintroduce `sops` and get a yuubikey
 - Look into `VNC` or `RDP` screen sharing
 - Do something with `systemctl reboot --boot-loader-entry=auto-windows`
 - An RSS or atom feed?

@@ -19,6 +19,15 @@ in {
     hardware.brillo.enable = true;
     services.playerctld.enable = true;
 
+    # TODO:
+    # environment.sessionVariables = {
+    #   GDK_BACKEND="wayland";
+    #   QT_QPA_PLATFORM="wayland";
+    #   MOZ_ENABLE_WAYLAND = "1";
+    #   BROWSER = "firefox";
+    #   NIXOS_OZONE_WL = "1";
+    #   ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+    # };
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
   };
 }

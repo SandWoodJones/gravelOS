@@ -1,6 +1,8 @@
-{ lib, config, ... }:
+{ pkgs, lib, config, ... }:
 let
   cfg = config.gravelOS.xdg;
+
+  hasPkg = pkgName: builtins.any (pkg: (lib.getName pkg) == pkgName) config.home.packages;
 in {
   options.gravelOS.xdg = {
     enable = lib.mkOption {
@@ -20,8 +22,6 @@ in {
   config = lib.mkIf cfg.enable {
     xdg = {
       enable = true;
-      mimeApps.enable = true;
-      
       userDirs = lib.mkIf cfg.remakeDirs {
         enable = true;
         createDirectories = true;
@@ -33,6 +33,28 @@ in {
         publicShare = null;
         templates = null;
         videos = "${config.home.homeDirectory}/media/videos";
+      };
+
+      mimeApps = {
+        enable = true;
+
+        defaultApplications = lib.mkMerge [
+          (lib.mkIf (hasPkg "telegram-desktop") {
+            "x-scheme-handler/tg" = [ "org.telegram.desktop.desktop" ];
+            "x-scheme-handler/tonsite" = [ "org.telegram.desktop.desktop" ];
+          })
+
+          (lib.mkIf (hasPkg "vesktop") {
+            "x-scheme-handler/discord" = [ "vesktop.desktop" ];
+          })
+        ];
+
+        associations.added = lib.mkMerge [
+          (lib.mkIf (hasPkg "telegram-desktop") {
+            "x-scheme-handler/tg" = [ "org.telegram.desktop.desktop" ];
+            "x-scheme-handler/tonsite" = [ "org.telegram.desktop.desktop" ];
+          })
+        ];
       };
     };
   };

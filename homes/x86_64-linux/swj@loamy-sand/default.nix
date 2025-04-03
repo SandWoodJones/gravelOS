@@ -2,6 +2,7 @@
   gravelOS = {
     hyprland = {
       enable = true;
+      smartgaps = true;
       nm-applet.enable = true;
       rofi.enable = true;
     };

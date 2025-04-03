@@ -7,11 +7,19 @@ let
 in {
   options.gravelOS.hyprland = {
     enable = lib.mkEnableOption "Hyprland";
+    smartgaps = lib.mkOption {
+      default = false;
+      example = true;
+      description = "Change gap options when the workspace has a single visible window.";
+      type = lib.types.bool;
+    };
     nm-applet.enable = lib.mkEnableOption "nm-applet";
   };
 
   imports = [
+    ./theming.nix
     ./binds.nix
+    ./rules.nix
     ./services.nix
     ./rofi.nix
   ];
@@ -46,9 +54,11 @@ in {
 
       dwindle.preserve_split = true;
 
-      windowrule = [
-        "float, nm-connection-editor"
-      ];
+      general = {
+        gaps_in = cfg.theming.gaps.default_in;
+        gaps_out = cfg.theming.gaps.default_out;
+        border_size = cfg.theming.border.size;
+      };
     };
   };
 }

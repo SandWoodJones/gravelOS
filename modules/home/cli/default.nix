@@ -27,6 +27,7 @@ in {
 
       # TODO: maybe replace with pay respects
       thefuck.enable = true;
+      # TODO: see about configuring
       tealdeer.enable = true;
     };
   };

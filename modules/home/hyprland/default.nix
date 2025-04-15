@@ -17,11 +17,15 @@ in {
   };
 
   imports = [
-    ./theming.nix
     ./binds.nix
     ./rules.nix
+
     ./services.nix
+    ./hypridle.nix
+
     ./rofi.nix
+
+    ./theming.nix
   ];
 
   config = lib.mkIf cfg.enable {
@@ -59,6 +63,11 @@ in {
         gaps_out = cfg.theming.gaps.default_out;
         border_size = cfg.theming.border.size;
       };
+    };
+
+    # TODO: configure hyprlock
+    programs.hyprlock = {
+      enable = true;
     };
   };
 }

@@ -27,7 +27,7 @@ in lib.mkIf cfg.enable {
           Restart = "on-failure";
         };
 
-        Install = { WantedBy = [ "wayland-session@Hyprland.target" ]; };
+        Install.WantedBy = [ "wayland-session@Hyprland.target" ];
       };
 
       hyprland-bitwarden-helper = {
@@ -41,6 +41,8 @@ in lib.mkIf cfg.enable {
           ExecStart = "${bitwardenHelper}/bin/hyprland-bitwarden-helper";
           Restart = "on-failure";
         };
+
+        Install.WantedBy = [ "wayland-session@Hyprland.target" ];
       };     
     };
 }

@@ -56,6 +56,9 @@ in lib.mkIf cfg.enable {
       ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
     ];
     bindl = [
+      '', switch:on:"Lid Switch", exec, hyprctl dispatch dpms on''
+      '', switch:off:"Lid Switch", exec, hyprctl dispatch dpms off''
+    
       ", XF86AudioNext, exec, playerctl next"
       ", XF86AudioPause, exec, playerctl play-pause"
       ", XF86AudioPlay, exec, playerctl play-pause"

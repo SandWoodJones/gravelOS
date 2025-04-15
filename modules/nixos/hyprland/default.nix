@@ -12,6 +12,8 @@ in {
       withUWSM = true;
     };
 
+    security.pam.services.hyprlock = {};
+
     # TODO: replace kwallet with gnome-keyring  
     # services.gnome.gnome-keyring.enable = true;
     # security.pam.services.gdm-password.enableGnomeKeyring = true; #https://discourse.nixos.org/t/login-keyring-did-not-get-unlocked-hyprland/40869/12

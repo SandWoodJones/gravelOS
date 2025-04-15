@@ -5,6 +5,14 @@
       smartgaps = true;
       nm-applet.enable = true;
       rofi.enable = true;
+      hypridle = {
+        enable = true;
+
+        dimming.enable = true;
+        locking = { enable = true; dimming.enable = true; };
+        screenOff.enable = true;
+        hibernation.enable = true;
+      };
     };
   
     xdg = { enable = true; remakeDirs = true; };
@@ -35,6 +43,9 @@
     obsidian
     libreoffice-qt6-fresh hunspell hunspellDicts.pt_BR hunspellDicts.en_US
     gravelOS.pico8
+    heroic
+    bolt-launcher
+    texstudio
   ];
 
   home.stateVersion = "24.11";

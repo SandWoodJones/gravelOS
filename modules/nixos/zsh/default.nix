@@ -32,7 +32,7 @@ in {
 
         setOptions = [
           "AUTO_PUSHD" "PUSHD_IGNORE_DUPS" "PUSHD_SILENT"
-          "PUSHD_TO_HOME" "MULTIOS" "EXTENDED_GLOB" "NO_CLOBBER"
+          "PUSHD_TO_HOME" "MULTIOS" "NO_CLOBBER"
 
           "HIST_IGNORE_DUPS" "HIST_IGNORE_ALL_DUPS"
           "HIST_EXPIRE_DUPS_FIRST" "HIST_FIND_NO_DUPS"
@@ -51,10 +51,6 @@ in {
         syntaxHighlighting = {
           enable = true;
           highlighters = [ "main" "brackets" ];
-        };
-
-        shellAliases = {
-          nix = "noglob nix"; # Disable globbing when running nix commands so that .#~ doesn't fail
         };
       })
     ];

@@ -38,8 +38,8 @@ in lib.mkIf cfg.enable {
 
       "$mod, space, togglefloating,"
 
-      "$mod, Return, exec, uwsm app -- $terminal"
-      "$mod, apostrophe, exec, uwsm app -- $launcher"
+      "$mod, Return, exec, uwsm-app -- $terminal"
+      "$mod, apostrophe, exec, uwsm-app -- $launcher"
 
       "$mod, 0, workspace, 10"
       "$mod+SHIFT, 0, movetoworkspace, 10"

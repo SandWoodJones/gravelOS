@@ -20,10 +20,17 @@ in {
     # TODO: check out hypr-nix https://github.com/hyprland-community/hyprnix
     wayland.windowManager.hyprland = {
       enable = true;
-      systemd.enable = false;
+      systemd = {
+        enable = false;
+        variables = [ "--all" ];
+      };
 
       # TODO: move extra config to hyprland.settings and delete hyprland.conf
       extraConfig = builtins.readFile ./hyprland.conf;
+
+      # Force use packages from system
+      package = null;
+      portalPackage = null;
     };
 
     wayland.windowManager.hyprland.settings = {

@@ -32,8 +32,8 @@ in lib.mkIf cfg.enable {
   # p -> bypasses the app's requests to inhibit keybinds.
   wayland.windowManager.hyprland.settings = {
     bind = [  
-      "CTRL+ALT, q, exec, uwsm stop"
       "$mod+SHIFT, r, execr, hyprctl reload"
+      "$mod, l, execr, uwsm-app -- hyprlock"
       "ALT, F4, killactive,"
 
       "$mod, space, togglefloating,"
@@ -56,6 +56,8 @@ in lib.mkIf cfg.enable {
       ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
     ];
     bindl = [
+      "CTRL+ALT, q, exec, uwsm stop"
+
       '', switch:on:"Lid Switch", exec, hyprctl dispatch dpms on''
       '', switch:off:"Lid Switch", exec, hyprctl dispatch dpms off''
     

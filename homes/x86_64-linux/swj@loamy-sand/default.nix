@@ -2,17 +2,22 @@
   gravelOS = {
     hyprland = {
       enable = true;
-      smartgaps = true;
-      nm-applet.enable = true;
-      rofi.enable = true;
-      hypridle = {
-        enable = true;
+      theming.gaps.smart = true;
+      services = {
+        hyprpolkit.enable = true;
+        nm-applet.enable = true;
+        rofi.enable = true;
 
-        dimming.enable = true;
-        locking = { enable = true; dimming.enable = true; };
-        screenOff.enable = true;
-        hibernation.enable = true;
-      };
+        hypridle = {
+          enable = true;
+          settings = {
+            dimming.enable = true;
+            locking = { enable = true; dimming.enable = true; };
+            screenOff.enable = true;
+            hibernation.enable = true;
+          };
+        };
+      };      
     };
   
     xdg = { enable = true; remakeDirs = true; };

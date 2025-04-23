@@ -5,11 +5,17 @@ let
     name = "firefox-engine-icon-nix-community.svg";
     hash = "sha256-knHbAsCVhSW8Ucc24nhwakLezw2QCRjvi/Plz3QDas4=";
   };
+
+  rust-icon = pkgs.fetchurl {
+    url = "https://raw.githubusercontent.com/rust-lang/rust/d4812c8638173ec163825d56a72a33589483ec4c/src/librustdoc/html/static/images/favicon.svg";
+    name = "firefox-engine-icon-rust.svg";
+    hash = "sha256-BEvjkUSrMEz56g6QFMP0duDFGUxiqlJbNmnK9dtawIg=";
+  };
 in {
   force = true;
   default = "google";
 
-  order = [ "youtube" "Nix Packages" "NixOS Options" "Home Manager Options" "Noogle" "Crates.io" "Letterboxd" "OSRS Wiki" ];
+  order = [ "youtube" "Nix Packages" "NixOS Options" "Home Manager Options" "Noogle" "Rust std" "Crates.io" "Docs.rs" "Letterboxd" "OSRS Wiki" ];
   engines = {
     youtube = {
       definedAliases = [ "@yt" ];
@@ -79,8 +85,18 @@ in {
       icon = nix-community-icon;
     };
 
+    "Rust std" = {
+      definedAliases = [ "@rust" ];
+      urls = [{
+        template = "https://doc.rust-lang.org/stable/std/index.html";
+        params = [{ name = "search"; value = "{searchTerms}"; }];
+      }];
+
+      icon = rust-icon;
+    };
+
     "Crates.io" = {
-      definedAliases = [ "@crate" ];
+      definedAliases = [ "@crate" "@crates" ];
       urls = [{
         template = "https://crates.io/search";
         params = [
@@ -88,11 +104,16 @@ in {
         ];
       }];
 
-      icon = pkgs.fetchurl {
-        url = "https://raw.githubusercontent.com/rust-lang/rust/d4812c8638173ec163825d56a72a33589483ec4c/src/librustdoc/html/static/images/favicon.svg";
-        name = "firefox-engine-icon-rust.svg";
-        hash = "sha256-BEvjkUSrMEz56g6QFMP0duDFGUxiqlJbNmnK9dtawIg=";
-      };
+      icon = rust-icon;
+    };
+
+    "Docs.rs" = {
+      definedAliases = [ "@docrs" "@docsrs" ];
+      urls = [{
+        template = "https://docs.rs/{searchTerms}";
+      }];
+
+      icon = rust-icon;
     };
 
     Letterboxd = {

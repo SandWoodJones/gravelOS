@@ -17,7 +17,7 @@ in {
       rm = "printf \"\\e[31mCommand not executed\\e[0m\\n\""; # Disable rm in favor of using trashy
     };
 
-    home.packages = [ pkgs.nil ]; # nix lsp
+    home.packages = [ pkgs.nixd ];
   
     programs = {
       zoxide = {

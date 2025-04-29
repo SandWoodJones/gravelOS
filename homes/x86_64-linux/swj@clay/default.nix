@@ -34,6 +34,7 @@
       heroic
       bolt-launcher
       gravelOS.quadrilateralcowboy
+      r2modman
     ];
 
   home.stateVersion = "24.05";

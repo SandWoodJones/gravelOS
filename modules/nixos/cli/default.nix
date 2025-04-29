@@ -36,6 +36,8 @@ in {
       nix-index-database.comma.enable = cfg.nix-index.enable;
     };
 
+    services.lorri.enable = true;
+
     security.sudo.extraConfig = lib.mkIf cfg.sudoDefaults "Defaults env_reset,pwfeedback,timestamp_timeout=120,passwd_timeout=0";
  
     environment = {

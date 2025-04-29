@@ -33,5 +33,9 @@
         sops-nix.nixosModules.sops
         nix-index-database.nixosModules.nix-index {}
       ];
+
+      outputs-builder = channels: {
+        formatter = channels.nixpkgs.nixfmt-tree;
+      };
     };
 }

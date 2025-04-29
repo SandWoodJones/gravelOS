@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ pkgs, lib, config, ... }:
 let
   cfg = config.gravelOS.helix;
 in {
@@ -56,6 +56,13 @@ in {
             S-tab = "extend_parent_node_start";
           };
         };
+      };
+
+      languages = {
+        language = [{
+          name = "nix";
+          formatter = { command = (lib.getExe pkgs.nixfmt-rfc-style); };
+        }];
       };
     };
   };

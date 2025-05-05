@@ -1,4 +1,4 @@
-{ ... }: _: prev: {
+_: _: prev: {
   stremio = prev.stremio.overrideAttrs (oldAttrs: {
     postInstall = ''
       ${oldAttrs.postInstall or ""}

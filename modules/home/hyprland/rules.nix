@@ -1,4 +1,4 @@
-{ ... }: {
+_: {
   wayland.windowManager.hyprland.settings = {
     windowrulev2 = [
       "float, class:^(nm-connection-editor)$"

@@ -1,4 +1,4 @@
-{ ... }: final: prev: {
+_: _: prev: {
   trashy = prev.trashy.overrideAttrs (oldAttrs: {
     postInstall = ''
       ${oldAttrs.postInstall}

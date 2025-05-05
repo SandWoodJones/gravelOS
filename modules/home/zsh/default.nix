@@ -20,9 +20,12 @@ in {
         dotDir = ".config/zsh";
         autosuggestion.enable = true;
 
-        historySubstringSearch.enable = true;
-        historySubstringSearch.searchDownKey = "$terminfo[kcud1]";
-        historySubstringSearch.searchUpKey = "$terminfo[kcuu1]";
+        historySubstringSearch = {
+          enable = true;
+          searchDownKey = "$terminfo[kcud1]";
+          searchUpKey = "$terminfo[kcuu1]";
+        };
+
         history.path = "${config.xdg.stateHome}/zsh_history";
 
         # https://stackoverflow.com/a/69014927

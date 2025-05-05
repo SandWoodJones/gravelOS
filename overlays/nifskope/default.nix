@@ -1,6 +1,6 @@
 { channels, ... }: _: prev:
 let
-  qt6 = channels.nixpkgs.qt6;
+  inherit (channels.nixpkgs) qt6;
 in {
   nifskope = prev.nifskope.overrideAttrs (oldAttrs: rec {
     version = "v2.0.dev9-20241228";

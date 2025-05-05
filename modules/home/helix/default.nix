@@ -22,7 +22,7 @@ in {
     # TODO: further configure helix
     programs.helix = {
       enable = true;
-      defaultEditor = cfg.defaultEditor;
+      inherit (cfg) defaultEditor;
     
       settings = lib.mkIf cfg.enableConfig {
         editor = {
@@ -61,7 +61,7 @@ in {
       languages = {
         language = [{
           name = "nix";
-          formatter = { command = (lib.getExe pkgs.nixfmt-rfc-style); };
+          formatter = { command = lib.getExe pkgs.nixfmt-rfc-style; };
         }];
       };
     };

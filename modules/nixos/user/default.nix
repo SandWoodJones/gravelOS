@@ -1,7 +1,6 @@
 { lib, config, inputs, ... } :
 let
-  # taken from github.com/mxxntype/Aeon-snowfall
-  ifPresent = groups: builtins.filter (G: builtins.hasAttr G config.users.groups) groups;
+  ifPresent = groups: lib.gravelOS.filterAttrs config.users.groups groups;
   sshKeysPath = "${inputs.self}/lib/keys";
 
   cfg = config.gravelOS.user;

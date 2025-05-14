@@ -3,7 +3,7 @@ let
   needsreboot = "${inputs.nixos-needsreboot.packages.${system}.default}/bin/nixos-needsreboot";
 in {
   config = {
-    nix = { inherit (lib.gravelOS.nix) settings; };
+    inherit (lib.gravelOS) nix;
 
     documentation = {
       dev.enable = true;

@@ -1,8 +1,8 @@
-{ pkgs, lib, config, ... }:
+{ lib, config, ... }:
 let
   cfg = config.gravelOS.xdg;
 
-  hasPkg = pkgName: builtins.any (pkg: (lib.getName pkg) == pkgName) config.home.packages;
+  hasPkg = pkgName: lib.gravelOS.hasElement lib.getName pkgName config.home.packages;
 in {
   options.gravelOS.xdg = {
     enable = lib.mkOption {

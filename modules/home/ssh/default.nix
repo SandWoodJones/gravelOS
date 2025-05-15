@@ -7,7 +7,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    assertions = [{ assertion = osConfig.gravelOS.ssh.enable; message = "you must have SSH enabled on your system configuration"; }];
+    assertions = [{ assertion = osConfig.gravelOS.system.networking.ssh.enable; message = "you must have SSH enabled on your system configuration"; }];
   
     services.ssh-agent.enable = true;
 
@@ -20,7 +20,7 @@ in {
           identityFile = [ "${config.home.homeDirectory}/.ssh/id_swj" ];
         };
 
-        "avahi" = lib.mkIf osConfig.gravelOS.avahi.enable {
+        "avahi" = lib.mkIf osConfig.gravelOS.system.networking.avahi.enable {
           host = "*.local";
           identitiesOnly = true;
           identityFile = [ "${config.home.homeDirectory}/.ssh/id_swj" ];

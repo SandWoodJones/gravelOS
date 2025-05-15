@@ -18,7 +18,7 @@ in {
         enable = true;
         extraConfig = lib.mkIf cfg.enableConfig (lib.mkMerge [
           { user.name = "SandWood Jones"; user.email = "sandwoodjones@outlook.com"; }
-          (lib.mkIf osConfig.gravelOS.ssh.enable {
+          (lib.mkIf osConfig.gravelOS.system.networking.ssh.enable {
             user.signingKey = "${config.home.homeDirectory}/.ssh/id_swj";
             gpg.format = "ssh";
             commit.gpgSign = true;
@@ -31,7 +31,7 @@ in {
 
       gitui = {
         enable = true;
-        keyConfig = builtins.readFile(./gitui_vim.ron);
+        keyConfig = builtins.readFile ./gitui_vim.ron;
       };
     };
   };

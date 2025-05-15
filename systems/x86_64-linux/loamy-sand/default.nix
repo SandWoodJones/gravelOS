@@ -11,13 +11,13 @@
 
     user = { createSWJ = true; managePasswords = true; };
 
-    ssh = { enable = true; secure = true; };
     git = { enable = true; enableConfig = true; };
-    avahi.enable = true;
   
-    bluetooth.enable = true;
     system.networking = {
       wifi.enable = true;
+      bluetooth.enable = true;
+      avahi.enable = true;
+      ssh = { enable = true; secure = true; };
     };
 
     nh = { enable = true; clean.enable = true; };

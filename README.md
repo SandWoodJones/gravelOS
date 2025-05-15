@@ -7,9 +7,6 @@
    │  ├─ system
    │  │  ├─ boot
    │  │  ├─ networking
-   │  │  │  ├─ ssh
-   │  │  │  ├─ avahi
-   │  │  │  └─ bluetooh
    │  │  ├─ audio
    │  │  ├─ login
    │  │  │  └─ user

@@ -16,9 +16,8 @@
     avahi.enable = true;
   
     bluetooth.enable = true;
-    networking = {
+    system.networking = {
       wifi.enable = true;
-      ports.spotify = true;
     };
 
     nh = { enable = true; clean.enable = true; };

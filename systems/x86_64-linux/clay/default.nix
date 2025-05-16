@@ -2,7 +2,6 @@
   imports = [ ./hardware-configuration.nix ];
 
   gravelOS = {
-    display.enable = true;
     login.enable = true;
 
     kde.plasma.enable = true;
@@ -34,10 +33,13 @@
       default = true;
     };
 
-    desktop.gaming = {
-      enable = true;
-      performance.enable = true;
-      steam.enable = true;
+    desktop = {    
+      display.enable = true;
+      gaming = {
+        enable = true;
+        performance.enable = true;
+        steam.enable = true;
+      };
     };
   };
 

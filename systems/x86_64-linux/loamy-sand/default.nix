@@ -4,7 +4,6 @@
   gravelOS = {
     display.enable = true;
     login.enable = true;
-    audio.enable = true;
 
     kde.plasma.enable = true;
     hyprland.enable = true;
@@ -12,12 +11,15 @@
     user = { createSWJ = true; managePasswords = true; };
 
     git = { enable = true; enableConfig = true; };
-  
-    system.networking = {
-      wifi.enable = true;
-      bluetooth.enable = true;
-      avahi.enable = true;
-      ssh = { enable = true; secure = true; };
+
+    system = {
+      audio.enable = true;
+      networking = {
+        wifi.enable = true;
+        bluetooth.enable = true;
+        avahi.enable = true;
+        ssh = { enable = true; secure = true; };
+      };
     };
 
     nh = { enable = true; clean.enable = true; };

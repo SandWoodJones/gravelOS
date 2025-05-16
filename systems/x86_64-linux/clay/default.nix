@@ -4,21 +4,22 @@
   gravelOS = {
     display.enable = true;
     login.enable = true;
-    audio.enable = true;
 
     kde.plasma.enable = true;
 
     user = { createSWJ = true; managePasswords = true; };
   
-    bluetooth.enable = true;
-    networking = {
-      wifi.enable = true;
-      ports.spotify = true;
+    system = {
+      audio.enable = true;
+      networking = {
+        wifi.enable = true;
+        bluetooth.enable = true;
+        avahi.enable = true;
+        ssh = { enable = true; secure = true; };
+      };
     };
 
-    ssh = { enable = true; secure = true; };
     git = { enable = true; enableConfig = true; };
-    avahi.enable = true;
 
     nh = { enable = true; clean.enable = true; };
     cli = {
@@ -33,9 +34,9 @@
       default = true;
     };
 
-    gaming = {
+    desktop.gaming = {
       enable = true;
-      dedicated = true;
+      performance.enable = true;
       steam.enable = true;
     };
   };

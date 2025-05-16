@@ -21,6 +21,7 @@
    │     │  └─ kde
    │     ├─ locale
    │     └─ gaming
+   │        └─ performance
    └─ home
       ├─ system
       ├─ cli

@@ -14,12 +14,12 @@
    │  ├─ cli
    │  │  ├─ zsh
    │  │  ├─ git
-   │  │  ├─ nh
-   │  │  └─ locale
+   │  │  └─ nh
    │  └─ desktop
    │     ├─ display
    │     │  ├─ hyprland
    │     │  └─ kde
+   │     ├─ locale
    │     └─ gaming
    └─ home
       ├─ system

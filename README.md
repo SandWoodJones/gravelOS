@@ -22,9 +22,8 @@
    │  │  ├─ git
    │  │  └─ nh
    │  └─ desktop
-   │     ├─ display
-   │     │  ├─ hyprland
-   │     │  └─ kde
+   │     ├─ hyprland
+   │     ├─ kde
    │     ├─ locale
    │     └─ gaming
    │        └─ performance

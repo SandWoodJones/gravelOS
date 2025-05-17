@@ -19,12 +19,17 @@
     };
 
     git = { enable = true; enableConfig = true; };
+    # syncthing.enable = true;
 
     nh = { enable = true; clean.enable = true; };
     cli = {
-      configEnable = true;
+      packages = {
+        archive.enable = true;
+        encryption.enable = true;
+      };
       sudoDefaults = true;
-      nix-index.enable = true;
+      nix-index = { enable = true; comma.enable = true; };
+      devEnv.enable = true;
     };
 
     zsh = {

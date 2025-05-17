@@ -12,12 +12,22 @@ in {
   };
 
   config = lib.mkIf cfg.configEnable {
-    home.shellAliases = {
-      sus = "systemctl --user";
-      rm = "printf \"\\e[31mCommand not executed\\e[0m\\n\""; # Disable rm in favor of using trashy
-    };
+    home = {
+      shellAliases = {
+        sus = "systemctl --user";
+        rm = "printf \"\\e[31mCommand not executed\\e[0m\\n\""; # Disable rm in favor of using trashy
+        gs = "git status";
 
-    home.packages = [ pkgs.nixd ];
+        ls = "eza";
+        tree = "eza -T --git-ignore";
+      };
+
+      sessionVariables = {
+        PAGER = "${pkgs.ov}/bin/ov-less";
+      };
+
+      packages = [ pkgs.nixd ];
+    };
   
     programs = {
       zoxide = {

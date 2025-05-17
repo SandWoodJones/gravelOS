@@ -18,7 +18,6 @@ in {
       extraConfig = builtins.readFile ./wezterm.lua;
     };
 
-    # TODO: figure out if i want to roll with maple mono
     home.packages = [ pkgs.maple-mono.Normal-Variable ];
 
     wayland.windowManager.hyprland.settings."$terminal" = lib.mkIf config.gravelOS.hyprland.enable "wezterm";

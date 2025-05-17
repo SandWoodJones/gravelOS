@@ -2,7 +2,7 @@ local config = wezterm.config_builder()
 
 config = {
   font = wezterm.font {
-    family = 'Maple Mono',
+    family = 'Maple Mono Normal',
     harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0', 'zero', 'cv01', 'cv02' }
   },
 

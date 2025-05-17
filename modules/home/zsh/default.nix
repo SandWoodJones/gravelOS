@@ -34,7 +34,7 @@ in {
           autoload -U compinit && compinit
         '';
 
-        initExtra = "source ${./.zshrc}";
+        initContent = "source ${./.zshrc}";
       })
     ];
   };

@@ -4,7 +4,6 @@
   gravelOS = {
     login.enable = true;
 
-    kde.plasma.enable = true;
 
     user = { createSWJ = true; managePasswords = true; };
   
@@ -40,6 +39,7 @@
 
     desktop = {    
       display.enable = true;
+      kde.enable = true;
       gaming = {
         enable = true;
         performance.enable = true;

@@ -42,6 +42,7 @@ in {
           (lib.mkIf (hasPkg "telegram-desktop") {
             "x-scheme-handler/tg" = [ "org.telegram.desktop.desktop" ];
             "x-scheme-handler/tonsite" = [ "org.telegram.desktop.desktop" ];
+            "x-scheme-handler/heroic" = [ "com.heroicgameslauncher.hgl.desktop" ];
           })
 
           (lib.mkIf (hasPkg "vesktop") {

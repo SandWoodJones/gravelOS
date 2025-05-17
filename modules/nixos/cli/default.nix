@@ -28,6 +28,11 @@ in
   };
 
   config = {
+    documentation = {
+      dev.enable = true;
+      man.generateCaches = true;
+    };
+
     programs = {
       command-not-found.enable = !cfg.nix-index.enable;
       nix-index.enable = cfg.nix-index.enable;

@@ -18,7 +18,6 @@
       services.nh.clean.enable = true;
     };
 
-    git = { enable = true; enableConfig = true; };
     # syncthing.enable = true;
 
     cli = {
@@ -29,6 +28,7 @@
       sudoDefaults = true;
       nix-index = { enable = true; comma.enable = true; };
       devEnv.enable = true;
+      git.delta.enable = true;
     };
 
     zsh = {

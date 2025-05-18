@@ -15,12 +15,12 @@
         avahi.enable = true;
         ssh = { enable = true; secure = true; };
       };
+      services.nh.clean.enable = true;
     };
 
     git = { enable = true; enableConfig = true; };
     # syncthing.enable = true;
 
-    nh = { enable = true; clean.enable = true; };
     cli = {
       packages = {
         archive.enable = true;

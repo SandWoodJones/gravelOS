@@ -36,8 +36,9 @@ in
     programs = {
       command-not-found.enable = !cfg.nix-index.enable;
       nix-index.enable = cfg.nix-index.enable;
-
       nix-index-database.comma.enable = cfg.nix-index.comma.enable;
+
+      nh.enable = true;
     };
 
     security.sudo.extraConfig = lib.mkIf cfg.sudoDefaults "Defaults env_reset,pwfeedback,timestamp_timeout=120,passwd_timeout=0";

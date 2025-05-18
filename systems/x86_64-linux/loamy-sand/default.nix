@@ -2,15 +2,9 @@
   imports = [ ./hardware-configuration.nix ];
   
   gravelOS = {
-    display.enable = true;
     login.enable = true;
 
-    kde.plasma.enable = true;
-    hyprland.enable = true;
-
     user = { createSWJ = true; managePasswords = true; };
-
-    git = { enable = true; enableConfig = true; };
 
     system = {
       audio.enable = true;
@@ -20,13 +14,18 @@
         avahi.enable = true;
         ssh = { enable = true; secure = true; };
       };
+      services.nh.clean.enable = true;
     };
 
-    nh = { enable = true; clean.enable = true; };
     cli = {
-      configEnable = true;
+      packages = {
+        archive.enable = true;
+        encryption.enable = true;
+      };
       sudoDefaults = true;
-      nix-index.enable = true;
+      nix-index = { enable = true; comma.enable = true; };
+      devEnv.enable = true;
+      git.delta.enable = true;
     };
 
     zsh = {
@@ -35,10 +34,24 @@
       default = true;
     };
 
-    gaming = { enable = true; steam.enable = true; };
+    desktop = {    
+      display.enable = true;
+      hyprland.enable = true;
+      kde.enable = true;
+      gaming = {
+        enable = true;
+        performance.enable = true;
+        steam.enable = true;
+      };
+    };
   };
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
+
+  hardware.graphics = {
+    extraPackages = [ pkgs.intel-media-driver ];
+    extraPackages32 = [ pkgs.pkgsi686Linux.intel-media-driver ];
+  };
 
   # TODO: find out how to fix the system from crashing after suspend
   systemd.sleep.extraConfig = ''

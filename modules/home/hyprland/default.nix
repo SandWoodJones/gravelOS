@@ -15,7 +15,7 @@ in {
   ];
 
   config = lib.mkIf cfg.enable {
-    assertions = [{ assertion = osConfig.gravelOS.hyprland.enable; message = "you must also enable the system Hyprland module"; }];
+    assertions = [{ assertion = osConfig.gravelOS.desktop.hyprland.enable; message = "you must also enable the system Hyprland module"; }];
 
     # TODO: check out hypr-nix https://github.com/hyprland-community/hyprnix
     wayland.windowManager.hyprland = {

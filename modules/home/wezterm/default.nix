@@ -18,7 +18,7 @@ in {
       extraConfig = builtins.readFile ./wezterm.lua;
     };
 
-    home.packages = [ pkgs.maple-mono.Normal-Variable ];
+    home.packages = [ pkgs.maple-mono.variable ];
 
     wayland.windowManager.hyprland.settings."$terminal" = lib.mkIf config.gravelOS.hyprland.enable "wezterm";
   };

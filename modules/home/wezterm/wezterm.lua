@@ -2,10 +2,10 @@ local config = wezterm.config_builder()
 
 config = {
   font = wezterm.font {
-    family = 'Maple Mono Normal',
-    harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0', 'zero', 'cv01', 'cv02' }
+    family = 'Maple Mono',
+    harfbuzz_features = { 'calt', 'zero', 'cv01', 'cv03', 'cv61', 'ss05' }
   },
-
+  
   leader = { key = ' ', mods = 'CTRL', timeout_milliseconds = 1000 },
   keys = {
     -- TODO: https://wezterm.org/config/lua/config/skip_close_confirmation_for_processes_named.html

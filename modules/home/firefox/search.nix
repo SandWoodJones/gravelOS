@@ -122,7 +122,7 @@ in {
 
       icon = pkgs.fetchurl {
         url = "https://upload.wikimedia.org/wikipedia/commons/9/9b/Letterboxd_2023_logo.png";
-        name = "firefox-engine-icon-letterboxd.svg";
+        name = "firefox-engine-icon-letterboxd.png";
         hash = "sha256-iewTIIy/ahWZVysQ8cYQaWDGMy0DRo7xG6Di/Jphts4=";
       };
     };
@@ -137,7 +137,7 @@ in {
       }];
 
       icon = pkgs.fetchurl {
-        url = "https://oldschool.runescape.wiki/images/RuneScape_Classic_Runestone.png?f8010";
+        url = "https://oldschool.runescape.wiki/images/RuneScape_Classic_Runestone.png";
         name = "firefox-engine-icon-osrs.png";
         hash = "sha256-OJrZlmG+8Ruu/bmQVav58ZQPV7xhvj3g9X6JKJAva4c=";
       };

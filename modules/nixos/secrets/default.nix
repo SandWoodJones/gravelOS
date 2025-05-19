@@ -11,7 +11,7 @@ _: {
 
     secrets = {
       root-password = { neededForUsers = true; };
-      swj-password = { neededForUsers = true; };
+      defaultUser-password = { neededForUsers = true; };
       syncthing-password = {};
     };
   };

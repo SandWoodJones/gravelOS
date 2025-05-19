@@ -2,12 +2,8 @@
   imports = [ ./hardware-configuration.nix ];
 
   gravelOS = {
-    login.enable = true;
-
-
-    user = { createSWJ = true; managePasswords = true; };
-  
     system = {
+      user = { defaultUser.enable = true; managePasswords = true; };
       audio.enable = true;
       networking = {
         wifi.enable = true;

@@ -12,7 +12,7 @@ let
 in
 {
   options.gravelOS.cli.git = {
-    delta.enable = lib.mkEnableOption "delta as git's pager.";
+    delta.enable = lib.mkEnableOption "delta as git's pager";
   };
 
   config = {

@@ -10,7 +10,7 @@ let
 in
 {
   options.gravelOS.system.boot = {
-    dualBoot = lib.mkEnableOption "dual booting.";
+    dualBoot = lib.mkEnableOption "dual booting";
   };
 
   config = {

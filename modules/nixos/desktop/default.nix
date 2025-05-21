@@ -11,7 +11,7 @@ let
 in
 {
   options.gravelOS.desktop = {
-    display.enable = lib.mkEnableOption "graphical display support.";
+    display.enable = lib.mkEnableOption "graphical display support";
   };
 
   config = lib.mkIf cfg.display.enable {

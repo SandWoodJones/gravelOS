@@ -8,7 +8,7 @@ let
 in
 {
   options.gravelOS.system.audio = {
-    enable = lib.mkEnableOption "audio with Pipewire.";
+    enable = lib.mkEnableOption "audio with Pipewire";
   };
 
   config = lib.mkIf cfg.enable {

@@ -9,7 +9,7 @@ in
 {
   options.gravelOS.system.services.nh = {
     clean = {
-      enable = lib.mkEnableOption "periodic garbage collection with nh.";
+      enable = lib.mkEnableOption "periodic garbage collection with nh";
       keep = lib.mkOption {
         default = 10;
         description = "Minimum number of generations that nh clean should keep.";

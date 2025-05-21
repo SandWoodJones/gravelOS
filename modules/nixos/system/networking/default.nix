@@ -19,15 +19,15 @@ let
 in
 {
   options.gravelOS.system.networking = {
-    wifi.enable = lib.mkEnableOption "Wi-Fi.";
-    bluetooth.enable = lib.mkEnableOption "Bluetooth.";
-    avahi.enable = lib.mkEnableOption "Avahi.";
+    wifi.enable = lib.mkEnableOption "Wi-Fi";
+    bluetooth.enable = lib.mkEnableOption "Bluetooth";
+    avahi.enable = lib.mkEnableOption "Avahi";
     ssh = {
-      enable = lib.mkEnableOption "OpenSSH.";
+      enable = lib.mkEnableOption "OpenSSH";
       secure = lib.mkOption {
         default = false;
         example = true;
-        description = "Whether to disable SSH login without private key.";
+        description = "Whether to disable SSH login without private key";
         type = lib.types.bool;
       };
     };

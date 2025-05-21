@@ -11,8 +11,8 @@ let
 in
 {
   options.gravelOS.desktop.gaming = {
-    enable = lib.mkEnableOption "general gaming support.";
-    steam.enable = lib.mkEnableOption "Steam.";
+    enable = lib.mkEnableOption "general gaming support";
+    steam.enable = lib.mkEnableOption "Steam";
   };
 
   config = lib.mkIf cfg.enable {

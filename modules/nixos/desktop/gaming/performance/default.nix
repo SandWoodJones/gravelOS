@@ -10,7 +10,7 @@ let
 in
 {
   options.gravelOS.desktop.gaming.performance.enable =
-    lib.mkEnableOption "performance optimizations for dedicated gaming setups.";
+    lib.mkEnableOption "performance optimizations for dedicated gaming setups";
 
   config = lib.mkIf cfg.enable {
     programs = {

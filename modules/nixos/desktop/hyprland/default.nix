@@ -10,7 +10,7 @@ let
 in
 {
   options.gravelOS.desktop.hyprland = {
-    enable = lib.mkEnableOption "Hyprland.";
+    enable = lib.mkEnableOption "Hyprland";
   };
 
   config = lib.mkIf cfg.enable {

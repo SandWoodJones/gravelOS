@@ -12,7 +12,7 @@ let
 in
 {
   options.gravelOS.desktop.kde = {
-    enable = lib.mkEnableOption "KDE Plasma.";
+    enable = lib.mkEnableOption "KDE Plasma";
   };
 
   config = lib.mkIf cfg.enable {

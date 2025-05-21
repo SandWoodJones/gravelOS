@@ -10,7 +10,7 @@ let
 in
 {
   options.gravelOS.cli.devEnv = {
-    enable = lib.mkEnableOption "per-project environments with direnv and lorri.";
+    enable = lib.mkEnableOption "per-project environments with direnv and lorri";
   };
 
   config = lib.mkIf cfg.enable {

@@ -9,8 +9,8 @@ let
 in
 {
   options.gravelOS.cli.packages = {
-    archive.enable = lib.mkEnableOption "archival (compression, decompression) packages.";
-    encryption.enable = lib.mkEnableOption "encryption packages.";
+    archive.enable = lib.mkEnableOption "archival (compression, decompression) packages";
+    encryption.enable = lib.mkEnableOption "encryption packages";
   };
 
   config = {

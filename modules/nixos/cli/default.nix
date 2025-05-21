@@ -12,11 +12,11 @@ in
       enable = lib.mkOption {
         default = false;
         example = true;
-        description = "Whether to replace command-not-found with nix-index";
+        description = "Whether to replace command-not-found with nix-index.";
         type = lib.types.bool;
       };
 
-      comma.enable = lib.mkEnableOption "comma with nix-index-database.";
+      comma.enable = lib.mkEnableOption "comma with nix-index-database";
     };
 
     sudoDefaults = lib.mkOption {

@@ -1,18 +1,27 @@
-{ pkgs, ... }: {
-  imports = [ ./hardware-configuration.nix ];
-  
-  gravelOS = {
-    login.enable = true;
+# TODO: fix crash after suspend
 
+_: {
+  imports = [ ./hardware-configuration.nix ];
+
+  gravelOS = {
     system = {
-      user = { defaultUser.enable = true; managePasswords = true; };
-      audio.enable = true;
+      boot.zen.enable = true;
+      user = {
+        defaultUser.enable = true;
+        managePasswords = true;
+      };
+
       networking = {
         wifi.enable = true;
         bluetooth.enable = true;
         avahi.enable = true;
-        ssh = { enable = true; secure = true; };
+        ssh = {
+          enable = true;
+          secure = true;
+        };
       };
+
+      audio.enable = true;
       services.nh.clean.enable = true;
     };
 
@@ -21,22 +30,23 @@
         archive.enable = true;
         encryption.enable = true;
       };
+
+      zsh.default = true;
       sudoDefaults = true;
-      nix-index = { enable = true; comma.enable = true; };
       devEnv.enable = true;
+      nix-index = {
+        enable = true;
+        comma.enable = true;
+      };
+
       git.delta.enable = true;
     };
 
-    zsh = {
-      enable = true;
-      enableConfig = true;
-      default = true;
-    };
-
-    desktop = {    
+    desktop = {
       display.enable = true;
       hyprland.enable = true;
       kde.enable = true;
+
       gaming = {
         enable = true;
         performance.enable = true;
@@ -45,14 +55,6 @@
     };
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_zen;
-
-  hardware.graphics = {
-    extraPackages = [ pkgs.intel-media-driver ];
-    extraPackages32 = [ pkgs.pkgsi686Linux.intel-media-driver ];
-  };
-
-  # TODO: find out how to fix the system from crashing after suspend
   systemd.sleep.extraConfig = ''
     AllowSuspend=no
     AllowHibernate=yes

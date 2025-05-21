@@ -55,7 +55,12 @@
 
       systems.modules.nixos = with inputs; [
         home-manager.nixosModules.home-manager
-        { home-manager.backupFileExtension = "hm-backup"; }
+        {
+          home-manager = {
+            backupFileExtension = "hm-backup";
+            sharedModules = [ sops-nix.homeManagerModules.sops ];
+          };
+        }
 
         sops-nix.nixosModules.sops
 

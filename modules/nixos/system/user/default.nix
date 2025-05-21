@@ -37,6 +37,11 @@ in
   };
 
   config = {
+    sops.secrets = {
+      root-password.neededForUsers = true;
+      defaultUser-password.neededForUsers = true;
+    };
+
     users = {
       mutableUsers = !cfg.managePasswords;
 

@@ -1,12 +1,16 @@
-{ inputs, ... }: {
+{
+  inputs,
+  ...
+}:
+{
   nix = {
-    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];  
+    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
     settings = {
       allowed-users = [ "swj" ];
       trusted-users = [ "swj" ];
 
       auto-optimise-store = true;
-  
+
       substituters = [
         "https://cache.nixos.org/"
         "https://nix-community.cachix.org"
@@ -18,7 +22,10 @@
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       ];
 
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       warn-dirty = false;
     };
   };

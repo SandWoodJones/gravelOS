@@ -25,12 +25,7 @@
       nix-index = { enable = true; comma.enable = true; };
       devEnv.enable = true;
       git.delta.enable = true;
-    };
-
-    zsh = {
-      enable = true;
-      enableConfig = true;
-      default = true;
+      zsh.default = true;
     };
 
     desktop = {    

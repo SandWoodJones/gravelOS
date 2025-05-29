@@ -37,6 +37,8 @@ in
   };
 
   config = {
+    gravelOS.system.user.defaultUser.enable = lib.mkDefault true;
+  
     sops.secrets = {
       root-password.neededForUsers = true;
       defaultUser-password.neededForUsers = true;

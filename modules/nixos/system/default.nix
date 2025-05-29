@@ -1,4 +1,9 @@
-{ inputs, system, ... }:
+{
+  lib,
+  inputs,
+  system,
+  ...
+}:
 let
   needsreboot = "${inputs.nixos-needsreboot.packages.${system}.default}/bin/nixos-needsreboot";
 in
@@ -15,5 +20,14 @@ in
         fi
       done || true
     '';
+  };
+
+  gravelOS.system = {
+    networking = {
+      wifi.enable = lib.mkDefault true;
+      ssh.enable = lib.mkDefault true;
+    };
+
+    audio.enable = true;
   };
 }

@@ -6,22 +6,14 @@ _: {
   gravelOS = {
     system = {
       boot.zen.enable = true;
-      user = {
-        defaultUser.enable = true;
-        managePasswords = true;
-      };
+      user.managePasswords = true;
 
       networking = {
-        wifi.enable = true;
         bluetooth.enable = true;
         avahi.enable = true;
-        ssh = {
-          enable = true;
-          secure = true;
-        };
+        ssh.secure = true;
       };
 
-      audio.enable = true;
       services.nh.clean.enable = true;
     };
 

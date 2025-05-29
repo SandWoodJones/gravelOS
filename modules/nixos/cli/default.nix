@@ -16,10 +16,16 @@ in
         type = lib.types.bool;
       };
 
-      comma.enable = lib.mkEnableOption "comma with nix-index-database";
+      comma.enable = lib.mkOption {
+        default = cfg.nix-index.enable;
+        defaultText = lib.literalExpression "config.gravelOS.cli.nix-index.enable";
+        example = true;
+        description = "Whether to enable comma with the nix-index-database.";
+        type = lib.types.bool;
+      };
     };
 
-    sudoDefaults = lib.mkOption {
+    sudo.enableDefaults = lib.mkOption {
       default = false;
       example = true;
       description = "Whether to increase sudo's password timeout and enable password feedback.";
@@ -41,6 +47,6 @@ in
       nh.enable = true;
     };
 
-    security.sudo.extraConfig = lib.mkIf cfg.sudoDefaults "Defaults env_reset,pwfeedback,timestamp_timeout=120,passwd_timeout=0";
+    security.sudo.extraConfig = lib.mkIf cfg.sudo.enableDefaults "Defaults env_reset,pwfeedback,timestamp_timeout=120,passwd_timeout=0";
   };
 }

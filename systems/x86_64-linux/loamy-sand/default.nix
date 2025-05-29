@@ -24,12 +24,9 @@ _: {
       };
 
       zsh.default = true;
-      sudoDefaults = true;
+      sudo.enableDefaults = true;
       devEnv.enable = true;
-      nix-index = {
-        enable = true;
-        comma.enable = true;
-      };
+      nix-index.enable = true;
 
       git.delta.enable = true;
     };

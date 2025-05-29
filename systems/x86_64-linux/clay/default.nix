@@ -51,7 +51,6 @@ _: {
       gaming = {
         enable = true;
         performance.enable = true;
-        steam.enable = true;
       };
     };
   };

@@ -9,10 +9,12 @@ let
   cfg = config.gravelOS.desktop.gaming.performance;
 in
 {
-  options.gravelOS.desktop.gaming.performance.enable =
-    lib.mkEnableOption "performance optimizations for dedicated gaming setups";
+  options.gravelOS.desktop.gaming.performance = {
+    enable = lib.mkEnableOption "performance optimizations for dedicated gaming setups";
+  };
 
   config = lib.mkIf cfg.enable {
+    gravelOS.desktop.gaming.steam.enable = lib.mkDefault true;
     programs = {
       steam = {
         protontricks.enable = true;

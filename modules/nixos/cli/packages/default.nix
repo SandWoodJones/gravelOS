@@ -11,12 +11,17 @@ in
   options.gravelOS.cli.packages = {
     archive.enable = lib.mkEnableOption "archival (compression, decompression) packages";
     encryption.enable = lib.mkEnableOption "encryption packages";
+    nix.enable = lib.mkEnableOption "nix-specific development packages";
   };
 
   config = {
     environment.systemPackages =
       with pkgs;
       builtins.concatLists [
+        (lib.optionals cfg.nix.enable [
+          nixd
+          statix
+        ])
         (lib.optionals cfg.archive.enable [
           p7zip
           unrar
@@ -39,7 +44,6 @@ in
           fzf
           eza
           ov
-          statix
         ]
       ];
   };

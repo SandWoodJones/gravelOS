@@ -18,11 +18,6 @@ _: {
     };
 
     cli = {
-      packages = {
-        archive.enable = true;
-        encryption.enable = true;
-      };
-
       zsh.default = true;
       sudo.enableDefaults = true;
       devEnv.enable = true;

@@ -3,6 +3,10 @@
     cli = {
       rm.enable = false;
       zoxide.cdReplace = true;      
+      helix = {
+        enable = true;
+        default = true;
+      };
     };
   
     hyprland = {
@@ -34,11 +38,6 @@
     git = { enable = true; enableConfig = true; };
 
     wezterm = { enable = true; enableConfig = true; };
-    helix = {
-      enable = true;
-      enableConfig = true;
-      defaultEditor = true;
-    };
 
     firefox = { enable = true; enableConfig = true; };
     mpv = { enable = true; enableConfig = true; };

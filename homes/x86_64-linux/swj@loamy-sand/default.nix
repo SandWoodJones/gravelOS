@@ -1,5 +1,9 @@
 { pkgs, ... }: {
   gravelOS = {
+    system = {
+      networking.bluetooth.mediaControls.enable = true;
+    };
+  
     cli = {
       rm.enable = false;
       zoxide.cdReplace = true;      
@@ -31,8 +35,6 @@
   
     xdg = { enable = true; remakeDirs = true; };
     ssh.enable = true;
-
-    bluetooth.mediaControls = true;
 
     zsh = { enable = true; enableConfig = true; };
     git = { enable = true; enableConfig = true; };

@@ -1,5 +1,9 @@
 { pkgs, ... }: {
   gravelOS = {
+    system = {
+      networking.bluetooth.mediaControls.enable = true;
+    };
+  
     cli = {
       rm.enable = false;
       zoxide.cdReplace = true;      

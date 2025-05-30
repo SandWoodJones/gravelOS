@@ -1,5 +1,10 @@
 { pkgs, ... }: {
   gravelOS = {
+    cli = {
+      rm.enable = false;
+      zoxide.cdReplace = true;      
+    };
+  
     hyprland = {
       enable = true;
       theming.gaps.smart = true;
@@ -26,7 +31,6 @@
     bluetooth.mediaControls = true;
 
     zsh = { enable = true; enableConfig = true; };
-    cli.configEnable = true;
     git = { enable = true; enableConfig = true; };
 
     wezterm = { enable = true; enableConfig = true; };

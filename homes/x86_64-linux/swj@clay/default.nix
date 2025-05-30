@@ -1,10 +1,14 @@
 { pkgs, ... }: {
   gravelOS = {
+    cli = {
+      rm.enable = false;
+      zoxide.cdReplace = true;      
+    };
+
     xdg = { enable = true; remakeDirs = true; };
     ssh.enable = true;
 
     zsh = { enable = true; enableConfig = true; };
-    cli.configEnable = true;
     git = { enable = true; enableConfig = true; };
 
     wezterm = { enable = true; enableConfig = true; };

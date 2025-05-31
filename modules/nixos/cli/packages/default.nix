@@ -44,6 +44,7 @@ in
           fzf
           eza
           ov
+          ripgrep
         ]
       ];
   };

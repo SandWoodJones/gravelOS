@@ -32,3 +32,10 @@
       ├─ cli
       └─ desktop
 ```
+
+## Adding roots to prefetched sources
+```
+$ nix-store --add-fixed sha256 /path/to/source
+/nix/store/hash-source
+$ sudo nix-store --add-root /nix/var/nix/gcroots/pinned/source -r /nix/store/hash-source
+```

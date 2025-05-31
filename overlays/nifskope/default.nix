@@ -1,7 +1,4 @@
-{ channels, ... }: _: prev:
-let
-  inherit (channels.nixpkgs) qt6;
-in {
+_: _: prev: {
   nifskope = prev.nifskope.overrideAttrs (oldAttrs: rec {
     version = "v2.0.dev9-20241228";
     src = prev.fetchgit {
@@ -13,8 +10,15 @@ in {
 
     patches = [ ./fixed-mime-types.patch ];
 
-    buildInputs = with qt6; [ qtbase qtwayland qt5compat ];
-    nativeBuildInputs = with qt6; [ qmake wrapQtAppsHook ];
+    buildInputs = with prev.qt6; [
+      qtbase
+      qtwayland
+      qt5compat
+    ];
+    nativeBuildInputs = with prev.qt6; [
+      qmake
+      wrapQtAppsHook
+    ];
 
     installPhase = ''
       runHook preInstall

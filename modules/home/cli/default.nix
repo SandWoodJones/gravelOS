@@ -1,5 +1,6 @@
 # TODO: maybe replace thefuck with pay respects
 # TODO: configure tealdeer
+# TODO: configure ripgrep
 
 {
   pkgs,

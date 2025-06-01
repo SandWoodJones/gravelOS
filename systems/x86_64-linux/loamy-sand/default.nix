@@ -18,8 +18,8 @@ _: {
     };
 
     cli = {
-      zsh.default = true;
-      sudo.enableDefaults = true;
+      zsh.default.enable = true;
+      sudo.defaults.enable = true;
       devEnv.enable = true;
       nix-index.enable = true;
 

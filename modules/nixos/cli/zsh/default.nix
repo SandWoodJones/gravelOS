@@ -9,7 +9,7 @@ let
 in
 {
   options.gravelOS.cli.zsh = {
-    default = lib.mkOption {
+    default.enable = lib.mkOption {
       default = false;
       example = true;
       description = "Wether to set ZSH as the default shell for all users.";
@@ -55,6 +55,6 @@ in
       ];
     };
 
-    users.defaultUserShell = lib.mkIf cfg.default pkgs.zsh;
+    users.defaultUserShell = lib.mkIf cfg.default.enable pkgs.zsh;
   };
 }

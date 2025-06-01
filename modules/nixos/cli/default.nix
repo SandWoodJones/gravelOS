@@ -25,10 +25,10 @@ in
       };
     };
 
-    sudo.enableDefaults = lib.mkOption {
+    sudo.defaults.enable = lib.mkOption {
       default = false;
       example = true;
-      description = "Whether to increase sudo's password timeout and enable password feedback.";
+      description = "Whether to change sudo's defaults, increasing the password timeout and enabling password feedback.";
       type = lib.types.bool;
     };
   };
@@ -53,6 +53,6 @@ in
       nh.enable = true;
     };
 
-    security.sudo.extraConfig = lib.mkIf cfg.sudo.enableDefaults "Defaults env_reset,pwfeedback,timestamp_timeout=120,passwd_timeout=0";
+    security.sudo.extraConfig = lib.mkIf cfg.sudo.defaults.enable "Defaults env_reset,pwfeedback,timestamp_timeout=120,passwd_timeout=0";
   };
 }

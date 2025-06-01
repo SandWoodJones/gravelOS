@@ -13,7 +13,7 @@
       };
       helix = {
         enable = true;
-        default = true;
+        default.enable = true;
       };
     };
   

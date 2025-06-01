@@ -21,6 +21,13 @@
       };
     };
 
+    desktop = {
+      mpv = {
+        enable = true;
+        default.enable = true;
+      };
+    };
+
     xdg = {
       enable = true;
       remakeDirs = true;
@@ -38,10 +45,6 @@
     };
 
     firefox = {
-      enable = true;
-      enableConfig = true;
-    };
-    mpv = {
       enable = true;
       enableConfig = true;
     };

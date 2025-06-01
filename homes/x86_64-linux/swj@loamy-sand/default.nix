@@ -16,6 +16,13 @@
         default.enable = true;
       };
     };
+
+    desktop = {
+      mpv = {
+        enable = true;
+        default.enable = true;
+      };
+    };
   
     hyprland = {
       enable = true;
@@ -46,7 +53,6 @@
     wezterm = { enable = true; enableConfig = true; };
 
     firefox = { enable = true; enableConfig = true; };
-    mpv = { enable = true; enableConfig = true; };
   };
   
   home.packages = with pkgs; [

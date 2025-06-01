@@ -1,4 +1,4 @@
-pkgs:
+{ pkgs }:
 pkgs.writeShellScript "crossPlatformCopy" ''
   case "$1" in
     -c)

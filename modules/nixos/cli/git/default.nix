@@ -32,11 +32,6 @@ in
           transfer.fsckObjects = true;
           fetch.fsckObjects = true;
           receive.fsckObjects = true;
-
-          alias = {
-            df = "diff";
-            dfs = "diff --staged";
-          };
         }
 
         (lib.mkIf cfg.delta.enable {

@@ -7,6 +7,10 @@
     cli = {
       rm.enable = false;
       zoxide.cdReplace = true;      
+      git.signing.ssh = {
+        enable = true;
+        keyPath = /home/swj/.ssh/id_swj;
+      };
       helix = {
         enable = true;
         default = true;

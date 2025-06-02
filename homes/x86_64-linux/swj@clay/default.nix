@@ -34,11 +34,6 @@
     };
     ssh.enable = true;
 
-    zsh = {
-      enable = true;
-      enableConfig = true;
-    };
-
     wezterm = {
       enable = true;
       enableConfig = true;

@@ -6,31 +6,47 @@
 
 ```
 .
+├─ lib
+│  ├─ gravelOS
+│  ├─ nix
+│  └─ secrets
 └─ modules
    ├─ nixos
    │  ├─ system
-   │  │  ├─ boot
-   │  │  ├─ networking
    │  │  ├─ audio
-   │  │  ├─ login
-   │  │  │  └─ user
-   │  │  └─ locale
+   │  │  ├─ boot
+   │  │  ├─ locale
+   │  │  ├─ networking
+   │  │  ├─ services
+   │  │  │  └─ nh
+   │  │  └─ user
    │  ├─ cli
-   │  │  ├─ packages
    │  │  ├─ devEnv
-   │  │  ├─ zsh
    │  │  ├─ git
-   │  │  └─ nh
+   │  │  ├─ packages
+   │  │  └─ zsh
    │  └─ desktop
+   │     ├─ gaming
+   │     │  └─ performance
    │     ├─ hyprland
    │     ├─ kde
    │     ├─ locale
-   │     └─ gaming
-   │        └─ performance
+   │     └─ login
    └─ home
       ├─ system
+      │  ├─ networking
+      │  └─ xdg
       ├─ cli
+      │  ├─ git
+      │  ├─ helix
+      │  └─ zsh
       └─ desktop
+         ├─ firefox
+         ├─ gaming
+         │  └─ openmw
+         ├─ mpv
+         ├─ wezterm
+         └─ xdg
 ```
 
 ## Adding roots to prefetched sources

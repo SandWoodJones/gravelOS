@@ -32,20 +32,15 @@ in
     };
 
     desktop = {
+      wezterm.enable = true;
       mpv = {
         enable = true;
         default.enable = true;
       };
-
       firefox = {
         enable = true;
         pdfDefault.enable = true;
       };
-    };
-
-    wezterm = {
-      enable = true;
-      enableConfig = true;
     };
   };
 

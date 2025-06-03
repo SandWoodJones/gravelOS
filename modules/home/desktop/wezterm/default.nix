@@ -1,13 +1,19 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 let
-  cfg = config.gravelOS.wezterm;
-in {
-  options.gravelOS.wezterm = {
+  cfg = config.gravelOS.desktop.wezterm;
+in
+{
+  options.gravelOS.desktop.wezterm = {
     enable = lib.mkEnableOption "WezTerm";
-    enableConfig = lib.mkOption {
+    default.enable = lib.mkOption {
       default = false;
       example = true;
-      description = "Whether to enable gravelOS's WezTerm configuration.";
+      description = "Whether to set WezTerm as the default terminal emulator.";
       type = lib.types.bool;
     };
   };
@@ -19,7 +25,5 @@ in {
     };
 
     home.packages = [ pkgs.maple-mono.variable ];
-
-    wayland.windowManager.hyprland.settings."$terminal" = lib.mkIf config.gravelOS.hyprland.enable "wezterm";
   };
 }

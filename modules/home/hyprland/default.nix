@@ -35,6 +35,7 @@ in {
 
     wayland.windowManager.hyprland.settings = {
       "$mod" = "SUPER";
+      "$terminal" = lib.mkIf config.gravelOS.desktop.wezterm.default.enable "wezterm";      
 
       input.kb_layout = osConfig.services.xserver.xkb.layout;
 

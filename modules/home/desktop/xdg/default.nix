@@ -34,6 +34,10 @@ in
         (lib.mkIf config.gravelOS.desktop.mpv.default.enable {
           "video/mp4" = [ "mpv.desktop" ];
         })
+
+        (lib.mkIf config.gravelOS.desktop.firefox.pdfDefault.enable {
+          "application/pdf" = [ "firefox.desktop" ];
+        })
       ];
 
       associations.added = lib.mkMerge [

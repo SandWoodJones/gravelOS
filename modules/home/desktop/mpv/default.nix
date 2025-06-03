@@ -78,9 +78,5 @@ in
         "9" = "seek 90 absolute-percent; script-binding uosc/flash-timeline";
       };
     };
-
-    xdg.mimeApps.defaultApplications = lib.mkIf cfg.default.enable {
-      "video/mp4" = [ "mpv.desktop" ];
-    };
   };
 }

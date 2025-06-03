@@ -13,7 +13,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    xdg.mimeApps.defaultApplications = lib.mkIf config.gravelOS.xdg.enable { "application/pdf" = [ "firefox.desktop" ]; };
+    xdg.mimeApps.defaultApplications = { "application/pdf" = [ "firefox.desktop" ]; };
 
     programs.firefox = {
       enable = true;

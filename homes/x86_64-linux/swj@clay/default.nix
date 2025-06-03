@@ -6,6 +6,7 @@
   gravelOS = {
     system = {
       networking.bluetooth.mediaControls.enable = true;
+      xdg.defaultBaseDirs.enable = true;
     };
 
     cli = {
@@ -28,10 +29,6 @@
       };
     };
 
-    xdg = {
-      enable = true;
-      remakeDirs = true;
-    };
     ssh.enable = true;
 
     wezterm = {

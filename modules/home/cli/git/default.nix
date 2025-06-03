@@ -34,6 +34,8 @@ in
   };
 
   config = {
+    gravelOS.system.networking.ssh.git.enable = lib.mkDefault true;
+
     programs = {
       git = {
         enable = true;

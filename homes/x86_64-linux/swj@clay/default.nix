@@ -2,10 +2,19 @@
   pkgs,
   ...
 }:
+let
+  idKey = /home/swj/.ssh/id_swj;
+in
 {
   gravelOS = {
     system = {
-      networking.bluetooth.mediaControls.enable = true;
+      networking = {
+        bluetooth.mediaControls.enable = true;
+        ssh = {
+          identityPath = idKey;
+          avahi.enable = true;
+        };
+      };
       xdg.defaultBaseDirs.enable = true;
     };
 
@@ -14,7 +23,7 @@
       zoxide.cdReplace = true;
       git.signing.ssh = {
         enable = true;
-        keyPath = /home/swj/.ssh/id_swj;
+        keyPath = idKey;
       };
       helix = {
         enable = true;
@@ -28,8 +37,6 @@
         default.enable = true;
       };
     };
-
-    ssh.enable = true;
 
     wezterm = {
       enable = true;

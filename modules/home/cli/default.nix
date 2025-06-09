@@ -1,4 +1,4 @@
-# TODO: maybe replace thefuck with pay respects
+# TODO: configure pay-respects
 # TODO: configure tealdeer
 # TODO: configure ripgrep
 
@@ -50,7 +50,7 @@ in
         options = lib.mkIf cfg.zoxide.cdReplace [ "--cmd cd" ];
       };
 
-      thefuck.enable = true;
+      pay-respects.enable = true;
       tealdeer.enable = true;
     };
   };

@@ -1,23 +1,35 @@
 # TODO: install a screenshot utility
 # TODO: configure hyprland, customize it, rice it, add plugins, etc
+# TODO: check out hypr-nix https://github.com/hyprland-community/hyprnix
+# TODO: move extraConfig to hyprland.settings option and delete hyprland.conf
 
-{ lib, config, osConfig, ... }:
+{
+  lib,
+  config,
+  osConfig,
+  ...
+}:
 let
-  cfg = config.gravelOS.hyprland;
-in {
-  options.gravelOS.hyprland = {
+  cfg = config.gravelOS.desktop.hyprland;
+in
+{
+  options.gravelOS.desktop.hyprland = {
     enable = lib.mkEnableOption "Hyprland";
   };
 
   imports = [
     ./binds.nix
     ./rules.nix
+    ./theming.nix
   ];
 
   config = lib.mkIf cfg.enable {
-    assertions = [{ assertion = osConfig.gravelOS.desktop.hyprland.enable; message = "you must also enable the system Hyprland module"; }];
+    gravelOS.desktop.hyprland = {
+      binds.enable = lib.mkDefault true;
+      rules.enable = lib.mkDefault true;
+      theming.enable = lib.mkDefault true;
+    };
 
-    # TODO: check out hypr-nix https://github.com/hyprland-community/hyprnix
     wayland.windowManager.hyprland = {
       enable = true;
       systemd = {
@@ -25,7 +37,6 @@ in {
         variables = [ "--all" ];
       };
 
-      # TODO: move extra config to hyprland.settings and delete hyprland.conf
       extraConfig = builtins.readFile ./hyprland.conf;
 
       # Force use packages from system
@@ -35,7 +46,11 @@ in {
 
     wayland.windowManager.hyprland.settings = {
       "$mod" = "SUPER";
-      "$terminal" = lib.mkIf config.gravelOS.desktop.wezterm.default.enable "wezterm";      
+      "$terminal" = lib.mkIf config.gravelOS.desktop.wezterm.default.enable "wezterm";
+
+      # https://github.com/Vladimir-csp/uwsm?tab=readme-ov-file#5-launchers
+      "$launcher" =
+        lib.mkIf config.gravelOS.desktop.launcher.rofi.default.enable ''rofi -show drun -show-icons -run-command "uwsm app -- {cmd}"'';
 
       input.kb_layout = osConfig.services.xserver.xkb.layout;
 

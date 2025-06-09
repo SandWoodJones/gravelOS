@@ -1,70 +1,58 @@
-{ pkgs, lib, config, ... }:
+{
+  lib,
+  config,
+  ...
+}:
 let
   cfg = config.gravelOS.cli;
-in {
+in
+{
   options.gravelOS.cli = {
-    configEnable = lib.mkOption {
-      default = false;
-      example = true;
-      description = "Whether to enable gravelOS's environment variables, shell aliases and essential CLI tools.";
-      type = lib.types.bool;
+    nix-index = {
+      enable = lib.mkOption {
+        default = false;
+        example = true;
+        description = "Whether to replace command-not-found with nix-index.";
+        type = lib.types.bool;
+      };
+
+      comma.enable = lib.mkOption {
+        default = cfg.nix-index.enable;
+        defaultText = lib.literalExpression "config.gravelOS.cli.nix-index.enable";
+        example = true;
+        description = "Whether to enable comma with the nix-index-database.";
+        type = lib.types.bool;
+      };
     };
 
-    sudoDefaults = lib.mkOption {
+    sudo.defaults.enable = lib.mkOption {
       default = false;
       example = true;
-      description = "Whether to change sudo's password timeout and add password feedback.";
+      description = "Whether to change sudo's defaults, increasing the password timeout and enabling password feedback.";
       type = lib.types.bool;
     };
-
-    nix-index.enable = lib.mkEnableOption "the nix-index database";
   };
 
-  config = lib.mkIf cfg.configEnable {
+  config = {
+    gravelOS.cli.packages = {
+      archive.enable = lib.mkDefault true;
+      encryption.enable = lib.mkDefault true;
+      nix.enable = lib.mkDefault true;
+    };
+  
+    documentation = {
+      dev.enable = true;
+      man.generateCaches = true;
+    };
+
     programs = {
-      direnv = {
-        enable = true;
-        silent = true;
-        settings.global = {
-          load_dotenv = true;
-          strict_env = true; # TODO: remove when it becomes the default
-        };
-      };
-      command-not-found.enable = false;
-
+      command-not-found.enable = !cfg.nix-index.enable;
       nix-index.enable = cfg.nix-index.enable;
-      nix-index-database.comma.enable = cfg.nix-index.enable;
+      nix-index-database.comma.enable = cfg.nix-index.comma.enable;
+
+      nh.enable = true;
     };
 
-    services.lorri.enable = true;
-
-    security.sudo.extraConfig = lib.mkIf cfg.sudoDefaults "Defaults env_reset,pwfeedback,timestamp_timeout=120,passwd_timeout=0";
- 
-    environment = {
-      systemPackages = with pkgs; [
-        helix
-        file
-        trashy
-        fzf
-        eza
-        ov
-        p7zip unrar unzip
-        sops age ssh-to-age
-        statix
-      ];
-
-      shellAliases = {
-        clearx = "clear -x";
-        gs = "git status";
-
-        ls = "eza";
-        tree = "eza -T --git-ignore";
-      };
-
-      variables = {
-        EDITOR = "${pkgs.helix}/bin/hx";
-        PAGER = "${pkgs.ov}/bin/ov-less";
-      };
-    };
+    security.sudo.extraConfig = lib.mkIf cfg.sudo.defaults.enable "Defaults env_reset,pwfeedback,timestamp_timeout=120,passwd_timeout=0";
   };
 }

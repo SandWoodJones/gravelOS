@@ -1,45 +1,43 @@
-{ pkgs, ... }: {
+# TODO: fix crash after suspend
+
+_: {
   imports = [ ./hardware-configuration.nix ];
-  
+
   gravelOS = {
-    display.enable = true;
-    login.enable = true;
-    audio.enable = true;
+    system = {
+      boot.zen.enable = true;
+      user.managePasswords = true;
 
-    kde.plasma.enable = true;
-    hyprland.enable = true;
+      networking = {
+        bluetooth.enable = true;
+        avahi.enable = true;
+        ssh.secure = true;
+      };
 
-    user = { createSWJ = true; managePasswords = true; };
-
-    ssh = { enable = true; secure = true; };
-    git = { enable = true; enableConfig = true; };
-    avahi.enable = true;
-  
-    bluetooth.enable = true;
-    networking = {
-      wifi.enable = true;
-      ports.spotify = true;
+      services.nh.clean.enable = true;
     };
 
-    nh = { enable = true; clean.enable = true; };
     cli = {
-      configEnable = true;
-      sudoDefaults = true;
+      zsh.default.enable = true;
+      sudo.defaults.enable = true;
+      devEnv.enable = true;
       nix-index.enable = true;
+
+      git.delta.enable = true;
     };
 
-    zsh = {
-      enable = true;
-      enableConfig = true;
-      default = true;
-    };
+    desktop = {
+      display.enable = true;
+      hyprland.enable = true;
+      kde.enable = true;
 
-    gaming = { enable = true; steam.enable = true; };
+      gaming = {
+        enable = true;
+        steam.enable = true;
+      };
+    };
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_zen;
-
-  # TODO: find out how to fix the system from crashing after suspend
   systemd.sleep.extraConfig = ''
     AllowSuspend=no
     AllowHibernate=yes

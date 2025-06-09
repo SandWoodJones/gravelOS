@@ -1,48 +1,44 @@
-{ pkgs, ... }: {
+_: {
   imports = [ ./hardware-configuration.nix ];
 
   gravelOS = {
-    display.enable = true;
-    login.enable = true;
-    audio.enable = true;
+    system = {
+      boot = {
+        dualBoot.enable = true;
+        zen.enable = true;
+      };
 
-    kde.plasma.enable = true;
+      user.managePasswords = true;
 
-    user = { createSWJ = true; managePasswords = true; };
-  
-    bluetooth.enable = true;
-    networking = {
-      wifi.enable = true;
-      ports.spotify = true;
+      networking = {
+        bluetooth.enable = true;
+        avahi.enable = true;
+        ssh.secure = true;
+      };
+
+      services.nh.clean.enable = true;
     };
 
-    ssh = { enable = true; secure = true; };
-    git = { enable = true; enableConfig = true; };
-    avahi.enable = true;
-
-    nh = { enable = true; clean.enable = true; };
     cli = {
-      configEnable = true;
-      sudoDefaults = true;
+      zsh.default.enable = true;
+      sudo.defaults.enable = true;
+      devEnv.enable = true;
       nix-index.enable = true;
+
+      git.delta.enable = true;
     };
 
-    zsh = {
-      enable = true;
-      enableConfig = true;
-      default = true;
-    };
+    desktop = {
+      display.enable = true;
+      kde.enable = true;
 
-    gaming = {
-      enable = true;
-      dedicated = true;
-      steam.enable = true;
+      gaming = {
+        enable = true;
+        performance.enable = true;
+      };
     };
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_zen;
-
-  hardware.amdgpu.initrd.enable = true;
-
+  # DO NOT CHANGE
   system.stateVersion = "24.05";
 }

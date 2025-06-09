@@ -1,33 +1,56 @@
-{ pkgs, lib, config, ... }:
+# TODO: maybe replace thefuck with pay respects
+# TODO: configure tealdeer
+# TODO: configure ripgrep
+
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 let
   cfg = config.gravelOS.cli;
-in {
+in
+{
   options.gravelOS.cli = {
-    configEnable = lib.mkOption {
+    rm.enable = lib.mkOption {
+      default = true;
+      example = false;
+      description = "Whether the rm command should be enabled. You may want to disable this when switching to a trash manager program.";
+      type = lib.types.bool;
+    };
+
+    zoxide.cdReplace = lib.mkOption {
       default = false;
       example = true;
-      description = "Whether to enable gravelOS's environment variables, shell aliases and essential CLI tools";
+      description = "Whether `cd` should be replaced with zoxide.";
       type = lib.types.bool;
     };
   };
 
-  config = lib.mkIf cfg.configEnable {
-    home.shellAliases = {
-      sus = "systemctl --user";
-      rm = "printf \"\\e[31mCommand not executed\\e[0m\\n\""; # Disable rm in favor of using trashy
+  config = {
+    home = {
+      shellAliases = {
+        rm = lib.mkIf (!cfg.rm.enable) "printf \"\\e[31mCommand not executed\\e[0m\\n\"";
+
+        sus = "systemctl --user";
+        gs = "git status";
+        ls = "eza";
+        tree = "eza -T --git-ignore";
+      };
+
+      sessionVariables = {
+        PAGER = "${pkgs.ov}/bin/ov-less";
+      };
     };
 
-    home.packages = [ pkgs.nixd ];
-  
     programs = {
       zoxide = {
         enable = true;
-        options = [ "--cmd cd" ];
+        options = lib.mkIf cfg.zoxide.cdReplace [ "--cmd cd" ];
       };
 
-      # TODO: maybe replace with pay respects
       thefuck.enable = true;
-      # TODO: see about configuring
       tealdeer.enable = true;
     };
   };

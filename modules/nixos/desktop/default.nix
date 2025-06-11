@@ -16,7 +16,6 @@ in
 
   config = lib.mkIf cfg.display.enable {
     services.xserver.enable = true;
-    gravelOS.desktop.login.enable = lib.mkDefault true;
 
     fonts = {
       fontconfig.useEmbeddedBitmaps = true;

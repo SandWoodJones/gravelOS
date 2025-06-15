@@ -33,6 +33,7 @@ in
 
         (lib.mkIf config.gravelOS.desktop.mpv.default.enable {
           "video/mp4" = [ "mpv.desktop" ];
+          "video/x-matroska" = [ "mpv.desktop" ];
         })
 
         (lib.mkIf config.gravelOS.desktop.firefox.pdfDefault.enable {

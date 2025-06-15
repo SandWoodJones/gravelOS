@@ -17,6 +17,8 @@ in
   config = lib.mkIf cfg.display.enable {
     services.xserver.enable = true;
 
+    xdg.portal.xdgOpenUsePortal = true;
+
     fonts = {
       fontconfig.useEmbeddedBitmaps = true;
       enableDefaultPackages = true;

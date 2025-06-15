@@ -39,6 +39,7 @@ in
           # User essentials
           helix
           trashy
+          ffmpeg
 
           # Nice-to-haves
           fzf

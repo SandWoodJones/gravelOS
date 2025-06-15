@@ -1,4 +1,3 @@
-# TODO: configure pay-respects
 # TODO: configure tealdeer
 # TODO: configure ripgrep
 
@@ -50,8 +49,14 @@ in
         options = lib.mkIf cfg.zoxide.cdReplace [ "--cmd cd" ];
       };
 
-      pay-respects.enable = true;
       tealdeer.enable = true;
+      pay-respects = {
+        enable = true;
+        options = [
+          "--alias"
+          "--nocnf"
+        ];
+      };
     };
   };
 }

@@ -16,8 +16,9 @@ in
     };
   };
 
-  config = lib.mkIf cfg.defaultBaseDirs.enable {
-    xdg = {
+  config = {
+    home.preferXdgDirectories = true;
+    xdg = lib.mkIf cfg.defaultBaseDirs.enable {
       enable = true;
       userDirs = {
         enable = true;

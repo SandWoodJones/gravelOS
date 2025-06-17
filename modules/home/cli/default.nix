@@ -28,14 +28,14 @@ in
   };
 
   config = {
+    gravelOS.cli.eza.enable = lib.mkDefault true;
+
     home = {
       shellAliases = {
         rm = lib.mkIf (!cfg.rm.enable) "printf \"\\e[31mCommand not executed\\e[0m\\n\"";
 
         sus = "systemctl --user";
         gs = "git status";
-        ls = "eza";
-        tree = "eza -T --git-ignore";
       };
 
       sessionVariables = {

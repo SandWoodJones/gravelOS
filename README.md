@@ -34,9 +34,11 @@
    │     └─ login
    └─ home
       ├─ system
+      │  ├─ hyprland
       │  ├─ networking
       │  └─ xdg
       ├─ cli
+      │  ├─ eza
       │  ├─ git
       │  ├─ helix
       │  └─ zsh
@@ -44,6 +46,10 @@
          ├─ firefox
          ├─ gaming
          │  └─ openmw
+         ├─ hyprland
+         │  └─ services
+         │     └─ hypridle
+         ├─ launcher
          ├─ mpv
          ├─ wezterm
          └─ xdg

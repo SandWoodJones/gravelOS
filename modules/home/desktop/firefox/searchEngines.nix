@@ -63,9 +63,9 @@ in
           ];
 
           icon = pkgs.fetchurl {
-            url = "https://upload.wikimedia.org/wikipedia/commons/9/9b/Letterboxd_2023_logo.png";
+            url = "https://upload.wikimedia.org/wikipedia/commons/f/fd/YouTube_full-color_icon_%282024%29.svg";
             name = "firefox-engine-icon-youtube.svg";
-            hash = "sha256-iewTIIy/ahWZVysQ8cYQaWDGMy0DRo7xG6Di/Jphts4=";
+            hash = "sha256-8igmt9medFu9pU3EIcLC8IY3OyAMXn97QExNecPfaOI=";
           };
         };
 

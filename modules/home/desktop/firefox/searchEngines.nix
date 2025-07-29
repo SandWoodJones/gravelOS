@@ -9,13 +9,13 @@ let
 
   nix-community-icon = pkgs.fetchurl {
     url = "https://nix-community.org/nix-community-logo.svg";
-    name = "firefox-engine-icon-nix-community.svg";
+    name = "nix-community-icon.svg";
     hash = "sha256-knHbAsCVhSW8Ucc24nhwakLezw2QCRjvi/Plz3QDas4=";
   };
 
   rust-icon = pkgs.fetchurl {
     url = "https://raw.githubusercontent.com/rust-lang/rust/d4812c8638173ec163825d56a72a33589483ec4c/src/librustdoc/html/static/images/favicon.svg";
-    name = "firefox-engine-icon-rust.svg";
+    name = "rust-icon.svg";
     hash = "sha256-BEvjkUSrMEz56g6QFMP0duDFGUxiqlJbNmnK9dtawIg=";
   };
 in
@@ -64,7 +64,7 @@ in
 
           icon = pkgs.fetchurl {
             url = "https://upload.wikimedia.org/wikipedia/commons/f/fd/YouTube_full-color_icon_%282024%29.svg";
-            name = "firefox-engine-icon-youtube.svg";
+            name = "youtube-icon.svg";
             hash = "sha256-8igmt9medFu9pU3EIcLC8IY3OyAMXn97QExNecPfaOI=";
           };
         };
@@ -210,13 +210,13 @@ in
 
           icon = pkgs.fetchurl {
             url = "https://upload.wikimedia.org/wikipedia/commons/9/9b/Letterboxd_2023_logo.png";
-            name = "firefox-engine-icon-letterboxd.png";
+            name = "letterboxd-icon.png";
             hash = "sha256-iewTIIy/ahWZVysQ8cYQaWDGMy0DRo7xG6Di/Jphts4=";
           };
         };
 
         "OSRS Wiki" = {
-          definedAliases = [ "@rs" ];
+          definedAliases = [ "@rs" "@osrs" ];
           urls = [
             {
               template = "https://oldschool.runescape.wiki";
@@ -231,7 +231,7 @@ in
 
           icon = pkgs.fetchurl {
             url = "https://oldschool.runescape.wiki/images/RuneScape_Classic_Runestone.png";
-            name = "firefox-engine-icon-osrs.png";
+            name = "osrs-icon.png";
             hash = "sha256-OJrZlmG+8Ruu/bmQVav58ZQPV7xhvj3g9X6JKJAva4c=";
           };
         };

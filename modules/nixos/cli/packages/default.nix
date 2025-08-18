@@ -46,6 +46,7 @@ in
           eza
           ov
           ripgrep
+          fd
           xcp
         ]
       ];

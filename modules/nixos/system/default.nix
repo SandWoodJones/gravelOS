@@ -22,6 +22,11 @@ in
     '';
   };
 
+  programs.java = {
+    enable = true;
+    binfmt = true;
+  };
+
   gravelOS.system = {
     networking = {
       wifi.enable = lib.mkDefault true;

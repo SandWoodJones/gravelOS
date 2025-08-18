@@ -35,8 +35,6 @@ in
       wl-clipboard
 
       posy-cursors
-
-      jre_minimal
     ];
   };
 }

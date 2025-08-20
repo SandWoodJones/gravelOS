@@ -3,7 +3,7 @@
   ...
 }:
 {
-  inherit (lib.gravelOS) nix sops;
+  inherit (lib.gravelOS) nix;
 
   manual.html.enable = true;
 }

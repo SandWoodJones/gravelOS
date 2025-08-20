@@ -1,6 +1,10 @@
-_: {
+{
+  inputs,
+  ...
+}:
+{
   sops = {
-    defaultSopsFile = ../../secrets.yaml;
+    defaultSopsFile = "${inputs.self}/secrets.yaml";
     validateSopsFiles = false;
 
     age = {

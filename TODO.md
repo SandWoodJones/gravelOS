@@ -36,7 +36,6 @@
 - An RSS or atom feed?
 - Learn terminal multiplexing
 - use and configure a torrent daemon like transmission or rtorrent
-- syncthing
 - flashpoint
 - add alias for nix-store --query --requisites /run/current-system | grep ...
 - look into schedulers, BORE and services.scx

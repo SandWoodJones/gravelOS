@@ -16,6 +16,7 @@ in
         };
       };
       xdg.defaultBaseDirs.enable = true;
+      syncthing.enable = true;
     };
 
     cli = {

@@ -22,5 +22,10 @@ in
         target = "wayland-session@Hyprland.target";
       };
     };
+
+    systemd.user.services.waybar = {
+      Install.WantedBy = lib.mkForce [ "hyprland-session.target" ];
+      Unit.PartOf = lib.mkForce [ "hyprland-session.target" ];
+    };
   };
 }

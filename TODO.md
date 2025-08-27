@@ -10,7 +10,6 @@
 	- `zen` browser or `floorp` or `ladybird` when it comes out
 	- `delta` as a diff substitute
 - Configure
-	- `ov` with `less` keybindings. https://noborus.github.io/ov/index.html
 	- `stylix`
 		- https://github.com/Misterio77/nix-colors
 		- GTK themes, window border styles, mouse cursors, etc

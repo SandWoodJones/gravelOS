@@ -2,7 +2,6 @@
 # TODO: configure ripgrep
 
 {
-  pkgs,
   lib,
   config,
   ...
@@ -31,6 +30,7 @@ in
     gravelOS.cli = {
       git.delta.enable = lib.mkDefault true;
       eza.enable = lib.mkDefault true;
+      ov.enable = lib.mkDefault true;
     };
 
     home = {
@@ -39,10 +39,6 @@ in
 
         sus = "systemctl --user";
         gs = "git status";
-      };
-
-      sessionVariables = {
-        PAGER = "${pkgs.ov}/bin/ov-less";
       };
     };
 

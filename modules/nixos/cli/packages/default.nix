@@ -44,7 +44,6 @@ in
           # Nice-to-haves
           fzf
           eza
-          ov
           ripgrep
           fd
           xcp

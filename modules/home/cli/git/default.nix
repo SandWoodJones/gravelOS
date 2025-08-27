@@ -1,5 +1,6 @@
 # TODO: look into gh settings and zextensions
 # TODO: configure gitui
+# TODO: configure delta
 
 {
   lib,
@@ -31,6 +32,8 @@ in
         type = lib.types.path;
       };
     };
+
+    delta.enable = lib.mkEnableOption "delta syntax highlighter";
   };
 
   config = {
@@ -42,8 +45,9 @@ in
         extraConfig = lib.mkMerge [
           {
             user = {
+              inherit (cfg) email;
+
               name = cfg.username;
-              email = cfg.email;
               signingKey = builtins.toString cfg.signing.ssh.keyPath;
             };
           }
@@ -59,6 +63,14 @@ in
           dfs = "diff --staged";
           rbi = "rebase --interactive";
           rbc = "rebase --continue";
+        };
+
+        delta = lib.mkIf cfg.delta.enable {
+          enable = true;
+          options = {
+            navigate = true;
+            side-by-side = true;
+          };
         };
       };
 

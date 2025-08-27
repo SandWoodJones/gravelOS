@@ -28,7 +28,10 @@ in
   };
 
   config = {
-    gravelOS.cli.eza.enable = lib.mkDefault true;
+    gravelOS.cli = {
+      git.delta.enable = lib.mkDefault true;
+      eza.enable = lib.mkDefault true;
+    };
 
     home = {
       shellAliases = {

@@ -24,8 +24,6 @@ _: {
       sudo.defaults.enable = true;
       devEnv.enable = true;
       nix-index.enable = true;
-
-      git.delta.enable = true;
     };
 
     desktop = {

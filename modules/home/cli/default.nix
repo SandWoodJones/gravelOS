@@ -29,8 +29,11 @@ in
   config = {
     gravelOS.cli = {
       git.delta.enable = lib.mkDefault true;
-      eza.enable = lib.mkDefault true;
       ov.enable = lib.mkDefault true;
+      eza = {
+          enable = lib.mkDefault true;
+          tree.enable = lib.mkDefault true;
+      };
     };
 
     home = {

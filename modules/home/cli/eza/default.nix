@@ -13,10 +13,10 @@ in
 
   options.gravelOS.cli.eza = {
     enable = lib.mkEnableOption "eza";
-    replace.enable = lib.mkOption {
+    tree.enable = lib.mkOption {
       default = false;
       example = true;
-      description = "Whether to alias ls and tree to eza.";
+      description = "Whether to create an alias for eza's tree function.";
       type = lib.types.bool;
     };
   };
@@ -33,10 +33,9 @@ in
       # Disable LS_COLORS so it doesn't interfere with theme.yml
       zsh.initContent = ''eza() { env -u LS_COLORS eza "$@"}'';
     };
-  
-    home.shellAliases = lib.mkIf cfg.replace.enable {
-      ls = "eza -x";
-      tree = "eza -T --git-ignore";
+
+    home.shellAliases = {
+      tree = lib.mkIf cfg.tree.enable "eza -T --git-ignore";
     };
   };
 }

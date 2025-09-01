@@ -43,7 +43,6 @@ in
 
           # Nice-to-haves
           fzf
-          eza
           ripgrep
           fd
           xcp

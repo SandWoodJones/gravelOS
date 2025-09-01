@@ -30,7 +30,6 @@ in
         enable = true;
         default.enable = true;
       };
-      eza.replace.enable = true;
     };
 
     desktop = {

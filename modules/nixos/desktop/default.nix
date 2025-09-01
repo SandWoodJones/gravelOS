@@ -27,6 +27,7 @@ in
         nerd-fonts.symbols-only
         nerd-fonts.noto
         noto-fonts-cjk-sans
+        cm_unicode
       ];
     };
 

@@ -26,7 +26,9 @@
         "nix-command"
         "flakes"
       ];
+
       warn-dirty = false;
+      use-xdg-base-directories = true;
     };
   };
 }

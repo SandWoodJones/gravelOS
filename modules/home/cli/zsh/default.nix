@@ -1,3 +1,5 @@
+# INFO: maybe look into https://github.com/goolord/simple-zsh-nix-shell if it feels needed
+
 {
   pkgs,
   lib,

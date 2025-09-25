@@ -26,10 +26,7 @@ in
         enable = true;
         keyPath = idKey;
       };
-      helix = {
-        enable = true;
-        default.enable = true;
-      };
+      helix.enable = true;
     };
 
     desktop = {
@@ -38,20 +35,9 @@ in
         theming.smart.enable = true;
         services.hypridle.enable = true;
       };
-      launcher = {
-        rofi = {
-          enable = true;
-          default.enable = true;
-        };
-      };
-      wezterm = {
-        enable = true;
-        default.enable = true;
-      };
-      mpv = {
-        enable = true;
-        default.enable = true;
-      };
+      launcher.rofi.enable = true;
+      wezterm.enable = true;
+      mpv.enable = true;
       firefox = {
         enable = true;
         pdfDefault.enable = true;

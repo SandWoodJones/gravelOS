@@ -31,7 +31,7 @@ in
           "x-scheme-handler/discord" = [ "vesktop.desktop" ];
         })
 
-        (lib.mkIf config.gravelOS.desktop.mpv.default.enable {
+        (lib.mkIf config.gravelOS.desktop.mpv.enable {
           "video/mp4" = [ "mpv.desktop" ];
           "video/x-matroska" = [ "mpv.desktop" ];
         })

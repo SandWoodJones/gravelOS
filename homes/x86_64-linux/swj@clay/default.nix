@@ -26,18 +26,12 @@ in
         enable = true;
         keyPath = idKey;
       };
-      helix = {
-        enable = true;
-        default.enable = true;
-      };
+      helix.enable = true;
     };
 
     desktop = {
       wezterm.enable = true;
-      mpv = {
-        enable = true;
-        default.enable = true;
-      };
+      mpv.enable = true;
       firefox = {
         enable = true;
         pdfDefault.enable = true;

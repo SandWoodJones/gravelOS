@@ -1,22 +1,8 @@
 {
   pkgs,
-  lib,
-  config,
   ...
 }:
-let
-  cfg = config.gravelOS.cli.zsh;
-in
 {
-  options.gravelOS.cli.zsh = {
-    default.enable = lib.mkOption {
-      default = false;
-      example = true;
-      description = "Wether to set ZSH as the default shell for all users.";
-      type = lib.types.bool;
-    };
-  };
-
   config = {
     # Needed to get system package completions for home-manager's zsh
     environment.pathsToLink = [ "/share/zsh" ];
@@ -55,6 +41,6 @@ in
       ];
     };
 
-    users.defaultUserShell = lib.mkIf cfg.default.enable pkgs.zsh;
+    users.defaultUserShell = pkgs.zsh;
   };
 }

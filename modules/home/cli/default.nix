@@ -31,8 +31,8 @@ in
       git.delta.enable = lib.mkDefault true;
       ov.enable = lib.mkDefault true;
       eza = {
-          enable = lib.mkDefault true;
-          tree.enable = lib.mkDefault true;
+        enable = lib.mkDefault true;
+        tree.enable = lib.mkDefault true;
       };
     };
 
@@ -50,7 +50,10 @@ in
         enable = true;
         options = lib.mkIf cfg.zoxide.cdReplace [ "--cmd cd" ];
       };
-
+      ripgrep = {
+        enable = true;
+        arguments = [ "--smart-case" ];
+      };
       tealdeer.enable = true;
       pay-respects = {
         enable = true;

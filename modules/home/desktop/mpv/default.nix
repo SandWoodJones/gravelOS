@@ -13,13 +13,7 @@ let
 in
 {
   options.gravelOS.desktop.mpv = {
-    enable = lib.mkEnableOption "mpv";
-    default.enable = lib.mkOption {
-      default = false;
-      example = true;
-      description = "Whether to set mpv as the default video player.";
-      type = lib.types.bool;
-    };
+    enable = lib.mkEnableOption "mpv and set it as the default video player";
   };
 
   config = lib.mkIf cfg.enable {

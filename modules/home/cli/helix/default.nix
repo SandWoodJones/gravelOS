@@ -12,19 +12,13 @@ let
 in
 {
   options.gravelOS.cli.helix = {
-    enable = lib.mkEnableOption "helix";
-    default.enable = lib.mkOption {
-      default = false;
-      example = true;
-      description = "Whether to set helix as the default text editor.";
-      type = lib.types.bool;
-    };
+    enable = lib.mkEnableOption "helix and set it as the default text editor";
   };
 
   config = lib.mkIf cfg.enable {
     programs.helix = {
       enable = true;
-      defaultEditor = cfg.default.enable;
+      defaultEditor = true;
 
       settings = {
         editor = {

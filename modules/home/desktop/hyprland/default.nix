@@ -47,11 +47,11 @@ in
 
     wayland.windowManager.hyprland.settings = {
       "$mod" = "SUPER";
-      "$terminal" = lib.mkIf config.gravelOS.desktop.wezterm.default.enable "wezterm";
+      "$terminal" = lib.mkIf config.gravelOS.desktop.wezterm.enable "wezterm";
 
       # https://github.com/Vladimir-csp/uwsm?tab=readme-ov-file#5-launchers
       "$launcher" =
-        lib.mkIf config.gravelOS.desktop.launcher.rofi.default.enable ''rofi -show drun -show-icons -run-command "uwsm app -- {cmd}"'';
+        lib.mkIf config.gravelOS.desktop.launcher.rofi.enable ''rofi -show drun -show-icons -run-command "uwsm app -- {cmd}"'';
 
       input.kb_layout = osConfig.services.xserver.xkb.layout;
 

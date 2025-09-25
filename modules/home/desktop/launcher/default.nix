@@ -13,13 +13,7 @@ in
 {
   options.gravelOS.desktop.launcher = {
     rofi = {
-      enable = lib.mkEnableOption "Rofi (Wayland fork)";
-      default.enable = lib.mkOption {
-        default = false;
-        example = true;
-        description = "Whether to set Rofi as the default application launcher.";
-        type = lib.types.bool;
-      };
+      enable = lib.mkEnableOption "Rofi (Wayland fork) and set it as the default application launcher";
     };
   };
 

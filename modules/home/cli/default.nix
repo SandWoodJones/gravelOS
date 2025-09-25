@@ -28,6 +28,7 @@ in
 
   config = {
     gravelOS.cli = {
+      starship.enable = lib.mkDefault true;
       git.delta.enable = lib.mkDefault true;
       ov.enable = lib.mkDefault true;
       eza = {

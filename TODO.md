@@ -1,7 +1,6 @@
 # TODO
 - Install
 	- Rewritten gnu programs https://zaiste.net/posts/shell-commands-rust/
-	- `starship` prompt (https://github.com/goolord/simple-zsh-nix-shell)
 	- A terminal file manager (`xplr`, `nnn` `ranger`). `zoxide` has some plugins for those
 	- `zen` browser or `floorp` or `ladybird` when it comes out
 	- `delta` as a diff substitute

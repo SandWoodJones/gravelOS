@@ -8,6 +8,8 @@ let
   needsreboot = "${inputs.nixos-needsreboot.packages.${system}.default}/bin/nixos-needsreboot";
 in
 {
+  environment.localBinInPath = true;
+  
   # https://github.com/etu/nixconfig/blob/739bd9ca4765519f7f1667d1e71f6051661b9b4d/modules/base/default.nix#L87-L102
   system.activationScripts.rebootCheck = {
     supportsDryActivation = true;

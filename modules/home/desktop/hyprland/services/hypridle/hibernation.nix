@@ -9,7 +9,7 @@ in
 {
   options.gravelOS.desktop.hyprland.services.hypridle = {
     settings.hibernation = {
-      enable = lib.mkEnableOption "Hypridle sending the system into hibernation on idling";
+      enable = lib.gravelOS.mkEnableDefault "Hypridle sending the system into hibernation on idling";
 
       timeout = {
         ac = lib.mkOption {
@@ -26,8 +26,8 @@ in
     };
   };
 
-  config = lib.mkIf cfg.settings.hibernation.enable {
-    services.hypridle.settings.listener = [
+  config = lib.mkIf cfg.enable {
+    services.hypridle.settings.listener = lib.mkIf cfg.settings.hibernation.enable [
       {
         timeout = builtins.floor (60 * cfg.settings.hibernation.timeout.ac);
         on-timeout = "systemd-ac-power && systemctl hibernate";

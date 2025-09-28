@@ -13,7 +13,7 @@ in
 {
   options.gravelOS.system.user = {
     defaultUser = {
-      enable = lib.mkEnableOption "the creation of the system's default user";
+      enable = lib.gravelOS.mkEnableDefault "the creation of the system's default user";
 
       name = lib.mkOption {
         default = "swj";
@@ -37,8 +37,6 @@ in
   };
 
   config = {
-    gravelOS.system.user.defaultUser.enable = lib.mkDefault true;
-  
     sops.secrets = {
       root-password.neededForUsers = true;
       defaultUser-password.neededForUsers = true;

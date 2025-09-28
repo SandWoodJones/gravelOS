@@ -9,9 +9,9 @@ let
 in
 {
   options.gravelOS.cli.packages = {
-    archive.enable = lib.mkEnableOption "archival (compression, decompression) packages";
-    encryption.enable = lib.mkEnableOption "encryption packages";
-    nix.enable = lib.mkEnableOption "nix-specific development packages";
+    archive.enable = lib.gravelOS.mkEnableDefault "archival (compression, decompression) packages";
+    encryption.enable = lib.gravelOS.mkEnableDefault "encryption packages";
+    nix.enable = lib.gravelOS.mkEnableDefault "nix-specific development packages";
   };
 
   config = {

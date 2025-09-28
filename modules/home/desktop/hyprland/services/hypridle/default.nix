@@ -19,16 +19,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    gravelOS.desktop.hyprland.services.hypridle.settings = {
-      dimming.enable = lib.mkDefault true;
-      locking = {
-        enable = lib.mkDefault true;
-        dimming.enable = lib.mkDefault true;
-      };
-      screenOff.enable = lib.mkDefault true;
-      hibernation.enable = lib.mkDefault true;
-    };
-
     systemd.user.services.hypridle = {
       Install.WantedBy = lib.mkForce [ "wayland-session@Hyprland.target" ];
       Unit = {

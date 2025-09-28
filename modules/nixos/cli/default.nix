@@ -34,12 +34,6 @@ in
   };
 
   config = {
-    gravelOS.cli.packages = {
-      archive.enable = lib.mkDefault true;
-      encryption.enable = lib.mkDefault true;
-      nix.enable = lib.mkDefault true;
-    };
-  
     documentation.dev.enable = true;
 
     programs = {

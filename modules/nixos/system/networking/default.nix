@@ -23,7 +23,7 @@ in
     bluetooth.enable = lib.mkEnableOption "Bluetooth";
     avahi.enable = lib.mkEnableOption "Avahi";
     ssh = {
-      enable = lib.mkEnableOption "OpenSSH";
+      enable = lib.gravelOS.mkEnableDefault "OpenSSH";
       secure = lib.mkOption {
         default = false;
         example = true;

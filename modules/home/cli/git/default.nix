@@ -33,7 +33,7 @@ in
       };
     };
 
-    delta.enable = lib.mkEnableOption "delta syntax highlighter";
+    delta.enable = lib.gravelOS.mkEnableDefault "delta syntax highlighter";
   };
 
   config = {

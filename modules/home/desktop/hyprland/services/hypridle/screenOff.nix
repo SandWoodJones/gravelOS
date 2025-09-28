@@ -9,7 +9,7 @@ in
 {
   options.gravelOS.desktop.hyprland.services.hypridle = {
     settings.screenOff = {
-      enable = lib.mkEnableOption "Hypridle turning the screen off on idling";
+      enable = lib.gravelOS.mkEnableDefault "Hypridle turning the screen off on idling";
 
       timeout = lib.mkOption {
         default = 20;
@@ -19,8 +19,8 @@ in
     };
   };
 
-  config = lib.mkIf cfg.settings.screenOff.enable {
-    services.hypridle.settings.listener = [
+  config = lib.mkIf cfg.enable {
+    services.hypridle.settings.listener = lib.mkIf cfg.settings.screenOff.enable [
       {
         timeout = builtins.floor (60 * cfg.settings.screenOff.timeout);
         on-timeout = "hyprctl dispatch dpms off";

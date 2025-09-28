@@ -12,10 +12,10 @@ in
   ];
 
   options.gravelOS.cli.eza = {
-    enable = lib.mkEnableOption "eza";
+    enable = lib.gravelOS.mkEnableDefault "eza";
     tree.enable = lib.mkOption {
-      default = false;
-      example = true;
+      default = true;
+      example = false;
       description = "Whether to create an alias for eza's tree function.";
       type = lib.types.bool;
     };

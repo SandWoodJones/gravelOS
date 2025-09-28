@@ -11,7 +11,7 @@ let
 in
 {
   options.gravelOS.cli.ov = {
-    enable = lib.mkEnableOption "ov as the default pager";
+    enable = lib.gravelOS.mkEnableDefault "ov and set it as the default pager";
   };
 
   config = lib.mkIf cfg.enable {

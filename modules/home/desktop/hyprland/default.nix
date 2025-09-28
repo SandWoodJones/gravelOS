@@ -24,12 +24,7 @@ in
   ];
 
   config = lib.mkIf cfg.enable {
-    gravelOS.desktop.hyprland = {
-      binds.enable = lib.mkDefault true;
-      rules.enable = lib.mkDefault true;
-      theming.enable = lib.mkDefault true;
-      services.enable = lib.mkDefault true;
-    };
+    gravelOS.desktop.hyprland.services.enable = lib.mkDefault true;
 
     wayland.windowManager.hyprland = {
       enable = true;

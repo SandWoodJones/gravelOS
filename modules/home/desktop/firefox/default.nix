@@ -23,11 +23,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    gravelOS.desktop.firefox = {
-      policies.enable = lib.mkDefault true;
-      searchEngines.enable = lib.mkDefault true;
-    };
-
     programs.firefox = {
       enable = true;
 

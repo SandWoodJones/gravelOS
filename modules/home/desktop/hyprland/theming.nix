@@ -17,13 +17,6 @@ in
 {
   options.gravelOS.desktop.hyprland = {
     theming = {
-      enable = lib.mkOption {
-        default = false;
-        example = true;
-        description = "Whether to set theming options for Hyprland.";
-        type = lib.types.bool;
-      };
-
       smart.enable = lib.mkOption {
         default = false;
         example = true;
@@ -46,7 +39,7 @@ in
     };
   };
 
-  config = lib.mkIf cfg.theming.enable {
+  config = lib.mkIf cfg.enable {
     wayland.windowManager.hyprland.settings = {
       general = {
         gaps_in = cfg.theming.gaps.default_in;

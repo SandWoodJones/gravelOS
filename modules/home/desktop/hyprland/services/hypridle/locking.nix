@@ -19,8 +19,8 @@ in
     };
   };
 
-  config = lib.mkIf cfg.settings.locking.enable {
-    services.hypridle.settings.listener = [
+  config = lib.mkIf cfg.enable {
+    services.hypridle.settings.listener = lib.mkIf cfg.settings.locking.enable [
       {
         timeout = builtins.floor (60 * cfg.settings.locking.timeout);
         on-timeout = "pidof hyprlock || (loginctl lock-session && brillo -I)";

@@ -7,8 +7,10 @@ _: {
     system = {
       boot.zen.enable = true;
       user.managePasswords = true;
+      audio.enable = true;
 
       networking = {
+        wifi.enable = true;
         bluetooth.enable = true;
         avahi.enable = true;
         ssh.secure = true;

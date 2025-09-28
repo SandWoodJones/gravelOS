@@ -10,7 +10,7 @@ let
 in
 {
   options.gravelOS.desktop.xdg = {
-    defaultApplications.enable = lib.mkEnableOption "handling default applications through the mimeapps.list file";
+    defaultApplications.enable = lib.gravelOS.mkEnableDefault "handling default applications through the mimeapps.list file";
   };
 
   config = lib.mkIf cfg.defaultApplications.enable {

@@ -27,15 +27,6 @@ in
   };
 
   config = {
-    gravelOS.cli = {
-      git.delta.enable = lib.mkDefault true;
-      ov.enable = lib.mkDefault true;
-      eza = {
-        enable = lib.mkDefault true;
-        tree.enable = lib.mkDefault true;
-      };
-    };
-
     home = {
       shellAliases = {
         rm = lib.mkIf (!cfg.rm.enable) "printf \"\\e[31mCommand not executed\\e[0m\\n\"";

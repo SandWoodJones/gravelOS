@@ -7,8 +7,8 @@ _: {
         dualBoot.enable = true;
         zen.enable = true;
       };
-
       user.managePasswords = true;
+      audio.enable = true;
 
       networking = {
         bluetooth.enable = true;

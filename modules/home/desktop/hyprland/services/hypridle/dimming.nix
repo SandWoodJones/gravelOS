@@ -10,7 +10,7 @@ in
   options.gravelOS.desktop.hyprland.services.hypridle = {
     settings = {
       dimming = {
-        enable = lib.mkEnableOption "Hypridle dimming the screen on idling";
+        enable = lib.gravelOS.mkEnableDefault "Hypridle dimming the screen on idling";
 
         timeout = lib.mkOption {
           default = 10;
@@ -30,7 +30,7 @@ in
       };
 
       locking.dimming = {
-        enable = lib.mkEnableOption "Hypridle dimming the lock screen on idling";
+        enable = lib.gravelOS.mkEnableDefault "Hypridle dimming the lock screen on idling";
 
         minBrightness = lib.mkOption {
           default = 1;
@@ -60,7 +60,7 @@ in
         else
           ":";
     in
-    {
+    lib.mkIf cfg.enable {
       services.hypridle.settings.listener = [
         (lib.mkIf cfg.settings.dimming.enable {
           timeout = builtins.floor (60 * cfg.settings.dimming.timeout);

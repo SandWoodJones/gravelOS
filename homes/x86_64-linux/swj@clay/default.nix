@@ -41,7 +41,7 @@ in
 
   home.packages = with pkgs; [
     stremio
-    spotify
+    spotifywm
     telegram-desktop
     vesktop
     obsidian
@@ -50,12 +50,17 @@ in
     hunspellDicts.pt_BR
     hunspellDicts.en_US
     krita
-    gimp
+    gimp3
     qbittorrent-enhanced
     gravelOS.pico8
     godot_4
     aseprite
-    heroic
+    (heroic.override {
+      extraPkgs =
+        pkgs: with pkgs; [
+          gamemode
+        ];
+    })
     bolt-launcher
     gravelOS.quadrilateralcowboy
     r2modman

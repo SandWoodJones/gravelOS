@@ -2,7 +2,6 @@
 # TODO: configure rofi
 
 {
-  pkgs,
   lib,
   config,
   ...
@@ -13,14 +12,13 @@ in
 {
   options.gravelOS.desktop.launcher = {
     rofi = {
-      enable = lib.mkEnableOption "Rofi (Wayland fork) and set it as the default application launcher";
+      enable = lib.mkEnableOption "Rofi and set it as the default application launcher";
     };
   };
 
   config = {
     programs.rofi = lib.mkIf cfg.rofi.enable {
       enable = true;
-      package = pkgs.rofi-wayland;
     };
   };
 }

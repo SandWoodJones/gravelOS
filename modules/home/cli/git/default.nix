@@ -3,12 +3,18 @@
 # TODO: configure delta
 
 {
+  pkgs,
   lib,
   config,
   ...
 }:
 let
   cfg = config.gravelOS.cli.git;
+  rebaseStash = pkgs.writeShellScript "git-stash-rb" ''
+    set -eu
+    git stash push --keep-index -m "unstaged"
+    git stash push -m "staged"
+  '';
 in
 {
   options.gravelOS.cli.git = {
@@ -63,6 +69,8 @@ in
           dfs = "diff --staged";
           rbi = "rebase --interactive";
           rbc = "rebase --continue";
+          rbs = "!${rebaseStash}";
+          pop = "stash pop";
         };
 
         delta = lib.mkIf cfg.delta.enable {

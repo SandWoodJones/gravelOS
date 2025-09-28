@@ -40,10 +40,7 @@ in
       nix.enable = lib.mkDefault true;
     };
   
-    documentation = {
-      dev.enable = true;
-      man.generateCaches = true;
-    };
+    documentation.dev.enable = true;
 
     programs = {
       command-not-found.enable = !cfg.nix-index.enable;

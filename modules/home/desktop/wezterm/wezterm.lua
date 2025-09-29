@@ -1,9 +1,10 @@
 local config = wezterm.config_builder()
 
 config = {
-  font = wezterm.font {
-    family = 'Maple Mono',
-    harfbuzz_features = { 'calt', 'zero', 'cv01', 'cv03', 'cv61', 'ss05' }
+  font = wezterm.font_with_fallback {
+    { family = 'Maple Mono', harfbuzz_features = { 'calt', 'zero', 'cv01', 'cv03', 'cv61', 'ss05' } },
+    "Noto Sans Mono",
+    "DejaVu Sans Mono",
   },
   
   leader = { key = ' ', mods = 'CTRL', timeout_milliseconds = 1000 },

@@ -17,6 +17,7 @@
       "xhci_pci"
     ];
     kernelModules = [ "kvm-amd" ];
+    kernelParams = [ "reboot=acpi" ];
   };
 
   hardware = {

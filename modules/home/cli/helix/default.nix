@@ -5,6 +5,7 @@
   pkgs,
   lib,
   config,
+  inputs,
   ...
 }:
 let
@@ -20,7 +21,10 @@ in
       enable = true;
       defaultEditor = true;
 
+      themes.${config.scheme.slug} = builtins.readFile (config.scheme inputs.base16-helix);
+
       settings = {
+        theme = "${config.scheme.slug}";
         editor = {
           auto-format = false;
           bufferline = "multiple";
@@ -56,8 +60,6 @@ in
             S-tab = "extend_parent_node_start";
           };
         };
-
-        theme = "monokai";
       };
 
       languages = {

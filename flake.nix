@@ -22,6 +22,17 @@
       url = "github:thefossguy/nixos-needsreboot";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    base16.url = "github:SenchoPens/base16.nix";
+    tt-schemes = {
+      url = "github:tinted-theming/schemes";
+      flake = false;
+    };
+    base16-helix = {
+      url = "github:tinted-theming/base16-helix";
+      flake = false;
+    };
+
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -48,7 +59,6 @@
           };
         };
       };
-
     in
     lib.mkFlake {
       channels-config.allowUnfree = true;
@@ -58,12 +68,16 @@
         {
           home-manager = {
             backupFileExtension = "hm-backup";
-            sharedModules = [ sops-nix.homeManagerModules.sops ];
+            sharedModules = [
+              sops-nix.homeManagerModules.sops
+              base16.homeManagerModule
+            ];
           };
         }
 
         sops-nix.nixosModules.sops
 
+        base16.nixosModule
         nix-index-database.nixosModules.nix-index
         { }
       ];

@@ -5,10 +5,8 @@
 	- `zen` browser or `floorp` or `ladybird` when it comes out
 	- `delta` as a diff substitute
 - Configure
-	- `stylix`
-		- https://github.com/Misterio77/nix-colors
-		- GTK themes, window border styles, mouse cursors, etc
-			- make a fotonight web theme
+	- GTK themes, window border styles, mouse cursors, etc
+		- make a fotonight web theme
 	- Dualshock 4 controller
 	- Configure `gpg` and make it non-mutable
 - Disk management
@@ -18,11 +16,6 @@
 	- [ ] Put wine prefixes into a subvolume and create a duperemove service. https://www.reddit.com/r/linux_gaming/comments/1fig0xy/comment/lnh1x6u/
 	- [ ] Look into `btrfs` snapshots saved on primary ssd
 	- [ ] BTRFS scrubbing https://nixos.wiki/wiki/Btrfs#Scrubbing
-- Make a color palette lib for the whole system. https://github.com/mxxntype/Aeon-snowfall
-	- `ov`
-	- `tealdeer`
-	- `eza` https://github.com/eza-community/eza/blob/main/docs/theme.yml
-	- `gitui`
 - Make a script running on the first open interactive shell every login with MOTD stuff such as `cowsay`, `fortune` or https://tealdeer-rs.github.io/tealdeer/tips_and_tricks.html#showing-a-random-page-on-shell-start
 - Look further into Lix, Tvix and Ekala
 - Look into `VNC` or `RDP` screen sharing

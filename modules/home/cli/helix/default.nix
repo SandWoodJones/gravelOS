@@ -5,7 +5,6 @@
   pkgs,
   lib,
   config,
-  inputs,
   ...
 }:
 let
@@ -21,12 +20,15 @@ in
       enable = true;
       defaultEditor = true;
 
-      themes.${config.scheme.slug} = builtins.readFile (config.scheme inputs.base16-helix);
+      themes.${config.scheme.slug} = builtins.readFile (
+        config.scheme { template = builtins.readFile ./base16-template.mustache; }
+      );
 
       settings = {
         theme = "${config.scheme.slug}";
         editor = {
           auto-format = false;
+          color-modes = true;
           bufferline = "multiple";
           cursor-shape.insert = "bar";
 

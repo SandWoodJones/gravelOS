@@ -28,6 +28,7 @@ in
         theme = "${config.scheme.slug}";
         editor = {
           auto-format = false;
+          smart-tab.enable = false;
           color-modes = true;
           bufferline = "multiple";
           cursor-shape.insert = "bar";
@@ -47,19 +48,7 @@ in
 
         keys = {
           normal = {
-            tab = "move_parent_node_end";
-            S-tab = "move_parent_node_start";
-
             C-x = ":toggle lsp.auto-signature-help";
-          };
-
-          insert = {
-            S-tab = "move_parent_node_start";
-          };
-
-          select = {
-            tab = "extend_parent_node_end";
-            S-tab = "extend_parent_node_start";
           };
         };
       };

@@ -7,7 +7,7 @@
   ...
 }:
 let
-  math = inputs.nix-math.lib.math;
+  inherit (inputs.nix-math.lib) math;
 in
 rec {
   color = rec {
@@ -221,5 +221,5 @@ rec {
       };
     in
     molokai-edited;
-    # "${inputs.tt-schemes}/base24/ayu-dark.yaml";
+    # "${inputs.tt-schemes}/base16/oxocarbon-dark.yaml";
 }

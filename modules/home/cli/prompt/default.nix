@@ -5,19 +5,8 @@
 }:
 let
   cfg = config.gravelOS.cli.prompt;
-
-  starshipMergePresets =
-    settings:
-    let
-      presetAttrs = map (
-        preset:
-        builtins.fromTOML (
-          builtins.readFile "${config.programs.starship.package}/share/starship/presets/${preset}.toml"
-        )
-      ) cfg.starship.presets;
-      allSettings = presetAttrs ++ [ settings ];
-    in
-    lib.foldl' lib.recursiveUpdate { } allSettings;
+  utils = import ./utils.nix { inherit lib config; };
+  promptGradient = with config.scheme.withHashtag; utils.promptGradient base0E base0B base08;
 in
 {
   options.gravelOS.cli.prompt = {
@@ -45,8 +34,29 @@ in
         enableBashIntegration = true;
         enableZshIntegration = true;
 
-        settings = starshipMergePresets {
+        settings = utils.starshipMergePresets {
           add_newline = false;
+          format = ''
+            [╔](${promptGradient.c2})[╸](${promptGradient.c1})$username@$hostname $directory
+            $character
+          '';
+
+          username = {
+            show_always = true;
+            format = "[$user]($style)";
+            style_user = "${promptGradient.c0} bold";
+            style_root = "${promptGradient.c0} bold underline";
+          };
+
+          hostname = {
+            ssh_only = false;
+            format = "[$ssh_symbol$hostname]($style)";
+          };
+
+          character = {
+            success_symbol = "[╚](${promptGradient.grad1.c3})[╸](${promptGradient.grad1.c4})[\\$](${promptGradient.grad1.c5} bold)";
+            error_symbol = "[╚](${promptGradient.grad2.c3})[╸](${promptGradient.grad2.c4})[X](${promptGradient.grad2.c5} bold)";
+          };
         };
       };
     };

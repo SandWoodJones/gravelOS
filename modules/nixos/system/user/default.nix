@@ -6,7 +6,7 @@
 }:
 let
   cfg = config.gravelOS.system.user;
-  ifPresent = groups: lib.gravelOS.filterAttrs config.users.groups groups;
+  ifPresent = groups: lib.gravelOS.existingKeys config.users.groups groups;
 
   sshKeysPath = "${inputs.self}/keys";
 in

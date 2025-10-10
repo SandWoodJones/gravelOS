@@ -16,9 +16,7 @@ in
     programs.wezterm = {
       enable = true;
       extraConfig = builtins.readFile (
-        pkgs.replaceVars ./wezterm.lua {
-          color_scheme = config.scheme.slug;
-        }
+        pkgs.replaceVars ./wezterm.lua { color_scheme_slug = config.scheme.slug; }
       );
 
       colorSchemes.${config.scheme.slug} = with config.scheme.withHashtag; {

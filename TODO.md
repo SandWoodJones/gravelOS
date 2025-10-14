@@ -16,7 +16,6 @@
 	- [ ] Put wine prefixes into a subvolume and create a duperemove service. https://www.reddit.com/r/linux_gaming/comments/1fig0xy/comment/lnh1x6u/
 	- [ ] Look into `btrfs` snapshots saved on primary ssd
 	- [ ] BTRFS scrubbing https://nixos.wiki/wiki/Btrfs#Scrubbing
-- Make a script running on the first open interactive shell every login with MOTD stuff such as `cowsay`, `fortune` or https://tealdeer-rs.github.io/tealdeer/tips_and_tricks.html#showing-a-random-page-on-shell-start
 - Look further into Lix, Tvix and Ekala
 - Look into `VNC` or `RDP` screen sharing
 - Do something with `systemctl reboot --boot-loader-entry=auto-windows`

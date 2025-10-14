@@ -28,8 +28,19 @@
 
     initContent = lib.mkMerge [
       ''bindkey "''${key[Up]}" up-line-or-search'' # https://wiki.nixos.org/wiki/Zsh#Zsh-autocomplete_not_working
-      (import ./cp.nix { inherit pkgs lib; })
-      (import ./tp.nix { inherit pkgs lib; })
+      (builtins.readFile (pkgs.replaceVars ./cp.sh { cp = lib.getExe pkgs.xcp; }))
+      (builtins.readFile (pkgs.replaceVars ./tp.sh { trash = lib.getExe pkgs.trashy; }))
+      (builtins.readFile (
+        pkgs.replaceVars ./motd.sh (
+          lib.mapAttrs (_: pkg: lib.getExe pkg) (
+            with pkgs;
+            {
+              inherit fortune nms lolcat;
+              cowsay = neo-cowsay;
+            }
+          )
+        )
+      ))
     ];
   };
 }

@@ -1,4 +1,4 @@
-# TODO: finish configuring
+# TODO: finish translating config.yaml, make a settings option with pkgs.formats.yaml
 
 {
   pkgs,
@@ -20,7 +20,7 @@ in
       file."${config.xdg.configHome}/ov/config.yaml".source = ./config.yaml;
       sessionVariables = {
         PAGER = lib.getExe pkgs.ov;
-        MANPAGER = "${lib.getExe pkgs.ov} --section-delimiter '^[^\s]' --section-header";
+        MANPAGER = "${lib.getExe pkgs.ov} --section-delimiter '^[^\\s]' --section-header";
       };
     };
 

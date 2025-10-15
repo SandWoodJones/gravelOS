@@ -20,11 +20,13 @@ in
   options.gravelOS.cli.git = {
     username = lib.mkOption {
       default = "SandWood Jones";
+      example = "John Doe";
       description = "The Git username used for authoring commits.";
       type = lib.types.str;
     };
     email = lib.mkOption {
       default = "sandwoodjones@outlook.com";
+      example = "johndoe@email.com";
       description = "The Git email used for authoring commits.";
       type = lib.types.str;
     };
@@ -38,8 +40,6 @@ in
         type = lib.types.path;
       };
     };
-
-    delta.enable = lib.gravelOS.mkEnableDefault "delta syntax highlighter";
   };
 
   config = {
@@ -48,13 +48,21 @@ in
     programs = {
       git = {
         enable = true;
-        extraConfig = lib.mkMerge [
+        settings = lib.mkMerge [
           {
             user = {
               inherit (cfg) email;
-
               name = cfg.username;
               signingKey = builtins.toString cfg.signing.ssh.keyPath;
+            };
+
+            alias = {
+              df = "diff";
+              dfs = "diff --staged";
+              rbi = "rebase --interactive";
+              rbc = "rebase --continue";
+              rbs = "!${rebaseStash}";
+              pop = "stash pop";
             };
           }
 
@@ -63,22 +71,14 @@ in
             commit.gpgSign = true;
           })
         ];
+      };
 
-        aliases = {
-          df = "diff";
-          dfs = "diff --staged";
-          rbi = "rebase --interactive";
-          rbc = "rebase --continue";
-          rbs = "!${rebaseStash}";
-          pop = "stash pop";
-        };
-
-        delta = lib.mkIf cfg.delta.enable {
-          enable = true;
-          options = {
-            navigate = true;
-            side-by-side = true;
-          };
+      delta = {
+        enable = true;
+        enableGitIntegration = true;
+        options = {
+          navigate = true;
+          side-by-side = true;
         };
       };
 

@@ -3,7 +3,6 @@
 	- Rewritten gnu programs https://zaiste.net/posts/shell-commands-rust/
 	- A terminal file manager (`xplr`, `nnn` `ranger`). `zoxide` has some plugins for those
 	- `zen` browser or `floorp` or `ladybird` when it comes out
-	- `delta` as a diff substitute
 - Configure
 	- GTK themes, window border styles, mouse cursors, etc
 		- make a fotonight web theme

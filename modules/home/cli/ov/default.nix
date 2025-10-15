@@ -24,12 +24,13 @@ in
       };
     };
 
-    programs.git = lib.mkIf config.gravelOS.cli.git.delta.enable {
-      extraConfig.pager = {
+    programs = {
+      git.settings.pager = {
         show = "delta --pager='ov --header 3'";
         diff = "delta --features ov-diff";
         log = "delta --features ov-log";
       };
+
       delta.options = {
         file-style = "yellow"; # TODO: remove this after theming delta and ov
         ov-diff.pager = "ov --section-delimiter '^(commit|added:|removed:|renamed:|Δ)' --section-header --pattern '•'";

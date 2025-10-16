@@ -4,10 +4,10 @@
   ...
 }:
 let
-  cfg = config.gravelOS.desktop.hyprland.services.hypridle;
+  cfg = config.gravelOS.hyprland.services.hypridle;
 in
 {
-  options.gravelOS.desktop.hyprland.services.hypridle = {
+  options.gravelOS.hyprland.services.hypridle = {
     settings.screenOff = {
       enable = lib.gravelOS.mkEnableDefault "Hypridle turning the screen off on idling";
 

@@ -4,7 +4,7 @@
   ...
 }:
 let
-  cfg = config.gravelOS.desktop.hyprland.services.hypridle;
+  cfg = config.gravelOS.hyprland.services.hypridle;
 in
 {
   imports = [
@@ -14,7 +14,7 @@ in
     ./hibernation.nix
   ];
 
-  options.gravelOS.desktop.hyprland.services.hypridle = {
+  options.gravelOS.hyprland.services.hypridle = {
     enable = lib.mkEnableOption "Hypridle";
   };
 

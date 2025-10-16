@@ -4,7 +4,7 @@
   ...
 }:
 let
-  cfg = config.gravelOS.desktop.hyprland;
+  cfg = config.gravelOS.hyprland.settings;
 in
 
 lib.mkIf cfg.enable {

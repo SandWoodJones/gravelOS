@@ -4,7 +4,7 @@
   ...
 }:
 let
-  cfg = config.gravelOS.desktop.hyprland;
+  cfg = config.gravelOS.hyprland.settings;
 
   mkUnsigned =
     n: desc:
@@ -15,7 +15,7 @@ let
     };
 in
 {
-  options.gravelOS.desktop.hyprland = {
+  options.gravelOS.hyprland.settings = {
     theming = {
       smart.enable = lib.mkOption {
         default = false;

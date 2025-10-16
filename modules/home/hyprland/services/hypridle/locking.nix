@@ -4,10 +4,10 @@
   ...
 }:
 let
-  cfg = config.gravelOS.desktop.hyprland.services.hypridle;
+  cfg = config.gravelOS.hyprland.services.hypridle;
 in
 {
-  options.gravelOS.desktop.hyprland.services.hypridle = {
+  options.gravelOS.hyprland.services.hypridle = {
     settings.locking = {
       enable = lib.mkEnableOption "Hypridle locking the screen on idling";
 

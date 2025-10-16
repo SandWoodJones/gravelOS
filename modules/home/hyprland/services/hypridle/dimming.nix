@@ -4,10 +4,10 @@
   ...
 }:
 let
-  cfg = config.gravelOS.desktop.hyprland.services.hypridle;
+  cfg = config.gravelOS.hyprland.services.hypridle;
 in
 {
-  options.gravelOS.desktop.hyprland.services.hypridle = {
+  options.gravelOS.hyprland.services.hypridle = {
     settings = {
       dimming = {
         enable = lib.gravelOS.mkEnableDefault "Hypridle dimming the screen on idling";
@@ -39,7 +39,7 @@ in
         };
         dimDuration = lib.mkOption {
           default = 4;
-          description = "The duration, in minutes, over which the locked screen's brightness gradually decreases to config.gravelOS.desktop.hyprland.services.hypridle.settings.locking.dimming.minBrightness";
+          description = "The duration, in minutes, over which the locked screen's brightness gradually decreases to config.gravelOS.hyprland.services.hypridle.settings.locking.dimming.minBrightness";
           type = lib.types.numbers.positive;
         };
       };

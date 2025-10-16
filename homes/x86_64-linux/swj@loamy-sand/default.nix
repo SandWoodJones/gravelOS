@@ -30,11 +30,6 @@ in
     };
 
     desktop = {
-      hyprland = {
-        enable = true;
-        theming.smart.enable = true;
-        services.hypridle.enable = true;
-      };
       launcher.rofi.enable = true;
       wezterm.enable = true;
       mpv.enable = true;
@@ -44,28 +39,10 @@ in
       };
     };
 
-    # hyprland = {
-    #   enable = true;
-    #   theming.gaps.smart = true;
-    #   services = {
-    #     hyprpolkit.enable = true;
-    #     nm-applet.enable = true;
-    #     rofi.enable = true;
-
-    #     hypridle = {
-    #       enable = true;
-    #       settings = {
-    #         dimming.enable = true;
-    #         locking = {
-    #           enable = true;
-    #           dimming.enable = true;
-    #         };
-    #         screenOff.enable = true;
-    #         hibernation.enable = true;
-    #       };
-    #     };
-    #   };
-    # };
+    hyprland = {
+      enable = true;
+      settings.theming.smart.enable = true;
+    };
   };
 
   home.packages = with pkgs; [
@@ -84,6 +61,10 @@ in
     texstudio
     qbittorrent-enhanced
     bottles
+
+    grim
+    slurp
+    kdePackages.dolphin
   ];
 
   home.stateVersion = "24.11";

@@ -1,3 +1,5 @@
+# TODO: checkout https://github.com/yokoffing/Betterfox
+
 {
   lib,
   config,
@@ -6,9 +8,14 @@
 let
   cfg = config.gravelOS.desktop.firefox;
 
+  mkLockedSet = s: s // { Locked = true; };
   mkLockedValue = v: {
     Value = v;
     Status = "locked";
+  };
+
+  mkFlatPreferences = lib.gravelOS.mkAttrsFlatStr {
+    isLeaf = (v: builtins.isAttrs v && v ? "Value" && v ? "Status");
   };
 in
 lib.mkIf cfg.enable {
@@ -23,33 +30,59 @@ lib.mkIf cfg.enable {
     DisableProfileImport = true;
     NewTabPage = true;
 
-    EnableTrackingProtection = {
+    EnableTrackingProtection = mkLockedSet {
       Value = true;
-      Locked = true;
       Cryptomining = true;
       Fingerprinting = true;
+      EmailTracking = true;
     };
 
-    FirefoxHome = {
+    FirefoxHome = mkLockedSet {
       Search = true;
       TopSites = true;
       SponsoredTopSites = false;
       Highlights = false;
-      Locked = true;
     };
 
-    Preferences = {
-      "browser.aboutConfig.showWarning" = mkLockedValue false;
-      "browser.translations.automaticallyPopup" = mkLockedValue false;
-      "browser.translations.neverTranslateLanguages" = mkLockedValue "pt";
-      "browser.gesture.swipe.left" = mkLockedValue "";
-      "browser.gesture.swipe.right" = mkLockedValue "";
-      "browser.uidensity" = mkLockedValue 1;
-      "browser.startup.page" = mkLockedValue 3;
-      "browser.urlbar.scotchBonnet.enableOverride" = mkLockedValue false;
-      "media.videocontrols.picture-in-picture.video-toggle.has-used" = mkLockedValue true;
-      "media.videocontrols.picture-in-picture.urlbar-button.enabled" = mkLockedValue false;
-      "toolkit.legacyUserProfileCustomizations.stylesheets" = mkLockedValue true;
+    GenerativeAi = mkLockedSet {
+      Chatbot = false;
+      LinkPreviews = false;
+      TabGroups = false;
+    };
+
+    Preferences = mkFlatPreferences {
+      toolkit.legacyUserProfileCustomizations.stylesheets = mkLockedValue true;
+
+      privacy = {
+        globalprivacycontrol.enabled = mkLockedValue true;
+        trackingprotection.allow_list = {
+          baseline.enabled = mkLockedValue true;
+          convenience.enabled = mkLockedValue true;
+        };
+      };
+      browser = {
+        aboutConfig.showWarning = mkLockedValue false;
+        uidensity = mkLockedValue 1;
+        startup.page = mkLockedValue 3;
+        ml.chat.menu = mkLockedValue false;
+
+        urlbar = {
+          suggest.trending = mkLockedValue false;
+          scotchBonnet.enableOverride = mkLockedValue false;
+        };
+        translations = {
+          automaticallyPopup = mkLockedValue false;
+          neverTranslateLanguages = mkLockedValue "pt";
+        };
+        gesture = {
+          swipe.left = mkLockedValue "";
+          swipe.right = mkLockedValue "";
+        };
+      };
+      media.videocontrols.picture-in-picture = {
+        video-toggle.has-used = mkLockedValue true;
+        urlbar-button.enabled = mkLockedValue false;
+      };
     };
   };
 }

@@ -22,6 +22,6 @@
   background-color: #1a1100 !important;
 }
 
-#nav-bar, .tab-label {
-  font-family: NotoSans Nerd Font !important;
+#nav-bar, .tab-label, .tab-preview-title {
+  font-family: "NotoSans Nerd Font" !important;
 }

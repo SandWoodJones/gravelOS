@@ -30,11 +30,14 @@ in
         containersForce = true;
         userChrome = builtins.readFile ./userChrome.css;
 
-        settings = {
-          "apz.overscroll.enabled" = false;
-          "font.name.sans-serif.x-western" = "NotoSans Nerd Font";
-          "font.name.serif.x-western" = "NotoSerif Nerd Font";
-          "reader.parse-on-load.enabled" = false;
+        settings = lib.gravelOS.mkAttrsFlatStr { } {
+          apz.overscroll.enabled = false;
+          reader.parse-on-load.enabled = false;
+          font.name = {
+            sans-serif.x-western = "NotoSans Nerd Font";
+            serif.x-western = "NotoSerif Nerd Font";
+            monospace.x-wextern = "NotoSansM Nerd Font Mono";
+          };
         };
       };
     };

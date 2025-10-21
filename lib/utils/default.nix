@@ -2,7 +2,7 @@
   lib,
   ...
 }:
-{
+rec {
   # clamp :: number -> number -> number -> number
   # arguments:
   #   val: value to clamp
@@ -58,4 +58,37 @@
   #   name: name of the option to create
   # Creates a NixOS option enabled by default using lib.mkEnableOption
   mkEnableDefault = name: lib.mkEnableOption name // { default = true; };
+
+  # mkAttrsFlatStr :: { isLeaf :: a -> bool, prefix :: string } -> attrset -> attrset
+  # arguments:
+  #   isLeaf: (optional) function that returns true if a value should be treated as a leaf node. Defaults to (v: false)
+  #   prefix: (optional) initial path prefix. Defaults to ""
+  #   attrs: attribute set to flatten
+  # Flattens a nested attribute set into a single-level set with dot-separated keys
+  mkAttrsFlatStr =
+    {
+      isLeaf ? (_: false),
+      prefix ? "",
+    }:
+    attrs:
+    builtins.foldl' (
+      acc: key:
+      let
+        value = attrs.${key};
+        path = if prefix == "" then key else "${prefix}.${key}";
+
+        isDefaultLeaf =
+          v: (builtins.isFunction v) || (builtins.isAttrs v && v ? "type" && v.type == "derivation");
+      in
+      acc
+      // (
+        if builtins.isAttrs value && !isDefaultLeaf value && !isLeaf value then
+          mkAttrsFlatStr {
+            inherit isLeaf;
+            prefix = path;
+          } value
+        else
+          { ${path} = value; }
+      )
+    ) { } (builtins.attrNames attrs);
 }

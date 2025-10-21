@@ -20,7 +20,6 @@ in
     xdg.portal.xdgOpenUsePortal = true;
 
     fonts = {
-      fontconfig.useEmbeddedBitmaps = true;
       enableDefaultPackages = true;
       packages = with pkgs; [
         font-awesome
@@ -29,6 +28,39 @@ in
         noto-fonts-cjk-sans
         cm_unicode
       ];
+
+      fontconfig = {
+        useEmbeddedBitmaps = true;
+        defaultFonts = {
+          sansSerif = [
+            "DejaVu Sans"
+            "Noto Sans Nerd Font"
+            "Noto Sans CJK"
+            "Symbols Nerd Font"
+            "FontAwesome"
+          ];
+
+          serif = [
+            "DejaVu Serif"
+            "CMU Serif"
+            "Noto Serif Nerd Font"
+            "Symbols Nerd Font"
+            "FontAwesome"
+          ];
+
+          monospace = [
+            "DejaVu Sans Mono"
+            "Noto Sans Mono Nerd Font"
+            "Symbols Nerd Font"
+            "FontAwesome"
+          ];
+
+          emoji = [
+            "Noto Color Emoji"
+            "Symbols Nerd Font"
+          ];
+        };
+      };
     };
 
     environment.systemPackages = with pkgs; [

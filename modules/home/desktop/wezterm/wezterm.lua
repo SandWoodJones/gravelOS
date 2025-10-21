@@ -30,24 +30,20 @@ local function tab_title(tab, tabs, panes, config, hover, max_width)
     { Text = ' ' },
     { Background = { Color = palette.background } },
     { Foreground = { Color = background } },
-    { Text = wezterm.nerdfonts.ple_left_half_circle_thick },
+    { Text = '' },
     { Background = { Color = background } },
     { Foreground = { Color = foreground } },
     { Text = title},
     { Background = { Color = palette.background } },
     { Foreground = { Color = background } },
-    { Text = wezterm.nerdfonts.ple_right_half_circle_thick },
+    { Text = '' },
   }
 end
 
 config = {
   enable_scroll_bar = true,
 
-  font = wezterm.font_with_fallback {
-    { family = 'Maple Mono', harfbuzz_features = { 'calt', 'zero', 'cv01', 'cv03', 'cv61', 'ss05' } },
-    "Noto Sans Mono",
-    "DejaVu Sans Mono",
-  },
+  font = wezterm.font { family = 'Maple Mono', harfbuzz_features = { 'calt', 'zero', 'cv01', 'cv03', 'cv61', 'ss05' } },
   
   color_scheme = "@color_scheme_slug@",
   colors = {
@@ -90,13 +86,13 @@ config = {
     new_tab_hover = wezterm.format {
       { Background = { Color = palette.background } },
       { Foreground = { Color = palette.split } },
-      { Text = ' ' .. wezterm.nerdfonts.ple_left_half_circle_thick },
+      { Text = ' ' },
       { Background = { Color = palette.split } },
       { Foreground = { Color = palette.scrollbar_thumb } },
       { Text = '+' },
       { Background = { Color = palette.background } },
       { Foreground = { Color = palette.split } },
-      { Text = wezterm.nerdfonts.ple_right_half_circle_thick },
+      { Text = '' },
     },
   },
   wezterm.on('format-tab-title', tab_title),

@@ -1,4 +1,5 @@
 # TODO
+- Try [jujutsu](https://jj-vcs.github.io/jj/latest/)
 - Install
 	- Rewritten gnu programs https://zaiste.net/posts/shell-commands-rust/
 	- A terminal file manager (`xplr`, `nnn` `ranger`). `zoxide` has some plugins for those

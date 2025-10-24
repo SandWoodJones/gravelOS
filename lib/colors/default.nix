@@ -202,6 +202,7 @@ rec {
       };
   };
 
+  # TODO: move this elsewhere
   mkScheme =
     pkgs:
     let
@@ -220,6 +221,6 @@ rec {
         base11 = "000000";
       };
     in
-    molokai-edited;
-    # "${inputs.tt-schemes}/base16/oxocarbon-dark.yaml";
+    # molokai-edited;
+    "${inputs.tt-schemes}/base16/eris.yaml";
 }

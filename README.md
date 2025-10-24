@@ -7,52 +7,64 @@
 ```
 .
 ├─ lib
-│  ├─ gravelOS
+│  ├─ colors
 │  ├─ nix
-│  └─ secrets
-└─ modules
-   ├─ nixos
-   │  ├─ system
-   │  │  ├─ audio
-   │  │  ├─ boot
-   │  │  ├─ locale
-   │  │  ├─ networking
-   │  │  ├─ services
-   │  │  │  └─ nh
-   │  │  └─ user
-   │  ├─ cli
-   │  │  ├─ devEnv
-   │  │  ├─ git
-   │  │  ├─ packages
-   │  │  └─ zsh
-   │  └─ desktop
-   │     ├─ gaming
-   │     │  └─ performance
-   │     ├─ hyprland
-   │     ├─ kde
-   │     ├─ locale
-   │     └─ login
-   └─ home
-      ├─ system
-      │  ├─ hyprland
-      │  ├─ networking
-      │  └─ xdg
-      ├─ cli
-      │  ├─ eza
-      │  ├─ git
-      │  ├─ helix
-      │  └─ zsh
-      └─ desktop
-         ├─ firefox
-         ├─ gaming
-         │  └─ openmw
-         ├─ hyprland
-         │  └─ services
-         │     └─ hypridle
-         ├─ launcher
-         ├─ mpv
-         ├─ wezterm
-         └─ xdg
+│  └─ utils
+├─ modules
+│  ├─ home
+│  │  ├─ cli
+│  │  │  ├─ eza
+│  │  │  ├─ git
+│  │  │  ├─ helix
+│  │  │  ├─ ov
+│  │  │  ├─ prompt
+│  │  │  └─ zsh
+│  │  ├─ desktop
+│  │  │  ├─ firefox
+│  │  │  ├─ gaming
+│  │  │  │  └─ openmw
+│  │  │  ├─ hyprland
+│  │  │  │  └─ services
+│  │  │  │     └─ hypridle
+│  │  │  ├─ launcher
+│  │  │  ├─ mpv
+│  │  │  ├─ thunderbird
+│  │  │  ├─ wezterm
+│  │  │  └─ xdg
+│  │  └─ system
+│  │     ├─ hyprland
+│  │     ├─ networking
+│  │     ├─ secrets
+│  │     ├─ syncthing
+│  │     └─ xdg
+│  └─ nixos
+│     ├─ cli
+│     │  ├─ devEnv
+│     │  ├─ git
+│     │  ├─ packages
+│     │  └─ zsh
+│     ├─ desktop
+│     │  ├─ gaming
+│     │  │  └─ performance
+│     │  ├─ hyprland
+│     │  ├─ kde
+│     │  ├─ locale
+│     │  └─ login
+│     └─ system
+│        ├─ audio
+│        ├─ boot
+│        ├─ locale
+│        ├─ networking
+│        ├─ services
+│        │  └─ nh
+│        └─ user
+└─ packages
+   └─ desktop
+      ├─ gaming
+      │  ├─ pico8
+      │  ├─ quadrilateralcowboy
+      │  └─ steam-silent
+      └─ stremio-black-icon
 ```
 
 ## Adding roots to prefetched sources

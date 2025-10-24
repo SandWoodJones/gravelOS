@@ -33,6 +33,7 @@ in
 
         sus = "systemctl --user";
         gs = "git status";
+        storegrep = "nix-store --query --requisites /run/current-system | rg";
       };
     };
 

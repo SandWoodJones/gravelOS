@@ -23,7 +23,6 @@
 - Learn terminal multiplexing
 - use and configure a torrent daemon like transmission or rtorrent
 - flashpoint
-- add alias for nix-store --query --requisites /run/current-system | grep ...
 - look into schedulers, BORE and services.scx
 - look into https://github.com/etu/nixconfig
 - spread TODO around repo and delete TODO file

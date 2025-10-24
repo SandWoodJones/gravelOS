@@ -1,3 +1,5 @@
+# NOTE: change to fish
+
 {
   pkgs,
   ...

@@ -21,7 +21,6 @@ in
 
     cli = {
       rm.enable = false;
-      zoxide.cdReplace = true;
       git.signing.ssh = {
         enable = true;
         keyPath = idKey;

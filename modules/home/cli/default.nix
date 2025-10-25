@@ -17,13 +17,6 @@ in
       description = "Whether the rm command should be enabled. You may want to disable this when switching to a trash manager program.";
       type = lib.types.bool;
     };
-
-    zoxide.cdReplace = lib.mkOption {
-      default = false;
-      example = true;
-      description = "Whether `cd` should be replaced with zoxide.";
-      type = lib.types.bool;
-    };
   };
 
   config = {
@@ -40,7 +33,7 @@ in
     programs = {
       zoxide = {
         enable = true;
-        options = lib.mkIf cfg.zoxide.cdReplace [ "--cmd cd" ];
+        options = [ "--cmd cd" ];
       };
       ripgrep = {
         enable = true;

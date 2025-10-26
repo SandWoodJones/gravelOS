@@ -31,8 +31,6 @@ in
 
       starship = lib.mkIf cfg.starship.enable {
         enable = true;
-        enableBashIntegration = true;
-        enableZshIntegration = true;
 
         settings = utils.starshipMergePresets {
           add_newline = false;

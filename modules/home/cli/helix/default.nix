@@ -61,6 +61,11 @@ in
               command = lib.getExe pkgs.nixfmt-rfc-style;
             };
           }
+
+          {
+            name = "hyprlang";
+            file-types = [ { glob = "hypr*.conf"; } ];
+          }
         ];
       };
     };

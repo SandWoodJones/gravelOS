@@ -29,9 +29,6 @@ in
         icons = "auto";
         extraOptions = [ "--hyperlink" ];
       };
-
-      # Disable LS_COLORS so it doesn't interfere with theme.yml
-      zsh.initContent = ''eza() { env -u LS_COLORS eza "$@"}'';
     };
 
     home.shellAliases = {

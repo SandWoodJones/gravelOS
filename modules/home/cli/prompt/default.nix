@@ -10,7 +10,7 @@ let
 in
 {
   options.gravelOS.cli.prompt = {
-    newLine.enable = lib.gravelOS.mkEnableDefault "new lines between commands";
+    new-line.enable = lib.gravelOS.mkEnableDefault "new lines between commands";
     starship = {
       enable = lib.gravelOS.mkEnableDefault "Starship as the default prompt";
       presets = lib.mkOption {
@@ -24,10 +24,16 @@ in
 
   config = {
     programs = {
-      zsh = lib.mkIf cfg.newLine.enable {
-        initContent = ''precmd() { precmd() { echo "" } }'';
-        shellAliases.clear = "precmd() { precmd() { echo } } && clear";
-      };
+      fish.interactiveShellInit =
+        lib.mkIf cfg.new-line.enable # fish
+          ''
+            function new_line --on-event fish_postexec
+              set -l cmd (string trim -- "$argv[1]")
+              if not string match -q -- "clear*" "$cmd"
+                echo
+              end
+            end
+          '';
 
       starship = lib.mkIf cfg.starship.enable {
         enable = true;

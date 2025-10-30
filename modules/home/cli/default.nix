@@ -11,35 +11,19 @@ let
 in
 {
   options.gravelOS.cli = {
-    rm.enable = lib.mkOption {
-      default = true;
-      example = false;
-      description = "Whether the rm command should be enabled. You may want to disable this when switching to a trash manager program.";
-      type = lib.types.bool;
-    };
+    rm.enable = lib.gravelOS.mkEnableDefault "the rm command. You may want to disable this when switching to a trash manager program.";
   };
 
   config = {
-    home = {
-      shellAliases = {
-        rm = lib.mkIf (!cfg.rm.enable) "printf \"\\e[31mCommand not executed\\e[0m\\n\"";
-
-        sus = "systemctl --user";
-        gs = "git status";
-        storegrep = "nix-store --query --requisites /run/current-system | rg";
-      };
-    };
+    home.shellAliases.rm = lib.mkIf (!cfg.rm.enable) "printf \"\\e[31mCommand not executed\\e[0m\\n\"";
 
     programs = {
-      zoxide = {
-        enable = true;
-        options = [ "--cmd cd" ];
-      };
+      zoxide.enable = true;
+      tealdeer.enable = true;
       ripgrep = {
         enable = true;
         arguments = [ "--smart-case" ];
       };
-      tealdeer.enable = true;
       pay-respects = {
         enable = true;
         options = [

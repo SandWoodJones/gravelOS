@@ -18,7 +18,9 @@ let
 
   hyprland = {
     pkg = config.programs.hyprland.package;
-    conf = pkgs.writeText "regreet-hyprland.conf" ''
+    conf = pkgs.writeText "regreet-hyprland.conf"
+    # hyprlang
+    ''
       misc {
         disable_hyprland_logo=true
         force_default_wallpaper=0

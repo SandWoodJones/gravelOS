@@ -8,8 +8,6 @@
 }:
 let
   cfg = config.gravelOS.desktop.mpv;
-
-  crossPlatformCopy = pkgs.callPackage ./crossPlatformCopy.nix { };
 in
 {
   options.gravelOS.desktop.mpv = {
@@ -43,8 +41,15 @@ in
         };
 
         SmartCopyPaste_II = {
-          linux_copy = "${crossPlatformCopy} -c";
-          linux_paste = "${crossPlatformCopy} -p";
+          linux_copy = # sh
+            ''${lib.getExe pkgs.wl-clipboard-rs} -i -se "clipboard" -rmlastnl'';
+          linux_paste = # sh
+            ''${lib.getExe pkgs.wl-clipboard-rs} -o -se "clipboard"'';
+
+          copy_specific_keybind = ''["ctrl+c", "ctrl+C", "meta+c", "meta+C"]'';
+          copy_keybind = ''["ctrl+alt+c", "ctrl+alt+C", "meta+alt+c", "meta+alt+C"]'';
+          paste_specific_keybind = ''["ctrl+v", "ctrl+V", "meta+v", "meta+V"]'';
+          paste_keybind = ''["ctrl+alt+v", "ctrl+alt+V", "meta+alt+v", "meta+alt+V"]'';
         };
       };
 

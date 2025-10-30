@@ -64,9 +64,7 @@ in
     };
 
     environment.systemPackages = with pkgs; [
-      xclip
-      wl-clipboard
-
+      wl-clipboard-rs
       posy-cursors
     ];
   };

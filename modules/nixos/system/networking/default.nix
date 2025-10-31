@@ -1,4 +1,5 @@
 # TODO: use secrets to have fixed ssh keys for hosts
+# TODO: actually figure out ipv6
 
 {
   lib,
@@ -36,6 +37,8 @@ in
   config = {
     networking = {
       networkmanager.enable = cfg.wifi.enable;
+
+      getaddrinfo.precedence."ffff:0:0/96" = 100;
 
       firewall = {
         allowedTCPPorts = lib.concatLists [

@@ -52,7 +52,7 @@ in
         videos = "${config.home.homeDirectory}/media/videos";
         music = null;
         publicShare = null;
-        templates = null;
+        templates = "${config.xdg.dataHome}/templates";
       };
     };
   };

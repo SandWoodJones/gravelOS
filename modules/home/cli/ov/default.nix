@@ -15,9 +15,9 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    xdg.configFile."ov/config.yaml".source = ./config.yaml;
     home = {
       packages = [ pkgs.ov ];
-      file."${config.xdg.configHome}/ov/config.yaml".source = ./config.yaml;
       sessionVariables = {
         PAGER = lib.getExe pkgs.ov;
         MANPAGER = "${lib.getExe pkgs.ov} --section-delimiter '^[^\\s]' --section-header";

@@ -4,13 +4,10 @@
   ...
 }:
 {
-  home = {
-    file."${config.xdg.configHome}/pulse/client.conf".text =
-      "cookie-file = ${config.xdg.configHome}/pulse/cookie";
+  home.packages = with pkgs; [
+    work-sans
+    dm-sans
+  ];
 
-    packages = with pkgs; [
-      work-sans
-      dm-sans
-    ];
-  };
+  xdg.configFile."pulse/client.conf".text = "cookie-file = ${config.xdg.configHome}/pulse/cookie";
 }

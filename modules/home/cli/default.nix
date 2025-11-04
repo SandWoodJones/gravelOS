@@ -27,7 +27,6 @@ in
       pay-respects = {
         enable = true;
         options = [
-          "--alias"
           "--nocnf"
         ];
       };

@@ -1,3 +1,4 @@
+# !{shell.nix}
 {
   pkgs ? import <nixpkgs> { },
 }:

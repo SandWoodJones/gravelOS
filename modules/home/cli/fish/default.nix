@@ -1,5 +1,4 @@
 # TODO: add plugins
-# TODO: get transient prompts working
 
 {
   pkgs,

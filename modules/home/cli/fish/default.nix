@@ -55,6 +55,16 @@ in
           inherit (pisces) src;
           name = "pisces";
         })
+
+        (lib.mkIf config.programs.zoxide.enable {
+          name = "zoxide";
+          src = pkgs.fetchFromGitHub {
+            owner = "icezyclon";
+            repo = "zoxide.fish";
+            rev = "3.0";
+            hash = "sha256-OjrX0d8VjDMxiI5JlJPyu/scTs/fS/f5ehVyhAA/KDM=";
+          };
+        })
       ];
     };
   };

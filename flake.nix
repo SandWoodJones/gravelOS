@@ -44,6 +44,7 @@
       url = "git+https://codeberg.org/PopeRigby/openmw-nix.git";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    even-less-secrets.url = "github:SandWoodJones/even-less-secrets";
   };
 
   outputs =

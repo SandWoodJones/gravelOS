@@ -29,6 +29,7 @@ lib.mkIf cfg.enable {
     OverrideFirstRunPage = "";
     DisableProfileImport = true;
     NewTabPage = true;
+    VisualSearchEnabled = false;
 
     EnableTrackingProtection = mkLockedSet {
       Value = true;

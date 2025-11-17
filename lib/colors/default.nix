@@ -201,26 +201,4 @@ rec {
         lab2hex = lab: rgb2hex (xyz2rgb (lab2xyz lab));
       };
   };
-
-  # TODO: move this elsewhere
-  mkScheme =
-    pkgs:
-    let
-      base16lib = inputs.base16.lib {
-        inherit pkgs;
-        inherit (pkgs) lib;
-      };
-
-      molokai-edited = (base16lib.mkSchemeAttrs "${inputs.tt-schemes}/base24/molokai.yaml").override {
-        slug = "molokai-edited";
-        base01 = "181818";
-        base02 = "333333";
-        base05 = "cbcbcb";
-        base06 = "ededed";
-        base10 = "0c0c0c";
-        base11 = "000000";
-      };
-    in
-    # molokai-edited;
-    "${inputs.tt-schemes}/base16/eris.yaml";
 }

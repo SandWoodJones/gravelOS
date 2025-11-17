@@ -3,6 +3,8 @@
   ...
 }:
 {
+  scheme = "${inputs.tt-schemes}/base16/dracula.yaml";
+  
   nix = {
     nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
     settings = {

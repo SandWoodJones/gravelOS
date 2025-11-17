@@ -6,7 +6,6 @@
   ...
 }:
 {
-  inherit (lib.gravelOS) nix;
-  scheme = lib.gravelOS.mkScheme pkgs;
+  inherit (lib.gravelOS) nix scheme;
   manual.html.enable = true;
 }

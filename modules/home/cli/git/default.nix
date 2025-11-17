@@ -3,20 +3,16 @@
 # TODO: configure delta
 
 {
-  pkgs,
   lib,
   config,
   ...
 }:
 let
   cfg = config.gravelOS.cli.git;
-  rebaseStash = pkgs.writeShellScript "git-stash-rb" ''
-    set -eu
-    git stash push --keep-index -m "unstaged"
-    git stash push -m "staged"
-  '';
 in
 {
+  imports = [ ./abbrs.nix ];
+
   options.gravelOS.cli.git = {
     username = lib.mkOption {
       default = "SandWood Jones";
@@ -56,14 +52,7 @@ in
               signingKey = builtins.toString cfg.signing.ssh.keyPath;
             };
 
-            alias = {
-              df = "diff";
-              dfs = "diff --staged";
-              rbi = "rebase --interactive";
-              rbc = "rebase --continue";
-              rbs = "!${rebaseStash}";
-              pop = "stash pop";
-            };
+            # alias.rbs = "!${rebaseStash}";
           }
 
           (lib.mkIf cfg.signing.ssh.enable {

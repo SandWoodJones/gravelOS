@@ -29,7 +29,13 @@ let
         #fish
         ''
           if commandline -p | string match -qr '^git ${subcommand}'
+            if commandline -p | string match -qr -- '${expansion}'
+              return 1
+            end
+            
             echo '${expansion}'
+          else
+            return 1
           end
         '';
     };
@@ -42,7 +48,7 @@ in
         gui = "gitui";
 
         df = mkGitAbbr "diff";
-
+        cm = mkGitAbbr "commit";
         rb = mkGitAbbr "rebase";
 
         pop = {
@@ -84,6 +90,18 @@ in
       name = "rebase";
       subcommand = "stash";
       expansion = ''push --keep-index -m "unstaged" && git stash push -m "staged"'';
+    })
+    (mkGitSubAbbr {
+      key = "commit-amend";
+      name = "a";
+      subcommand = "commit";
+      expansion = "--amend";
+    })
+    (mkGitSubAbbr {
+      key = "commit-amend-no-edit";
+      name = "n";
+      subcommand = "commit.*--amend";
+      expansion = "--no-edit";
     })
   ];
 }

@@ -79,6 +79,7 @@ lib.mkIf cfg.enable {
           swipe.left = mkLockedValue "";
           swipe.right = mkLockedValue "";
         };
+        tabs.groups.enabled = mkLockedValue false;
       };
       media.videocontrols.picture-in-picture = {
         video-toggle.has-used = mkLockedValue true;

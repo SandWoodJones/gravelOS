@@ -1,7 +1,11 @@
+# TODO: make a module for modding openmw through nix
+
 {
   pkgs,
   lib,
   config,
+  inputs,
+  system,
   ...
 }:
 let
@@ -10,27 +14,23 @@ in
 {
   options.gravelOS.desktop.gaming.openmw = {
     enable = lib.mkEnableOption "OpenMW";
-    tools.enable = lib.mkEnableOption "OpenMW and Morrowind modding tools";
-    thumbnailers.enable = lib.mkEnableOption "file manager thumbnailers for common OpenMW files";
   };
 
-  config = {
-    home.packages = builtins.concatLists [
-      (lib.optional cfg.enable pkgs.openmw)
-      (lib.optionals cfg.tools.enable (
-        with pkgs;
-        [
-          nifskope
-          openmw-validator
-          delta-plugin
-          ddsView
-        ]
-      ))
-    ];
+  config = lib.mkIf cfg.enable {
+    home.packages =
+      with pkgs;
+      [
+        openmw
+        nifskope
+      ]
+      ++ (with inputs.openmw-nix.packages.${system}; [
+        openmw-validator
+        delta-plugin
+      ]);
 
     xdg = {
       # https://nowcodingtime.blogspot.com/2013/09/thumbnail-dds-texture-files-in-ubuntu.html
-      dataFile = lib.mkIf cfg.thumbnailers.enable {
+      dataFile = {
         "thumbnailers/dds.thumbnailer".text = ''
           [Thumbnailer Entry]
           Exec=${pkgs.imagemagick}/bin/magick %i -thumbnail x%s png:%o

@@ -35,6 +35,7 @@ in
         enable = true;
         pdfDefault.enable = true;
       };
+      gaming.openmw.enable = true;
     };
   };
 

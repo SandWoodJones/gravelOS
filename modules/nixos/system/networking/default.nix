@@ -26,8 +26,8 @@ in
     ssh = {
       enable = lib.gravelOS.mkEnableDefault "OpenSSH";
       secure = lib.mkOption {
-        default = false;
-        example = true;
+        default = true;
+        example = false;
         description = "Whether to disable SSH login without private key";
         type = lib.types.bool;
       };
@@ -68,8 +68,8 @@ in
 
       openssh = lib.mkIf cfg.ssh.enable {
         enable = true;
-        settings.PasswordAuthentication = cfg.ssh.secure;
-        settings.KbdInteractiveAuthentication = cfg.ssh.secure;
+        settings.PasswordAuthentication = !cfg.ssh.secure;
+        settings.KbdInteractiveAuthentication = !cfg.ssh.secure;
       };
     };
   };

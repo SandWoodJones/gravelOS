@@ -31,3 +31,4 @@
 - https://github.com/poly2it/kein
 - https://github.com/fufexan/nix-gaming/tree/master
 - see about replacing kde wallet with gnome keyring
+- IPTV: https://ersatztv.org/

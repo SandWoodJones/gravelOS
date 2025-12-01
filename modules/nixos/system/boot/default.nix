@@ -1,4 +1,5 @@
 # TODO: add and configure plymouth https://github.com/mxxntype/Aeon-snowfall/blob/main/modules/nixos/boot/default.nix
+# TODO: look into rEFInd
 
 {
   pkgs,

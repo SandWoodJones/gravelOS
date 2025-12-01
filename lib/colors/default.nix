@@ -1,5 +1,6 @@
 # NOTE: maybe replace base16 with own implementation https://github.com/mxxntype/Aeon-snowfall
 # TODO: configure `ov`, `tealdeer`, `eza` (https://github.com/eza-community/eza/blob/main/docs/theme.yml), `gitui`
+# https://tinted-theming.github.io/tinted-gallery/
 
 {
   lib,

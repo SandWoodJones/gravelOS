@@ -21,7 +21,6 @@ _: {
 
     cli = {
       sudo.defaults.enable = true;
-      devEnv.enable = true;
       nix-index.enable = true;
     };
 

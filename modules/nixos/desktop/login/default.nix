@@ -1,5 +1,6 @@
 # TODO: configure regreet
 # TODO: configure regreet's hyprland instance's animations
+# TODO: switch to cage whenever https://github.com/cage-kiosk/cage/issues/138 gets resolved
 
 {
   pkgs,
@@ -16,19 +17,22 @@ let
     hash = "sha256-Tf4Xruf608hpl7YwL4Mq9l9egBOCN+W4KFKnqrgosLE=";
   };
 
-  hyprland = {
-    pkg = config.programs.hyprland.package;
-    conf = pkgs.writeText "regreet-hyprland.conf"
-    # hyprlang
-    ''
-      misc {
-        disable_hyprland_logo=true
-        force_default_wallpaper=0
-      }
-      exec-once = ${lib.getExe pkgs.swaybg} -i ${bg}
-      exec-once = ${lib.getExe config.programs.regreet.package}; ${lib.getExe' hyprland.pkg "hyprctl"} dispatch exit
-    '';
-  };
+  swayCfg =
+    pkgs.writeText "greetd-sway-config"
+      # sway
+      ''
+        xwayland disable
+        default_border none
+        default_floating_border none
+        input type:touchpad {
+          dwt enabled
+          tap enabled
+          natural_scroll enabled
+        }
+
+        output * bg ${bg} fill
+        exec "${lib.getExe pkgs.regreet}"
+      '';
 in
 {
   options.gravelOS.desktop.login = {
@@ -36,12 +40,19 @@ in
   };
 
   config = lib.mkIf cfg.regreet.enable {
-    programs.regreet.enable = true;
+    programs.regreet = {
+      enable = true;
+      settings.background = {
+        path = bg;
+        fit = "Cover";
+      };
+    };
+
     services.greetd = {
       enable = true;
       settings = {
         default_session = {
-          command = "${lib.getExe' hyprland.pkg "Hyprland"} --config ${hyprland.conf}";
+          command = "${lib.getExe pkgs.sway} --config ${swayCfg}";
           user = "greeter";
         };
       };

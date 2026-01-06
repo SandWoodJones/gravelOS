@@ -17,7 +17,16 @@
 
   services.angrr = {
     enable = true;
-    period = "10d";
+    settings.temporary-root-policies = {
+      direnv = {
+        path-regex = "/\\.direnv/";
+        period = "10d";
+      };
+      result = {
+        path-regex = "/result[^/]*$";
+        period = "10d";
+      };
+    };
   };
 
   systemd.services.angrr = lib.mkIf config.gravelOS.system.services.nh.clean.enable {

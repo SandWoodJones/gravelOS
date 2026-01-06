@@ -65,8 +65,11 @@ lib.mkIf cfg.enable {
         aboutConfig.showWarning = mkLockedValue false;
         uidensity = mkLockedValue 1;
         startup.page = mkLockedValue 3;
-        ml.chat.menu = mkLockedValue false;
 
+        ml = {
+          chat.menu = mkLockedValue false;
+          linkPreview.enabled = mkLockedValue false;
+        };
         urlbar = {
           suggest.trending = mkLockedValue false;
           scotchBonnet.enableOverride = mkLockedValue false;

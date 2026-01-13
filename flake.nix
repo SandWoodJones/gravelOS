@@ -88,5 +88,9 @@
       outputs-builder = channels: {
         formatter = channels.nixpkgs.nixfmt-tree;
       };
+
+      templates = {
+        rust.description = "Based on https://github.com/srid/rust-nix-template";
+      };
     };
 }

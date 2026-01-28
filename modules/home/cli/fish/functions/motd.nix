@@ -9,7 +9,7 @@ let
   els = lib.getExe inputs.even-less-secrets.packages.${system}.default;
 in
 {
-  programs.fish.functions.motd_oneshot =
+  programs.fish.functions.__fish_motd_oneshot =
     with pkgs; # fish
     ''
       set -l flag_file "/tmp/gravelOS_motd_flag"

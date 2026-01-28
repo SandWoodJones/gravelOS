@@ -38,7 +38,7 @@ in
       shellInitLast = # fish
         ''
           status is-interactive; and begin
-            motd_oneshot
+            __fish_motd_oneshot
           end
         '';
 

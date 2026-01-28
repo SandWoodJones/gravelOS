@@ -9,12 +9,8 @@
       mk =
         # fish
         ''
-          if test (count $argv) -ne 1
-            echo "Usage: mk <template_basename>"
-            return 1
-          end
-
-          set -l template $argv[1]
+          argparse --name=mk 'l/list' -- $argv
+          or return 1
 
           if not set -q XDG_TEMPLATES_DIR
             set_color red
@@ -30,7 +26,35 @@
             return 1
           end
 
+          if set -q _flag_list; or test (count $argv) -eq 0
+            set -l templates (__fish_mk_get_templates)
+
+            if set -q _flag_list
+              if test (count $templates) -eq 0
+                echo "No templates found in $XDG_TEMPLATES_DIR"
+              else
+                string join \n $templates
+              end
+              return 0
+            else
+              echo "Usage: mk <template_basename>"
+              echo "       mk --list"
+              echo ""
+              echo "Available templates:"
+              if test (count $templates) -eq 0
+                echo "  (none)"
+              else
+                for t in $templates
+                  echo "  $t"
+                end
+              end
+              return 1
+            end
+          end
+
+          set -l template $argv[1]
           set -l sources $XDG_TEMPLATES_DIR/$template*
+
           if test (count $sources) -eq 0
             set_color yellow
             echo "Error: no template found in '$XDG_TEMPLATES_DIR' matching '$template'" >&2
@@ -101,7 +125,8 @@
         '';
     };
 
-    completions.mk = # fish
+    completions.mk =
+        # fish
       ''complete -c mk -n 'not __fish_seen_subcommand_from (commandline -opc)' -a '(__fish_mk_get_templates)' -f'';
   };
 }

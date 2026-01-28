@@ -106,6 +106,10 @@ config = {
     { key = 'Tab', mods = 'CTRL|ALT', action = wezterm.action.ActivateTabRelative(-1) },
     { key = 'w', mods = 'LEADER', action = wezterm.action.CloseCurrentPane { confirm = false } },
   },
+
+  mouse_bindings = {
+    { event = { Down = { streak = 3, button = "Left"} }, mods = 'NONE', action = wezterm.action.SelectTextAtMouseCursor 'SemanticZone' }
+  }
 }
 
 for _, pair in ipairs({ {'h', 'Left'}, {'j', 'Down'}, {'k', 'Up'}, {'l', 'Right'} }) do

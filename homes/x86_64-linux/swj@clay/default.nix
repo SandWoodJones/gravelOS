@@ -26,6 +26,7 @@ in
         keyPath = idKey;
       };
       helix.enable = true;
+      beancount.enable = true;
     };
 
     desktop = {

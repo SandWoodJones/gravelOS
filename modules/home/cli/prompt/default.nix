@@ -26,17 +26,7 @@ in
       transience = {
         enable = lib.gravelOS.mkEnableDefault "replacing old prompts with a simplified version, defined by the `starship_transient_prompt_func` fish function";
         settings = lib.mkOption {
-          default = {
-            character = {
-              success_symbol = "[\\$](${promptGradient.grad1.c5} bold)";
-              error_symbol = "[X](${promptGradient.grad2.c5} bold)";
-            };
-            time = with config.scheme.withHashtag; {
-              disabled = false;
-              format = "[\\[](${base03} dimmed)[$time]($style)[\\]](${base03} dimmed)";
-              style = "${base04} dimmed";
-            };
-          };
+          default = { };
           example = {
             character = {
               success_symbol = "[➜](bold green) ";
@@ -51,6 +41,18 @@ in
   };
 
   config = {
+    gravelOS.cli.prompt.starship.transience.settings = {
+      character = {
+        success_symbol = "[\\$](${promptGradient.grad1.c5} dimmed)";
+        error_symbol = "[X](${promptGradient.grad2.c5} bold)";
+      };
+      time = with config.scheme.withHashtag; {
+        disabled = false;
+        format = "[\\[](${base03} dimmed)[$time]($style)[\\]](${base03} dimmed)";
+        style = "${base04} dimmed";
+      };
+    };
+
     programs = {
       fish = {
         interactiveShellInit =
@@ -85,10 +87,10 @@ in
         enable = true;
         enableTransience = cfg.starship.transience.enable;
 
-        settings = utils.starshipMergePresets {
+        settings = with config.scheme.withHashtag; utils.starshipMergePresets {
           add_newline = false;
           format = ''
-            [╔](${promptGradient.c2})[╸](${promptGradient.c1})$username@$hostname $directory
+            [╔](${promptGradient.c2})[╸](${promptGradient.c1})$username@$hostname $directory$direnv
             $character
           '';
 
@@ -102,11 +104,27 @@ in
           hostname = {
             ssh_only = false;
             format = "[$ssh_symbol$hostname]($style)";
+            style = "${base14} bold";
           };
 
           character = {
             success_symbol = "[╚](${promptGradient.grad1.c3})[╸](${promptGradient.grad1.c4})[\\$](${promptGradient.grad1.c5} bold)";
             error_symbol = "[╚](${promptGradient.grad2.c3})[╸](${promptGradient.grad2.c4})[X](${promptGradient.grad2.c5} bold)";
+          };
+
+          directory = {
+            style = "${base0C} bold";
+            read_only_style = base08;
+            truncation_symbol = "../";
+          };
+
+          direnv = {
+            disabled = false;
+            format = "[$symbol$allowed]($style)";
+            symbol = " ";
+            allowed_msg = "";
+            not_allowed_msg = "/ ";
+            denied_msg = "/ ";
           };
         };
       };

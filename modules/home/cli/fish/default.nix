@@ -35,7 +35,7 @@ in
           ${import ./colors.nix { inherit config; }}
         '';
 
-      shellInitLast = # fish
+      shellInitLast = lib.mkOverride 1500 # fish
         ''
           status is-interactive; and begin
             __fish_motd_oneshot

@@ -1,4 +1,4 @@
-# TODO: look into fuzzel, wofi, bemenu, tofi. Maybe just use fuzzel with kando
+# TODO: look into fuzzel, wofi, bemenu, tofi, anyrun. Maybe just use fuzzel with kando
 # TODO: configure rofi
 
 {

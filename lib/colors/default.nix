@@ -10,7 +10,7 @@
 let
   inherit (inputs.nix-math.lib) math;
 in
-rec {
+{
   color = rec {
     # hex2rgb :: string -> [float; 3]
     # arguments:

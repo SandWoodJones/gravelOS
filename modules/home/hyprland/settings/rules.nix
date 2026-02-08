@@ -9,21 +9,39 @@ in
 
 lib.mkIf cfg.enable {
   wayland.windowManager.hyprland.settings = {
-    windowrulev2 = [
-      "float, class:^(nm-connection-editor)$"
-      "suppressevent maximize, class:^(firefox)$"
-
-      # Ignore maximizing requests
-      "suppressevent maximize, class:.*"
+    windowrule = [
+      {
+        name = "float-nm-editor";
+        "match:class" = "^(nm-connection-editor)$";
+        float = "on";
+      }
+      {
+        name = "global-nomax";
+        "match:class" = "negative:^(firefox)$";
+        suppress_event = "maximize";
+      }
 
       # XWayland
-      "nofocus,              class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
-      "noanim,               class:^(xwaylandvideobridge)$"
-      "noinitialfocus,       class:^(xwaylandvideobridge)$"
-      "maxsize 1 1,          class:^(xwaylandvideobridge)$"
-      "noblur,               class:^(xwaylandvideobridge)$"
-      "nofocus,              class:^(xwaylandvideobridge)$"
-      "opacity 0.0 override, class:^(xwaylandvideobridge)$"
+      {
+        name = "xwayland-ghost";
+        "match:class" = "^$";
+        "match:title" = "^$";
+        "match:xwayland" = true;
+        "match:float" = true;
+        "match:fullscreen" = false;
+        "match:pin" = false;
+        no_focus = "on";
+      }
+      {
+        name = "videobridge";
+        "match:class" = "^(xwaylandvideobridge)$";
+        no_anim = "on";
+        no_initial_focus = "on";
+        max_size = "1 1";
+        no_blur = "on";
+        no_focus = "on";
+        opacity = "0.0 override";
+      }
     ];
   };
 }

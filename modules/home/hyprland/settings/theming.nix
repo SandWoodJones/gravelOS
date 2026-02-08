@@ -52,14 +52,24 @@ in
       };
 
       workspace = lib.mkIf cfg.theming.smart.enable [
-        "w[tv1], gapsout:${builtins.toString cfg.theming.gaps.smart_out}, gapsin:0"
-        "f[1], gapsout:${builtins.toString cfg.theming.gaps.smart_out}, gapsin:0"
+        "w[tv1], gapsout:${toString cfg.theming.gaps.smart_out}, gapsin:0"
+        "f[1], gapsout:${toString cfg.theming.gaps.smart_out}, gapsin:0"
       ];
 
-      windowrulev2 = lib.mkIf cfg.theming.smart.enable [
-        "rounding ${builtins.toString cfg.theming.rounding.smart}, floating:0, onworkspace:w[tv1]"
-        "bordersize 0, floating:0, onworkspace:f[1]"
-        "rounding 0, floating:0, onworkspace:f[1]"
+      windowrule = lib.mkIf cfg.theming.smart.enable [
+        {
+          name = "smart-rounding-tiled";
+          "match:workspace" = "w[tv1]";
+          "match:float" = false;
+          rounding = cfg.theming.rounding.smart;
+        }
+        {
+          name = "smart-fullscreen-cleanup";
+          "match:workspace" = "f[1]";
+          "match:float" = false;
+          border_size = 0;
+          rounding = 0;
+        }
       ];
     };
   };

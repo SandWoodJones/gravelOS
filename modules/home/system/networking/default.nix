@@ -41,6 +41,7 @@ in
           controlMaster = "no";
           controlPath = "~/.ssh/master-%r@%n:%p";
           controlPersist = "no";
+          sendEnv = [ "COLORTERM" ];
         };
 
         git = lib.mkIf cfg.ssh.git.enable {

@@ -68,8 +68,11 @@ in
 
       openssh = lib.mkIf cfg.ssh.enable {
         enable = true;
-        settings.PasswordAuthentication = !cfg.ssh.secure;
-        settings.KbdInteractiveAuthentication = !cfg.ssh.secure;
+        settings = {
+          PasswordAuthentication = !cfg.ssh.secure;
+          KbdInteractiveAuthentication = !cfg.ssh.secure;
+          AcceptEnv = [ "COLORTERM" ];
+        };
       };
     };
   };

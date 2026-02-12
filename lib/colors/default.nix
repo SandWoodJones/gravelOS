@@ -28,7 +28,7 @@ in
           let
             sub = builtins.substring idx 2 (lib.removePrefix "#" hex);
           in
-          (builtins.fromTOML "v = 0x${sub}").v / 255.0;
+          (fromTOML "v = 0x${sub}").v / 255.0;
       in
       map toFloat [
         0

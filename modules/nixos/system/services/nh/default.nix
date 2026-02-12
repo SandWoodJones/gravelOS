@@ -28,7 +28,7 @@ in
     programs.nh = {
       clean = lib.mkIf cfg.clean.enable {
         enable = true;
-        extraArgs = "--keep ${builtins.toString cfg.clean.keep} --keep-since ${cfg.clean.keepSince}";
+        extraArgs = "--keep ${toString cfg.clean.keep} --keep-since ${cfg.clean.keepSince}";
       };
     };
   };

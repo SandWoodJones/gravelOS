@@ -15,7 +15,7 @@ let
   };
 
   mkFlatPreferences = lib.gravelOS.mkAttrsFlatStr {
-    isLeaf = (v: builtins.isAttrs v && v ? "Value" && v ? "Status");
+    isLeaf = v: builtins.isAttrs v && v ? "Value" && v ? "Status";
   };
 in
 lib.mkIf cfg.enable {

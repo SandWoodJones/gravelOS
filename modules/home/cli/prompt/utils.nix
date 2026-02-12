@@ -12,7 +12,7 @@
     let
       presetAttrs = map (
         preset:
-        builtins.fromTOML (
+        fromTOML (
           builtins.readFile "${config.programs.starship.package}/share/starship/presets/${preset}.toml"
         )
       ) config.gravelOS.cli.prompt.starship.presets;
@@ -44,7 +44,7 @@
         colorList:
         builtins.listToAttrs (
           builtins.genList (i: {
-            name = "c${builtins.toString (i + 3)}";
+            name = "c${toString (i + 3)}";
             value = builtins.elemAt colorList i;
           }) 3
         );

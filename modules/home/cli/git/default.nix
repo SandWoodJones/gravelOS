@@ -49,7 +49,7 @@ in
             user = {
               inherit (cfg) email;
               name = cfg.username;
-              signingKey = builtins.toString cfg.signing.ssh.keyPath;
+              signingKey = toString cfg.signing.ssh.keyPath;
             };
 
             # alias.rbs = "!${rebaseStash}";

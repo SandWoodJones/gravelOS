@@ -47,13 +47,13 @@ in
         git = lib.mkIf cfg.ssh.git.enable {
           host = "github.com gitlab.com";
           identitiesOnly = true;
-          identityFile = [ (builtins.toString cfg.ssh.identityPath) ];
+          identityFile = [ (toString cfg.ssh.identityPath) ];
         };
 
         avahi = lib.mkIf cfg.ssh.avahi.enable {
           host = "*.local";
           identitiesOnly = true;
-          identityFile = [ (builtins.toString cfg.ssh.identityPath) ];
+          identityFile = [ (toString cfg.ssh.identityPath) ];
         };
       };
     };

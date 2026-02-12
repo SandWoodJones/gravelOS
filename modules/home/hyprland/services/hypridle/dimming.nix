@@ -48,11 +48,11 @@ in
 
   config =
     let
-      dimming_min = builtins.toString cfg.settings.dimming.minBrightness;
-      dimming_dur = builtins.toString ((60 * cfg.settings.dimming.dimDuration) * 1000000);
+      dimming_min = toString cfg.settings.dimming.minBrightness;
+      dimming_dur = toString ((60 * cfg.settings.dimming.dimDuration) * 1000000);
 
-      lock_dimming_min = builtins.toString cfg.settings.locking.dimming.minBrightness;
-      lock_dimming_dur = builtins.toString ((60 * cfg.settings.locking.dimming.dimDuration) * 1000000);
+      lock_dimming_min = toString cfg.settings.locking.dimming.minBrightness;
+      lock_dimming_dur = toString ((60 * cfg.settings.locking.dimming.dimDuration) * 1000000);
 
       lockedCommand =
         if cfg.settings.locking.dimming.enable then

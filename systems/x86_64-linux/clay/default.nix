@@ -16,6 +16,7 @@ _: {
         ssh.secure = true;
       };
 
+      distributed.builder.enable = true;
       services.nh.clean.enable = true;
     };
 

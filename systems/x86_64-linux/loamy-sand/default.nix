@@ -16,6 +16,7 @@ _: {
         ssh.secure = true;
       };
 
+      distributed.client.enable = true;
       services.nh.clean.enable = true;
     };
 

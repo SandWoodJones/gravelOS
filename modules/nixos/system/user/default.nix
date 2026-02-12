@@ -7,8 +7,6 @@
 let
   cfg = config.gravelOS.system.user;
   ifPresent = groups: lib.gravelOS.existingKeys config.users.groups groups;
-
-  sshKeysPath = "${inputs.self}/keys";
 in
 {
   options.gravelOS.system.user = {
@@ -34,6 +32,20 @@ in
       description = "Whether passwords should be set through secrets. WARNING: make sure to have secrets working before enabling.";
       type = lib.types.bool;
     };
+
+    authorizedKeyFiles = lib.mkOption {
+      default =
+        let
+          sshKeysPath = "${inputs.self}/keys";
+        in
+        map (n: "${sshKeysPath}/${n}") (
+          builtins.filter (n: builtins.match ".*\\.pub" n != null) (
+            builtins.attrNames (builtins.readDir sshKeysPath)
+          )
+        );
+      description = "A list of files each containing one public key that will be added all created users' authorized keys";
+      type = lib.types.listOf lib.types.path;
+    };
   };
 
   config = {
@@ -55,16 +67,15 @@ in
           useDefaultShell = true;
 
           hashedPasswordFile = lib.mkIf cfg.managePasswords config.sops.secrets.defaultUser-password.path;
-          openssh.authorizedKeys.keyFiles = [ "${sshKeysPath}/DefaultUser_ID.pub" ];
-          extraGroups =
-            [
-              "wheel"
-              "video"
-            ]
-            ++ ifPresent [
-              "networkmanager"
-              "gamemode"
-            ];
+          openssh.authorizedKeys.keyFiles = cfg.authorizedKeyFiles;
+          extraGroups = [
+            "wheel"
+            "video"
+          ]
+          ++ ifPresent [
+            "networkmanager"
+            "gamemode"
+          ];
         };
       };
     };

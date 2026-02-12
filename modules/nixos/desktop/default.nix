@@ -16,7 +16,6 @@ in
 
   config = lib.mkIf cfg.display.enable {
     services.xserver.enable = true;
-
     xdg.portal.xdgOpenUsePortal = true;
 
     fonts = {
@@ -66,6 +65,7 @@ in
     environment.systemPackages = with pkgs; [
       wl-clipboard-rs
       posy-cursors
+      seahorse
     ];
   };
 }

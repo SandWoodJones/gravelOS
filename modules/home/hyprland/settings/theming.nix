@@ -47,6 +47,11 @@ in
         border_size = cfg.theming.border.size;
       };
 
+      env = [
+        "HYPRCURSOR_THEME,Posy_Cursor_Black_Hyprcursor"
+        "HYPRCURSOR_SIZE,24"
+      ];
+
       decoration = {
         rounding = cfg.theming.rounding.default;
       };

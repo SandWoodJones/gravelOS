@@ -24,6 +24,7 @@ let
         xwayland disable
         default_border none
         default_floating_border none
+        seat seat0 xcursor_theme Posy_Cursor_Black 32
         input type:touchpad {
           dwt enabled
           tap enabled
@@ -45,6 +46,10 @@ in
       settings.background = {
         path = bg;
         fit = "Cover";
+      };
+      cursorTheme = {
+        name = "Posy_Cursor_Black";
+        package = pkgs.posy-cursors;
       };
     };
 

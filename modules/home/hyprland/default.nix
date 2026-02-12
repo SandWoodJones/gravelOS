@@ -3,6 +3,7 @@
 # TODO: check out hypr-nix https://github.com/hyprland-community/hyprnix
 
 {
+  pkgs,
   lib,
   config,
   ...
@@ -33,5 +34,7 @@ in
       package = null;
       portalPackage = null;
     };
+
+    home.packages = [ pkgs.gravelOS.posy-hyprcursor ];
   };
 }

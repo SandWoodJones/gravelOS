@@ -89,6 +89,7 @@ in
 
         settings = with config.scheme.withHashtag; utils.starshipMergePresets {
           add_newline = false;
+          scan_timeout = 100;
           format = ''
             [╔](${promptGradient.c2})[╸](${promptGradient.c1})$username@$hostname $directory$direnv
             $character

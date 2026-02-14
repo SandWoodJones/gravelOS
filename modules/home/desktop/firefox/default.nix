@@ -36,7 +36,7 @@ in
           font.name = {
             sans-serif.x-western = "NotoSans Nerd Font";
             serif.x-western = "NotoSerif Nerd Font";
-            monospace.x-wextern = "NotoSansM Nerd Font Mono";
+            monospace.x-western = "NotoSansM Nerd Font Mono";
           };
         };
       };

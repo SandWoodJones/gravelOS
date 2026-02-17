@@ -1,6 +1,6 @@
 local config = wezterm.config_builder()
 
-local palette, _ = wezterm.color.load_scheme(os.getenv("XDG_CONFIG_HOME") .. "/wezterm/colors/@color_scheme_slug@.toml")
+local palette, _ = wezterm.color.load_scheme(wezterm.config_dir .. "/colors/@color_scheme_slug@.toml")
 
 local function tab_title(tab, tabs, panes, config, hover, max_width)
   local title

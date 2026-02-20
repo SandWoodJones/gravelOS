@@ -1,3 +1,5 @@
+# TODO: add silent tag to els so that if it fails it doesn't complain
+
 {
   pkgs,
   lib,

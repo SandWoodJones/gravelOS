@@ -10,17 +10,25 @@ in
 {
   options.gravelOS.hyprland.services = {
     enable = lib.mkEnableOption "user services for Hyprland";
+    target = lib.mkOption {
+      default = "wayland-session@hyprland.desktop.target";
+      example = "graphical-session.target";
+      description = "The default Systemd target for Hyprland service units.";
+      type = lib.types.str;
+    };
   };
 
   config = lib.mkIf cfg.enable {
     gravelOS.hyprland.services.hypridle.enable = lib.mkDefault true;
-    
+
     services.hyprpolkitagent.enable = true;
-    systemd.user.services.hyprpolkitagent = {
-      Install.WantedBy = lib.mkForce [ "wayland-session@Hyprland.target" ];
-      Unit = {
-        PartOf = lib.mkForce [ "wayland-session@Hyprland.target" ];
-        After = lib.mkForce [ "wayland-session@Hyprland.target" ];
+    systemd.user.services = {
+      hyprpolkitagent = {
+        Install.WantedBy = lib.mkForce [ cfg.target ];
+        Unit = {
+          PartOf = lib.mkForce [ cfg.target ];
+          After = lib.mkForce [ cfg.target ];
+        };
       };
     };
 

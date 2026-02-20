@@ -20,10 +20,10 @@ in
 
   config = lib.mkIf cfg.enable {
     systemd.user.services.hypridle = {
-      Install.WantedBy = lib.mkForce [ "wayland-session@Hyprland.target" ];
+      Install.WantedBy = lib.mkForce [ config.gravelOS.hyprland.services.target ];
       Unit = {
-        PartOf = lib.mkForce [ "wayland-session@Hyprland.target" ];
-        After = lib.mkForce [ "wayland-session@Hyprland.target" ];
+        PartOf = lib.mkForce [ config.gravelOS.hyprland.services.target ];
+        After = lib.mkForce [ config.gravelOS.hyprland.services.target ];
       };
     };
 

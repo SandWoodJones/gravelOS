@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   height="24px"
+   viewBox="0 -960 960 960"
+   width="24px"
+   fill="#e3e3e3"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="battery_c2.svg"
+   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="33.291666"
+     inkscape:cx="7.6595746"
+     inkscape:cy="11.309137"
+     inkscape:window-width="1920"
+     inkscape:window-height="1008"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1"
+     showgrid="true">
+    <inkscape:grid
+       id="grid1"
+       units="px"
+       originx="0"
+       originy="0"
+       spacingx="40"
+       spacingy="40"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       enabled="true"
+       visible="true" />
+  </sodipodi:namedview>
+  <path
+     id="path1"
+     d="M 160 -720 C 126.66667 -720 98.333333 -708.33333 75 -685 C 51.666667 -661.66667 40 -633.33333 40 -600 L 40 -360 C 40 -326.66667 51.666667 -298.33333 75 -275 C 98.333333 -251.66667 126.66667 -240 160 -240 L 223.67188 -240 A 220 220 0 0 1 220 -280 A 220 220 0 0 1 289.84375 -440.78125 L 240 -640 L 700 -640 C 711.33333 -640 720.84897 -636.18229 728.51562 -628.51562 C 736.18229 -620.84897 740 -611.33333 740 -600 L 740 -360 C 740 -348.66667 736.18229 -339.15104 728.51562 -331.48438 C 720.84897 -323.81771 711.33333 -320 700 -320 L 656.32812 -320 A 220 220 0 0 1 660 -280 A 220 220 0 0 1 656.32812 -240 L 700 -240 C 733.33333 -240 761.66667 -251.66667 785 -275 C 808.33333 -298.33333 820 -326.66667 820 -360 L 820 -600 C 820 -633.33333 808.33333 -661.66667 785 -685 C 761.66667 -708.33333 733.33333 -720 700 -720 L 160 -720 z M 860 -580 L 860 -380 L 880 -380 C 891.33333 -380 900.84897 -383.8177 908.51562 -391.48438 C 916.18229 -399.15105 920 -408.66667 920 -420 L 920 -540 C 920 -551.33333 916.18229 -560.84897 908.51562 -568.51562 C 900.84897 -576.18229 891.33333 -580 880 -580 L 860 -580 z M 595.54688 -407.26562 L 341.01562 -322.42188 L 397.57812 -265.85938 L 284.45312 -152.73438 L 538.98438 -237.57812 L 482.42188 -294.14062 L 595.54688 -407.26562 z " />
+</svg>

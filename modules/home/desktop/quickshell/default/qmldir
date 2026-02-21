@@ -1,0 +1,7 @@
+singleton BatterySingleton 1.0 BatterySingleton.qml
+singleton DatetimeSingleton 1.0 DatetimeSingleton.qml
+
+BarElement 1.0 BarElement.qml
+
+BatteryWidget 1.0 BatteryWidget.qml
+ClockWidget 1.0 ClockWidget.qml

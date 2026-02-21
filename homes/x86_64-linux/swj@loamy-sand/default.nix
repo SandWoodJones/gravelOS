@@ -32,6 +32,7 @@ in
       launcher.rofi.enable = true;
       wezterm.enable = true;
       mpv.enable = true;
+      quickshell.enable = true;
       firefox = {
         enable = true;
         pdfDefault.enable = true;

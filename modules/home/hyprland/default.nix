@@ -20,7 +20,6 @@ in
     gravelOS.hyprland = {
       settings.enable = lib.mkDefault true;
       services.enable = lib.mkDefault true;
-      apps.enable = lib.mkDefault true;
     };
 
     wayland.windowManager.hyprland = {

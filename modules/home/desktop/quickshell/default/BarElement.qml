@@ -20,6 +20,8 @@ Scope {
             implicitHeight: 30
 
             RowLayout {
+                id: bar
+
                 anchors {
                     fill: parent
                     leftMargin: 10
@@ -40,7 +42,9 @@ Scope {
 
                 RowLayout {
                     ClockWidget {}
-                    BatteryWidget {}
+                    BatteryWidget {
+                        parentRightMargin: bar.anchors.rightMargin
+                    }
                 }
             }
         }

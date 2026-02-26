@@ -5,3 +5,5 @@ BarElement 1.0 BarElement.qml
 
 BatteryWidget 1.0 BatteryWidget.qml
 ClockWidget 1.0 ClockWidget.qml
+
+RadialProgressBarComponent 1.0 RadialProgressBarComponent.qml

@@ -31,3 +31,4 @@
 - https://github.com/poly2it/kein
 - https://github.com/fufexan/nix-gaming/tree/master
 - IPTV: https://ersatztv.org/
+- setup thunderbird
